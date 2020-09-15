@@ -1,0 +1,56 @@
+actions:
+- action_count
+- utter_get_started
+- utter_goodbye
+- utter_greet
+- utter_rephrase
+entities:
+- CARDINAL
+- DATE
+- case_type
+- country_name
+- county_name
+- filter_clues
+- measure
+- state_country
+- state_name
+intents:
+- greet
+- count
+- get_started
+- goodbye
+- rephrase
+responses:
+  utter_get_started:
+  - text: Hello, I am a demo bot. I can provide you data related information regarding
+      COVID-19.
+  utter_goodbye:
+  - text: Talk to you later!
+  - text: Bye.
+  utter_greet:
+  - text: Hello, how can I help you?
+  utter_rephrase:
+  - text: Can you please rephrase?
+  - text: Sorry, I didn't get that. Can you rephrase?
+session_config:
+  carry_over_slots_to_new_session: false
+  session_expiration_time: 120
+slots:
+  CARDINAL:
+    type: text
+  DATE:
+    type: text
+  case_type:
+    type: text
+  country_name:
+    type: text
+  county_name:
+    type: text
+  filter_clues:
+    type: text
+  measure:
+    type: text
+  state_country:
+    type: text
+  state_name:
+    type: text
