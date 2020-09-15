@@ -1,0 +1,23 @@
+Name,Region,Confirmed,newConfirmed,Deaths,newDeaths,Est.Recovered,newEst.Recovered,Est.Active,newEst.Active,Last Update,FIPS/ID,Recovered,newRecovered,Active,newActive
+Maricopa,Arizona,1,0,0,0,0,0,1,0,2020-04-10 01:00:00,04013,0,0,1,0
+Humboldt,California,1,0,0,0,0,0,1,0,2020-04-10 01:00:00,06023,0,0,1,0
+Los Angeles,California,1,0,0,0,0,0,1,0,2020-04-10 01:00:00,06037,0,0,1,0
+Marin,California,1,0,0,0,0,0,1,0,2020-04-10 01:00:00,06041,0,0,1,0
+Napa,California,1,0,0,0,0,0,1,0,2020-04-10 01:00:00,06055,0,0,1,0
+Orange,California,1,0,0,0,0,0,1,0,2020-04-10 01:00:00,06059,0,0,1,0
+Sacramento,California,3,0,0,0,0,0,3,0,2020-04-10 01:00:00,06067,0,0,3,0
+San Diego,California,1,0,0,0,0,0,1,0,2020-04-10 01:00:00,06073,0,0,1,0
+San Francisco,California,3,0,0,0,1,0,2,0,2020-04-10 01:00:00,06075,0,0,3,0
+Santa Clara,California,3,1,0,0,1,0,2,1,2020-04-10 01:00:00,06085,0,0,3,1
+Solano,California,11,0,0,0,0,0,11,0,2020-04-10 01:00:00,06095,0,0,11,0
+Sonoma,California,1,0,0,0,0,0,1,0,2020-04-10 01:00:00,06097,0,0,1,0
+Cook,Illinois,2,0,0,0,1,0,1,0,2020-04-10 01:00:00,17031,0,0,2,0
+Suffolk,Massachusetts,1,0,0,0,0,0,1,0,2020-04-10 01:00:00,25025,0,0,1,0
+Douglas,Nebraska,13,0,0,0,0,0,13,0,2020-04-10 01:00:00,31055,0,0,13,0
+Washington,Oregon,1,1,0,0,0,0,1,1,2020-04-10 01:00:00,41067,0,0,1,1
+Bexar,Texas,11,1,0,0,1,0,10,1,2020-04-10 01:00:00,48029,0,0,11,1
+Salt Lake,Utah,1,0,0,0,0,0,1,0,2020-04-10 01:00:00,49035,0,0,1,0
+King,Washington,1,1,0,0,0,0,1,1,2020-04-10 01:00:00,53033,0,0,1,1
+Snohomish,Washington,2,1,0,0,0,0,2,1,2020-04-10 01:00:00,53061,0,0,2,1
+Spokane,Washington,4,0,0,0,0,0,4,0,2020-04-10 01:00:00,53063,0,0,4,0
+Dane,Wisconsin,1,0,0,0,0,0,1,0,2020-04-10 01:00:00,55025,0,0,1,0

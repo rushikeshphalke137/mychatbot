@@ -1,0 +1,62 @@
+Name,Region,Confirmed,newConfirmed,Deaths,newDeaths,Est.Recovered,newEst.Recovered,Est.Active,newEst.Active,Last Update,FIPS/ID,Recovered,newRecovered,Active,newActive
+Australia,Australia,12,0,0,0,0,0,12,0,2020-02-02 23:00:00,AUS,,,,
+Cambodia,Cambodia,1,0,0,0,0,0,1,0,2020-02-02 23:00:00,KHM,,,,
+Canada,Canada,4,0,0,0,0,0,4,0,2020-02-02 23:00:00,CAN,,,,
+Finland,Finland,1,0,0,0,0,0,1,0,2020-02-02 23:00:00,FIN,,,,
+France,France,6,0,0,0,0,0,6,0,2020-02-02 23:00:00,FRA,,,,
+Germany,Germany,10,2,0,0,0,0,10,2,2020-02-02 23:00:00,DEU,,,,
+India,India,2,1,0,0,0,0,2,1,2020-02-02 23:00:00,IND,,,,
+Italy,Italy,2,0,0,0,0,0,2,0,2020-02-02 23:00:00,ITA,,,,
+Japan,Japan,20,0,0,0,0,0,20,0,2020-02-02 23:00:00,JPN,,,,
+Malaysia,Malaysia,8,0,0,0,0,0,8,0,2020-02-02 23:00:00,MYS,,,,
+Nepal,Nepal,1,0,0,0,0,0,1,0,2020-02-02 23:00:00,NPL,,,,
+Philippines,Philippines,2,0,1,1,-1,-1,2,0,2020-02-02 23:00:00,PHL,,,,
+South Korea,South Korea,15,3,0,0,0,0,15,3,2020-02-02 23:00:00,KOR,,,,
+Russia,Russia,2,0,0,0,0,0,2,0,2020-02-02 23:00:00,RUS,,,,
+Singapore,Singapore,18,0,0,0,0,0,18,0,2020-02-02 23:00:00,SGP,,,,
+Spain,Spain,1,0,0,0,0,0,1,0,2020-02-02 23:00:00,ESP,,,,
+Sri Lanka,Sri Lanka,1,0,0,0,0,0,1,0,2020-02-02 23:00:00,LKA,,,,
+Sweden,Sweden,1,0,0,0,0,0,1,0,2020-02-02 23:00:00,SWE,,,,
+Thailand,Thailand,19,0,0,0,0,0,19,0,2020-02-02 23:00:00,THA,,,,
+United Kingdom,United Kingdom,2,0,0,0,0,0,2,0,2020-02-02 23:00:00,GBR,,,,
+United Arab Emirates,United Arab Emirates,5,0,0,0,0,0,5,0,2020-02-02 23:00:00,ARE,,,,
+Vietnam,Vietnam,7,1,0,0,0,0,7,1,2020-02-02 23:00:00,VNM,,,,
+Hubei,Mainland China,11177,2103,350,56,295,80,10532,1967,2020-02-02 23:43:00,CHN,295,80,10532,1967
+Zhejiang,Mainland China,724,63,0,0,36,13,688,50,2020-02-03 01:33:00,CHN,36,13,688,50
+Guangdong,Mainland China,683,79,0,0,15,1,668,78,2020-02-03 01:33:00,CHN,15,1,668,78
+Henan,Mainland China,566,73,2,0,14,10,550,63,2020-02-03 01:03:00,CHN,14,10,550,63
+Hunan,Mainland China,521,58,0,0,16,8,505,50,2020-02-03 01:33:00,CHN,16,8,505,50
+Anhui,Mainland China,408,68,0,0,7,2,401,66,2020-02-03 00:53:00,CHN,7,2,401,66
+Jiangxi,Mainland China,391,58,0,0,18,8,373,50,2020-02-03 01:33:00,CHN,18,8,373,50
+Chongqing,Mainland China,300,38,2,1,7,4,291,33,2020-02-02 23:33:00,CHN,7,4,291,33
+Jiangsu,Mainland China,271,35,0,0,7,1,264,34,2020-02-03 01:03:00,CHN,7,1,264,34
+Sichuan,Mainland China,254,23,1,0,12,9,241,14,2020-02-03 01:03:00,CHN,12,9,241,14
+Shandong,Mainland China,246,21,0,0,6,1,240,20,2020-02-03 01:13:00,CHN,6,1,240,20
+Shanghai,Mainland China,193,16,1,0,10,0,182,16,2020-02-03 00:03:00,CHN,10,0,182,16
+Beijing,Mainland China,191,8,1,0,9,0,181,8,2020-02-02 08:43:00,CHN,9,0,181,8
+Fujian,Mainland China,159,0,0,0,0,0,159,0,2020-02-02 03:43:00,CHN,0,0,159,0
+Guangxi,Mainland China,127,16,0,0,2,0,125,16,2020-02-03 00:13:00,CHN,2,0,125,16
+Shaanxi,Mainland China,116,0,0,0,0,0,116,0,2020-02-02 03:23:00,CHN,0,0,116,0
+Hebei,Mainland China,113,9,1,0,3,0,109,9,2020-02-03 00:23:00,CHN,3,0,109,9
+Yunnan,Mainland China,105,12,0,0,3,1,102,11,2020-02-02 18:03:00,CHN,3,1,102,11
+Heilongjiang,Mainland China,95,0,2,0,2,0,91,0,2020-02-02 03:23:00,CHN,2,0,91,0
+Hainan,Mainland China,71,8,1,0,4,3,66,5,2020-02-03 00:43:00,CHN,4,3,66,5
+Liaoning,Mainland China,70,6,0,0,1,0,69,6,2020-02-02 18:03:00,CHN,1,0,69,6
+Shanxi,Mainland China,66,10,0,0,3,2,63,8,2020-02-02 23:23:00,CHN,3,2,63,8
+Gansu,Mainland China,51,11,0,0,3,3,48,8,2020-02-02 23:43:00,CHN,3,3,48,8
+Tianjin,Mainland China,48,3,0,0,1,1,47,2,2020-02-02 09:43:00,CHN,1,1,47,2
+Guizhou,Mainland China,46,8,0,0,2,0,44,8,2020-02-03 01:03:00,CHN,2,0,44,8
+Jilin,Mainland China,31,8,0,0,1,0,30,8,2020-02-03 00:53:00,CHN,1,0,30,8
+Ningxia,Mainland China,28,0,0,0,0,0,28,0,2020-02-02 01:43:00,CHN,0,0,28,0
+Nei Mongol,Mainland China,27,0,0,0,1,0,26,0,2020-02-02 03:43:00,CHN,1,0,26,0
+Xinjiang Uygur,Mainland China,24,3,0,0,0,0,24,3,2020-02-03 01:13:00,CHN,0,0,24,3
+Hong Kong,Hong Kong,15,1,0,0,0,0,15,1,2020-02-02 23:53:00,HKG,0,0,15,1
+Qinghai,Mainland China,11,2,0,0,0,0,11,2,2020-02-02 05:33:00,CHN,0,0,11,2
+Taiwan,Taiwan,10,0,0,0,0,0,10,0,2020-01-31 15:20:00,TWN,0,0,10,0
+Macau,Macau,8,1,0,0,0,0,8,1,2020-02-02 04:23:00,MAC,0,0,8,1
+California,USA,4,1,0,0,0,0,4,1,2020-02-02 19:53:00,USA,0,0,4,1
+Illinois,USA,2,0,0,0,0,0,2,0,2020-02-01 19:43:00,USA,0,0,2,0
+Arizona,USA,1,0,0,0,0,0,1,0,2020-02-01 19:43:00,USA,0,0,1,0
+Massachusetts,USA,1,0,0,0,0,0,1,0,2020-02-01 19:43:00,USA,0,0,1,0
+Xizang,Mainland China,1,0,0,0,0,0,1,0,2020-02-01 01:52:00,CHN,0,0,1,0
+Washington,USA,1,0,0,0,0,0,1,0,2020-02-01 19:43:00,USA,0,0,1,0

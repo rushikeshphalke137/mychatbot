@@ -1,0 +1,45 @@
+Name,Region,Confirmed,newConfirmed,Deaths,newDeaths,Est.Recovered,newEst.Recovered,Est.Active,newEst.Active,Last Update,FIPS/ID,Recovered,newRecovered,Active,newActive
+Australia,Australia,3,3,0,0,0,0,3,3,2020-01-25 23:00:00,AUS,,,,
+France,France,3,0,0,0,0,0,3,0,2020-01-25 23:00:00,FRA,,,,
+Japan,Japan,3,1,0,0,0,0,3,1,2020-01-25 23:00:00,JPN,,,,
+Malaysia,Malaysia,3,3,0,0,0,0,3,3,2020-01-25 23:00:00,MYS,,,,
+Nepal,Nepal,1,0,0,0,0,0,1,0,2020-01-25 23:00:00,NPL,,,,
+South Korea,South Korea,2,0,0,0,0,0,2,0,2020-01-25 23:00:00,KOR,,,,
+Singapore,Singapore,3,0,0,0,0,0,3,0,2020-01-25 23:00:00,SGP,,,,
+Thailand,Thailand,4,0,0,0,0,0,4,0,2020-01-25 23:00:00,THA,,,,
+Vietnam,Vietnam,2,0,0,0,0,0,2,0,2020-01-25 23:00:00,VNM,,,,
+Hubei,Mainland China,1052,503,52,28,42,11,958,464,2020-01-25 22:00:00,CHN,42,11,958,464
+Zhejiang,Mainland China,104,61,0,0,1,0,103,61,2020-01-25 22:00:00,CHN,1,0,103,61
+Guangdong,Mainland China,98,45,0,0,2,0,96,45,2020-01-25 12:00:00,CHN,2,0,96,45
+Henan,Mainland China,83,74,1,1,0,0,82,73,2020-01-25 12:00:00,CHN,0,0,82,73
+Chongqing,Mainland China,75,48,0,0,0,0,75,48,2020-01-25 12:00:00,CHN,0,0,75,48
+Hunan,Mainland China,69,45,0,0,0,0,69,45,2020-01-25 12:00:00,CHN,0,0,69,45
+Anhui,Mainland China,60,45,0,0,0,0,60,45,2020-01-25 12:00:00,CHN,0,0,60,45
+Beijing,Mainland China,51,15,0,0,2,1,49,14,2020-01-25 12:00:00,CHN,2,1,49,14
+Sichuan,Mainland China,44,29,0,0,0,0,44,29,2020-01-25 12:00:00,CHN,0,0,44,29
+Shanghai,Mainland China,40,20,1,1,1,0,38,19,2020-01-25 12:00:00,CHN,1,0,38,19
+Shandong,Mainland China,39,24,0,0,0,0,39,24,2020-01-25 12:00:00,CHN,0,0,39,24
+Jiangxi,Mainland China,36,18,0,0,0,0,36,18,2020-01-25 12:00:00,CHN,0,0,36,18
+Guangxi,Mainland China,33,10,0,0,0,0,33,10,2020-01-25 12:00:00,CHN,0,0,33,10
+Jiangsu,Mainland China,31,22,0,0,1,1,30,21,2020-01-25 12:00:00,CHN,1,1,30,21
+Hainan,Mainland China,19,11,0,0,0,0,19,11,2020-01-25 12:00:00,CHN,0,0,19,11
+Liaoning,Mainland China,19,15,0,0,0,0,19,15,2020-01-25 12:00:00,CHN,0,0,19,15
+Fujian,Mainland China,18,8,0,0,0,0,18,8,2020-01-25 12:00:00,CHN,0,0,18,8
+Heilongjiang,Mainland China,15,11,1,0,0,0,14,11,2020-01-25 12:00:00,CHN,0,0,14,11
+Shaanxi,Mainland China,15,10,0,0,0,0,15,10,2020-01-25 12:00:00,CHN,0,0,15,10
+Hebei,Mainland China,13,11,1,0,0,0,12,11,2020-01-25 12:00:00,CHN,0,0,12,11
+Tianjin,Mainland China,13,5,0,0,0,0,13,5,2020-01-25 12:00:00,CHN,0,0,13,5
+Yunnan,Mainland China,11,6,0,0,0,0,11,6,2020-01-25 12:00:00,CHN,0,0,11,6
+Shanxi,Mainland China,9,8,0,0,0,0,9,8,2020-01-25 12:00:00,CHN,0,0,9,8
+Gansu,Mainland China,7,5,0,0,0,0,7,5,2020-01-25 12:00:00,CHN,0,0,7,5
+Nei Mongol,Mainland China,7,6,0,0,0,0,7,6,2020-01-25 12:00:00,CHN,0,0,7,6
+Guizhou,Mainland China,5,2,0,0,0,0,5,2,2020-01-25 12:00:00,CHN,0,0,5,2
+Hong Kong,Hong Kong,5,3,0,0,0,0,5,3,2020-01-25 12:00:00,HKG,0,0,5,3
+Jilin,Mainland China,4,1,0,0,0,0,4,1,2020-01-25 12:00:00,CHN,0,0,4,1
+Ningxia,Mainland China,4,2,0,0,0,0,4,2,2020-01-25 12:00:00,CHN,0,0,4,2
+Xinjiang Uygur,Mainland China,4,2,0,0,0,0,4,2,2020-01-25 12:00:00,CHN,0,0,4,2
+Taiwan,Taiwan,3,0,0,0,0,0,3,0,2020-01-25 12:00:00,TWN,0,0,3,0
+Macau,Macau,2,0,0,0,0,0,2,0,2020-01-25 12:00:00,MAC,0,0,2,0
+Illinois,USA,1,0,0,0,0,0,1,0,2020-01-25 12:00:00,USA,0,0,1,0
+Qinghai,Mainland China,1,1,0,0,0,0,1,1,2020-01-25 12:00:00,CHN,0,0,1,1
+Washington,USA,1,0,0,0,0,0,1,0,2020-01-25 12:00:00,USA,0,0,1,0

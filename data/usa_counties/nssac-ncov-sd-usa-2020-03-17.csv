@@ -1,0 +1,579 @@
+County Name, State Name, Confirmed, Deaths, Recovered, Last Update, FIPS
+Baldwin,Alabama,1,0,0,2020-04-10 00:00:00,01003
+Elmore,Alabama,2,0,0,2020-04-10 00:00:00,01051
+Jefferson,Alabama,21,0,0,2020-04-10 00:00:00,01073
+Lee,Alabama,3,0,0,2020-04-10 00:00:00,01081
+Limestone,Alabama,1,0,0,2020-04-10 00:00:00,01083
+Madison,Alabama,1,0,0,2020-04-10 00:00:00,01089
+Montgomery,Alabama,2,0,0,2020-04-10 00:00:00,01101
+Shelby,Alabama,4,0,0,2020-04-10 00:00:00,01117
+St. Clair,Alabama,1,0,0,2020-04-10 00:00:00,01115
+Tuscaloosa,Alabama,3,0,0,2020-04-10 00:00:00,01125
+Anchorage,Alaska,2,1,0,2020-04-10 00:00:00,02020
+Fairbanks North Star,Alaska,3,0,0,2020-04-10 00:00:00,02090
+Ketchikan Gateway,Alaska,1,0,0,2020-04-10 00:00:00,02130
+Graham,Arizona,1,0,0,2020-04-10 00:00:00,04009
+Maricopa,Arizona,9,0,0,2020-04-10 00:00:00,04013
+Navajo,Arizona,2,0,0,2020-04-10 00:00:00,04017
+Pima,Arizona,4,0,0,2020-04-10 00:00:00,04019
+Pinal,Arizona,5,0,0,2020-04-10 00:00:00,04021
+Cleburne,Arkansas,6,0,0,2020-04-10 00:00:00,05023
+Faulkner,Arkansas,2,0,0,2020-04-10 00:00:00,05045
+Garland,Arkansas,2,0,0,2020-04-10 00:00:00,05051
+Grant,Arkansas,1,0,0,2020-04-10 00:00:00,05053
+Jefferson,Arkansas,8,0,0,2020-04-10 00:00:00,05069
+Pulaski,Arkansas,2,0,0,2020-04-10 00:00:00,05119
+Saline,Arkansas,1,0,0,2020-04-10 00:00:00,05125
+Alameda,California,27,0,0,2020-04-10 00:00:00,06001
+Calaveras,California,2,0,0,2020-04-10 00:00:00,06009
+Contra Costa,California,39,0,0,2020-04-10 00:00:00,06013
+Fresno,California,2,0,0,2020-04-10 00:00:00,06019
+Humboldt,California,1,0,0,2020-04-10 00:00:00,06023
+Imperial,California,2,0,0,2020-04-10 00:00:00,06025
+Kern,California,1,0,0,2020-04-10 00:00:00,06029
+Los Angeles,California,144,1,0,2020-04-10 00:00:00,06037
+Madera,California,1,0,0,2020-04-10 00:00:00,06039
+Marin,California,11,0,0,2020-04-10 00:00:00,06041
+Monterey,California,2,0,0,2020-04-10 00:00:00,06053
+Nevada,California,1,0,0,2020-04-10 00:00:00,06057
+Orange,California,29,0,0,2020-04-10 00:00:00,06059
+Placer,California,8,1,0,2020-04-10 00:00:00,06061
+Riverside,California,14,3,0,2020-04-10 00:00:00,06065
+Sacramento,California,40,2,0,2020-04-10 00:00:00,06067
+San Benito,California,3,0,0,2020-04-10 00:00:00,06069
+San Bernardino,California,3,0,0,2020-04-10 00:00:00,06071
+San Diego,California,54,0,0,2020-04-10 00:00:00,06073
+San Francisco,California,43,0,0,2020-04-10 00:00:00,06075
+San Joaquin,California,13,0,0,2020-04-10 00:00:00,06077
+San Luis Obispo,California,6,0,0,2020-04-10 00:00:00,06079
+San Mateo,California,64,1,0,2020-04-10 00:00:00,06081
+Santa Barbara,California,2,0,0,2020-04-10 00:00:00,06083
+Santa Clara,California,155,6,0,2020-04-10 00:00:00,06085
+Santa Cruz,California,13,0,0,2020-04-10 00:00:00,06087
+Shasta,California,1,0,0,2020-04-10 00:00:00,06089
+Solano,California,7,0,0,2020-04-10 00:00:00,06095
+Sonoma,California,6,0,0,2020-04-10 00:00:00,06097
+Stanislaus,California,4,0,0,2020-04-10 00:00:00,06099
+Tulare,California,3,0,0,2020-04-10 00:00:00,06107
+Ventura,California,9,0,0,2020-04-10 00:00:00,06111
+Yolo,California,6,0,0,2020-04-10 00:00:00,06113
+Adams,Colorado,6,0,0,2020-04-10 00:00:00,08001
+Arapahoe,Colorado,15,0,0,2020-04-10 00:00:00,08005
+Boulder,Colorado,11,0,0,2020-04-10 00:00:00,08013
+Clear Creek,Colorado,1,0,0,2020-04-10 00:00:00,08019
+Denver,Colorado,38,0,0,2020-04-10 00:00:00,08031
+Douglas,Colorado,8,0,0,2020-04-10 00:00:00,08035
+Eagle,Colorado,34,0,0,2020-04-10 00:00:00,08037
+El Paso,Colorado,6,1,0,2020-04-10 00:00:00,08041
+Garfield,Colorado,1,0,0,2020-04-10 00:00:00,08045
+Gunnison,Colorado,8,0,0,2020-04-10 00:00:00,08051
+Jefferson,Colorado,13,0,0,2020-04-10 00:00:00,08059
+Larimer,Colorado,3,0,0,2020-04-10 00:00:00,08069
+Mesa,Colorado,1,0,0,2020-04-10 00:00:00,08077
+Pitkin,Colorado,11,0,0,2020-04-10 00:00:00,08097
+Pueblo,Colorado,1,0,0,2020-04-10 00:00:00,08101
+Routt,Colorado,1,0,0,2020-04-10 00:00:00,08107
+Summit,Colorado,5,0,0,2020-04-10 00:00:00,08117
+Weld,Colorado,6,1,0,2020-04-10 00:00:00,08123
+Fairfield,Connecticut,48,0,0,2020-04-10 00:00:00,09001
+Hartford,Connecticut,7,0,0,2020-04-10 00:00:00,09003
+Litchfield,Connecticut,5,0,0,2020-04-10 00:00:00,09005
+New Haven,Connecticut,8,0,0,2020-04-10 00:00:00,09009
+New Castle,Delaware,15,0,0,2020-04-10 00:00:00,10003
+Sussex,Delaware,1,0,0,2020-04-10 00:00:00,10005
+Riverside,Diamond Princess,2,0,0,2020-04-10 00:00:00,
+San Diego,Diamond Princess,1,0,0,2020-04-10 00:00:00,
+Sonoma,Diamond Princess,2,0,0,2020-04-10 00:00:00,
+unknown,Diamond Princess,44,0,0,2020-04-10 00:00:00,
+District of Columbia,District of Columbia,31,0,0,2020-04-10 00:00:00,11001
+Alachua,Florida,7,0,0,2020-04-10 00:00:00,12001
+Brevard,Florida,1,0,0,2020-04-10 00:00:00,12009
+Broward,Florida,55,1,0,2020-04-10 00:00:00,12011
+Charlotte,Florida,1,0,0,2020-04-10 00:00:00,12015
+Citrus,Florida,2,0,0,2020-04-10 00:00:00,12017
+Clay,Florida,4,1,0,2020-04-10 00:00:00,12019
+Collier,Florida,8,0,0,2020-04-10 00:00:00,12021
+Duval,Florida,10,0,0,2020-04-10 00:00:00,12031
+Escambia,Florida,1,0,0,2020-04-10 00:00:00,12033
+Gadsden,Florida,1,0,0,2020-04-10 00:00:00,12039
+Hillsborough,Florida,12,0,0,2020-04-10 00:00:00,12057
+Lake,Florida,1,0,0,2020-04-10 00:00:00,12069
+Lee,Florida,9,2,0,2020-04-10 00:00:00,12071
+Leon,Florida,1,0,0,2020-04-10 00:00:00,12073
+Manatee,Florida,7,1,0,2020-04-10 00:00:00,12081
+Miami-Dade,Florida,54,0,0,2020-04-10 00:00:00,12086
+Nassau,Florida,1,0,0,2020-04-10 00:00:00,12089
+Okaloosa,Florida,3,0,0,2020-04-10 00:00:00,12091
+Orange,Florida,8,2,0,2020-04-10 00:00:00,12095
+Osceola,Florida,8,0,0,2020-04-10 00:00:00,12097
+Palm Beach,Florida,13,0,0,2020-04-10 00:00:00,12099
+Pasco,Florida,2,0,0,2020-04-10 00:00:00,12101
+Pinellas,Florida,5,0,0,2020-04-10 00:00:00,12103
+Polk,Florida,1,0,0,2020-04-10 00:00:00,12105
+Santa Rosa,Florida,1,1,0,2020-04-10 00:00:00,12113
+Sarasota,Florida,4,0,0,2020-04-10 00:00:00,12115
+Seminole,Florida,4,0,0,2020-04-10 00:00:00,12117
+St. Johns,Florida,3,0,0,2020-04-10 00:00:00,12109
+Volusia,Florida,9,0,0,2020-04-10 00:00:00,12127
+Bartow,Georgia,10,0,0,2020-04-10 00:00:00,13015
+Charlton,Georgia,1,0,0,2020-04-10 00:00:00,13049
+Cherokee,Georgia,7,0,0,2020-04-10 00:00:00,13057
+Clarke,Georgia,3,0,0,2020-04-10 00:00:00,13059
+Clayton,Georgia,4,0,0,2020-04-10 00:00:00,13063
+Cobb,Georgia,25,1,0,2020-04-10 00:00:00,13067
+Columbia,Georgia,1,0,0,2020-04-10 00:00:00,13073
+Coweta,Georgia,3,0,0,2020-04-10 00:00:00,13077
+DeKalb,Georgia,15,0,0,2020-04-10 00:00:00,13089
+Dougherty,Georgia,6,0,0,2020-04-10 00:00:00,13095
+Fayette,Georgia,5,0,0,2020-04-10 00:00:00,13113
+Floyd,Georgia,6,0,0,2020-04-10 00:00:00,13115
+Forsyth,Georgia,1,0,0,2020-04-10 00:00:00,13117
+Fulton,Georgia,33,0,0,2020-04-10 00:00:00,13121
+Gordon,Georgia,2,0,0,2020-04-10 00:00:00,13129
+Gwinnett,Georgia,7,0,0,2020-04-10 00:00:00,13135
+Hall,Georgia,1,0,0,2020-04-10 00:00:00,13139
+Henry,Georgia,2,0,0,2020-04-10 00:00:00,13151
+Houston,Georgia,1,0,0,2020-04-10 00:00:00,13153
+Lee,Georgia,2,0,0,2020-04-10 00:00:00,13177
+Lowndes,Georgia,4,0,0,2020-04-10 00:00:00,13185
+Newton,Georgia,1,0,0,2020-04-10 00:00:00,13217
+Paulding,Georgia,1,0,0,2020-04-10 00:00:00,13223
+Polk,Georgia,1,0,0,2020-04-10 00:00:00,13233
+Richmond,Georgia,1,0,0,2020-04-10 00:00:00,13245
+Troup,Georgia,2,0,0,2020-04-10 00:00:00,13285
+Ware,Georgia,0,1,0,2020-04-10 00:00:00,13299
+San Diego,Grand Princess,1,0,0,2020-04-10 00:00:00,
+unknown,Grand Princess,20,0,0,2020-04-10 00:00:00,
+Guam,Guam,5,0,0,2020-04-10 00:00:00,66010
+Hawaii,Hawaii,2,0,0,2020-04-10 00:00:00,15001
+Honolulu,Hawaii,10,0,0,2020-04-10 00:00:00,15003
+Maui,Hawaii,3,0,0,2020-04-10 00:00:00,15009
+Ada,Idaho,3,0,0,2020-04-10 00:00:00,16001
+Blaine,Idaho,4,0,0,2020-04-10 00:00:00,16013
+Madison,Idaho,1,0,0,2020-04-10 00:00:00,16065
+Teton,Idaho,1,0,0,2020-04-10 00:00:00,16081
+Champaign,Illinois,1,0,0,2020-04-10 00:00:00,17019
+Clinton,Illinois,2,0,0,2020-04-10 00:00:00,17027
+Cook,Illinois,107,1,2,2020-04-10 00:00:00,17031
+Cumberland,Illinois,1,0,0,2020-04-10 00:00:00,17035
+DuPage,Illinois,26,0,0,2020-04-10 00:00:00,17043
+Kane,Illinois,3,0,0,2020-04-10 00:00:00,17089
+Lake,Illinois,7,0,0,2020-04-10 00:00:00,17097
+McHenry,Illinois,2,0,0,2020-04-10 00:00:00,17111
+Peoria,Illinois,1,0,0,2020-04-10 00:00:00,17143
+Sangamon,Illinois,3,0,0,2020-04-10 00:00:00,17167
+St. Clair,Illinois,2,0,0,2020-04-10 00:00:00,17163
+Whiteside,Illinois,1,0,0,2020-04-10 00:00:00,17195
+Will,Illinois,2,0,0,2020-04-10 00:00:00,17197
+Winnebago,Illinois,1,0,0,2020-04-10 00:00:00,17201
+Woodford,Illinois,1,0,0,2020-04-10 00:00:00,17203
+Adams,Indiana,1,0,0,2020-04-10 00:00:00,18001
+Bartholomew,Indiana,1,0,0,2020-04-10 00:00:00,18005
+Boone,Indiana,1,0,0,2020-04-10 00:00:00,18011
+Floyd,Indiana,1,0,0,2020-04-10 00:00:00,18043
+Franklin,Indiana,2,0,0,2020-04-10 00:00:00,18047
+Hamilton,Indiana,1,0,0,2020-04-10 00:00:00,18057
+Hendricks,Indiana,3,0,0,2020-04-10 00:00:00,18063
+Howard,Indiana,2,0,0,2020-04-10 00:00:00,18067
+Johnson,Indiana,3,1,0,2020-04-10 00:00:00,18081
+La Porte,Indiana,1,0,0,2020-04-10 00:00:00,
+Lake,Indiana,2,0,0,2020-04-10 00:00:00,18089
+Marion,Indiana,9,1,0,2020-04-10 00:00:00,18097
+Noble,Indiana,1,0,0,2020-04-10 00:00:00,18113
+St. Joseph,Indiana,1,0,0,2020-04-10 00:00:00,18141
+Wells,Indiana,1,0,0,2020-04-10 00:00:00,18179
+Adair,Iowa,1,0,0,2020-04-10 00:00:00,19001
+Allamakee,Iowa,2,0,0,2020-04-10 00:00:00,19005
+Black Hawk,Iowa,1,0,0,2020-04-10 00:00:00,19013
+Carroll,Iowa,1,0,0,2020-04-10 00:00:00,19027
+Dallas,Iowa,3,0,0,2020-04-10 00:00:00,19049
+Harrison,Iowa,1,0,0,2020-04-10 00:00:00,19085
+Johnson,Iowa,18,0,0,2020-04-10 00:00:00,19103
+Polk,Iowa,1,0,0,2020-04-10 00:00:00,19153
+Pottawattamie,Iowa,1,0,0,2020-04-10 00:00:00,19155
+Butler,Kansas,1,0,0,2020-04-10 00:00:00,20015
+Douglas,Kansas,1,0,0,2020-04-10 00:00:00,20045
+Franklin,Kansas,1,0,0,2020-04-10 00:00:00,20059
+Johnson,Kansas,10,0,0,2020-04-10 00:00:00,20091
+Wyandotte,Kansas,4,1,0,2020-04-10 00:00:00,20209
+Bourbon,Kentucky,0,1,0,2020-04-10 00:00:00,21017
+Clark,Kentucky,1,0,0,2020-04-10 00:00:00,21049
+Fayette,Kentucky,8,0,0,2020-04-10 00:00:00,21067
+Harrison,Kentucky,6,0,0,2020-04-10 00:00:00,21097
+Jefferson,Kentucky,7,0,0,2020-04-10 00:00:00,21111
+Lyon,Kentucky,1,0,0,2020-04-10 00:00:00,21143
+Montgomery,Kentucky,2,0,0,2020-04-10 00:00:00,21173
+Nelson,Kentucky,1,0,0,2020-04-10 00:00:00,21179
+Ascension,Louisiana,1,0,0,2020-04-10 00:00:00,22005
+Bossier,Louisiana,1,0,0,2020-04-10 00:00:00,22015
+Caddo,Louisiana,4,0,0,2020-04-10 00:00:00,22017
+East Baton Rouge,Louisiana,1,0,0,2020-04-10 00:00:00,22033
+Jefferson,Louisiana,35,0,0,2020-04-10 00:00:00,22051
+Lafourche,Louisiana,2,0,0,2020-04-10 00:00:00,22057
+Orleans,Louisiana,136,4,0,2020-04-10 00:00:00,22071
+St. Bernard,Louisiana,2,0,0,2020-04-10 00:00:00,22087
+St. Charles,Louisiana,3,0,0,2020-04-10 00:00:00,22089
+St. John the Baptist,Louisiana,1,0,0,2020-04-10 00:00:00,22095
+St. Tammany,Louisiana,6,0,0,2020-04-10 00:00:00,22103
+Terrebonne,Louisiana,3,0,0,2020-04-10 00:00:00,22109
+Washington,Louisiana,1,0,0,2020-04-10 00:00:00,22117
+Androscoggin,Maine,3,0,0,2020-04-10 00:00:00,23001
+Cumberland,Maine,20,0,0,2020-04-10 00:00:00,23005
+Kennebec,Maine,1,0,0,2020-04-10 00:00:00,23011
+Lincoln,Maine,2,0,0,2020-04-10 00:00:00,23015
+Oxford,Maine,1,0,0,2020-04-10 00:00:00,23017
+York,Maine,1,0,0,2020-04-10 00:00:00,23031
+Anne Arundel,Maryland,3,0,0,2020-04-10 00:00:00,24003
+Baltimore,Maryland,6,0,0,2020-04-10 00:00:00,24510
+Baltimore,Maryland,6,0,0,2020-04-10 00:00:00,24005
+Baltimore City,Maryland,2,0,0,2020-04-10 00:00:00,
+Carroll,Maryland,1,0,0,2020-04-10 00:00:00,24013
+Charles,Maryland,1,0,0,2020-04-10 00:00:00,24017
+Frederick,Maryland,1,0,0,2020-04-10 00:00:00,24021
+Harford,Maryland,2,0,0,2020-04-10 00:00:00,24025
+Howard,Maryland,4,0,0,2020-04-10 00:00:00,24027
+Montgomery,Maryland,24,0,3,2020-04-10 00:00:00,24031
+Prince George's,Maryland,14,0,0,2020-04-10 00:00:00,24033
+Talbot,Maryland,1,0,0,2020-04-10 00:00:00,24041
+Barnstable,Massachusetts,2,0,0,2020-04-10 00:00:00,25001
+Berkshire,Massachusetts,14,0,0,2020-04-10 00:00:00,25003
+Bristol,Massachusetts,5,0,0,2020-04-10 00:00:00,25005
+Essex,Massachusetts,8,0,0,2020-04-10 00:00:00,25009
+Hampden,Massachusetts,1,0,0,2020-04-10 00:00:00,25013
+Middlesex,Massachusetts,89,0,0,2020-04-10 00:00:00,25017
+Norfolk,Massachusetts,43,0,0,2020-04-10 00:00:00,25021
+Plymouth,Massachusetts,5,0,0,2020-04-10 00:00:00,25023
+Suffolk,Massachusetts,42,0,0,2020-04-10 00:00:00,25025
+Worcester,Massachusetts,8,0,0,2020-04-10 00:00:00,25027
+unknown,Massachusetts,1,0,0,2020-04-10 00:00:00,
+Bay,Michigan,1,0,0,2020-04-10 00:00:00,26017
+Charlevoix,Michigan,1,0,0,2020-04-10 00:00:00,26029
+Ingham,Michigan,5,0,0,2020-04-10 00:00:00,26065
+Jackson,Michigan,1,0,0,2020-04-10 00:00:00,26075
+Kent,Michigan,5,0,0,2020-04-10 00:00:00,26081
+Leelanau,Michigan,1,0,0,2020-04-10 00:00:00,26089
+Macomb,Michigan,8,0,0,2020-04-10 00:00:00,26099
+Monroe,Michigan,1,0,0,2020-04-10 00:00:00,26115
+Montcalm,Michigan,1,0,0,2020-04-10 00:00:00,26117
+Oakland,Michigan,16,0,0,2020-04-10 00:00:00,26125
+Otsego,Michigan,1,0,0,2020-04-10 00:00:00,26137
+Ottawa,Michigan,1,0,0,2020-04-10 00:00:00,26139
+St. Clair,Michigan,2,0,0,2020-04-10 00:00:00,26147
+Washtenaw,Michigan,7,0,0,2020-04-10 00:00:00,26161
+Wayne,Michigan,7,0,0,2020-04-10 00:00:00,26163
+Wayne--Detroit,Michigan,10,0,0,2020-04-10 00:00:00,
+Anoka,Minnesota,3,0,0,2020-04-10 00:00:00,27003
+Benton,Minnesota,1,0,0,2020-04-10 00:00:00,27009
+Blue earth,Minnesota,1,0,0,2020-04-10 00:00:00,27013
+Carver,Minnesota,1,0,0,2020-04-10 00:00:00,27019
+Dakota,Minnesota,6,0,0,2020-04-10 00:00:00,27037
+Hennepin,Minnesota,24,0,0,2020-04-10 00:00:00,27053
+Olmsted,Minnesota,5,0,0,2020-04-10 00:00:00,27109
+Ramsey,Minnesota,11,0,0,2020-04-10 00:00:00,27123
+Renville,Minnesota,1,0,0,2020-04-10 00:00:00,27129
+Stearns,Minnesota,3,0,0,2020-04-10 00:00:00,27145
+Waseca,Minnesota,1,0,0,2020-04-10 00:00:00,27161
+Washington,Minnesota,2,0,0,2020-04-10 00:00:00,27163
+Wright,Minnesota,1,0,0,2020-04-10 00:00:00,27171
+Copiah,Mississippi,2,0,0,2020-04-10 00:00:00,28029
+Forrest,Mississippi,3,0,0,2020-04-10 00:00:00,28035
+Hancock,Mississippi,0,1,0,2020-04-10 00:00:00,28045
+Harrison,Mississippi,1,0,0,2020-04-10 00:00:00,28047
+Hinds,Mississippi,6,0,0,2020-04-10 00:00:00,28049
+Jackson,Mississippi,1,0,0,2020-04-10 00:00:00,28059
+Leflore,Mississippi,4,0,0,2020-04-10 00:00:00,28083
+Monroe,Mississippi,1,0,0,2020-04-10 00:00:00,28095
+Pearl River,Mississippi,2,0,0,2020-04-10 00:00:00,28109
+Boone,Missouri,1,1,0,2020-04-10 00:00:00,29019
+Cass,Missouri,2,0,0,2020-04-10 00:00:00,29037
+Cole,Missouri,1,0,0,2020-04-10 00:00:00,29051
+Greene,Missouri,4,0,0,2020-04-10 00:00:00,29077
+Henry,Missouri,1,0,0,2020-04-10 00:00:00,29083
+Jackson,Missouri,2,0,0,2020-04-10 00:00:00,29095
+St. Louis,Missouri,4,0,0,2020-04-10 00:00:00,29189
+St. Louis,Missouri,4,0,0,2020-04-10 00:00:00,29510
+St. Louis City,Missouri,1,0,0,2020-04-10 00:00:00,
+Broadwater,Montana,1,0,0,2020-04-10 00:00:00,30007
+Gallatin,Montana,2,0,0,2020-04-10 00:00:00,30031
+Missoula,Montana,3,0,0,2020-04-10 00:00:00,30063
+Silver Bow,Montana,1,0,0,2020-04-10 00:00:00,30093
+Yellowstone,Montana,2,0,0,2020-04-10 00:00:00,30111
+Navajo AZ,Navajo Nation,2,0,0,2020-04-10 00:00:00,
+Cass,Nebraska,1,0,0,2020-04-10 00:00:00,31025
+Douglas,Nebraska,19,0,0,2020-04-10 00:00:00,31055
+Knox,Nebraska,2,0,0,2020-04-10 00:00:00,31107
+Lincoln,Nebraska,1,0,0,2020-04-10 00:00:00,31111
+Sarpy,Nebraska,1,0,0,2020-04-10 00:00:00,31153
+Carson City,Nevada,1,0,0,2020-04-10 00:00:00,32510
+Clark,Nevada,42,1,0,2020-04-10 00:00:00,32003
+Washoe,Nevada,12,0,0,2020-04-10 00:00:00,32031
+Carroll,New Hampshire,1,0,0,2020-04-10 00:00:00,33003
+Grafton,New Hampshire,7,0,0,2020-04-10 00:00:00,33009
+Hillsborough,New Hampshire,1,0,0,2020-04-10 00:00:00,33011
+Hillsborough-other,New Hampshire,3,0,0,2020-04-10 00:00:00,
+Rockingham,New Hampshire,14,0,0,2020-04-10 00:00:00,33015
+Bergen,New Jersey,84,2,0,2020-04-10 00:00:00,34003
+Burlington,New Jersey,5,0,0,2020-04-10 00:00:00,34005
+Camden,New Jersey,3,0,0,2020-04-10 00:00:00,34007
+Essex,New Jersey,32,0,0,2020-04-10 00:00:00,34013
+Gloucester,New Jersey,2,0,0,2020-04-10 00:00:00,34015
+Hudson,New Jersey,24,0,0,2020-04-10 00:00:00,34017
+Hunterdon,New Jersey,4,0,0,2020-04-10 00:00:00,34019
+Mercer,New Jersey,9,0,0,2020-04-10 00:00:00,34021
+Middlesex,New Jersey,22,0,0,2020-04-10 00:00:00,34023
+Monmouth,New Jersey,22,1,0,2020-04-10 00:00:00,34025
+Morris,New Jersey,7,0,0,2020-04-10 00:00:00,34027
+Ocean,New Jersey,4,0,0,2020-04-10 00:00:00,34029
+Passaic,New Jersey,10,0,0,2020-04-10 00:00:00,34031
+Somerset,New Jersey,7,0,0,2020-04-10 00:00:00,34035
+Union,New Jersey,15,0,0,2020-04-10 00:00:00,34039
+Bernalillo,New Mexico,14,0,0,2020-04-10 00:00:00,35001
+Sandoval,New Mexico,2,0,0,2020-04-10 00:00:00,35043
+Santa Fe,New Mexico,4,0,0,2020-04-10 00:00:00,35049
+Socorro,New Mexico,2,0,0,2020-04-10 00:00:00,35053
+Taos,New Mexico,1,0,0,2020-04-10 00:00:00,35055
+Albany,New York,25,0,0,2020-04-10 00:00:00,36001
+Allegany,New York,2,0,0,2020-04-10 00:00:00,36003
+Bronx,New York,96,1,0,2020-03-18 04:00:00,36005
+Broome,New York,1,0,0,2020-04-10 00:00:00,36007
+Clinton,New York,1,0,0,2020-04-10 00:00:00,36019
+Delaware,New York,1,0,0,2020-04-10 00:00:00,36025
+Dutchess,New York,16,0,0,2020-04-10 00:00:00,36027
+Erie,New York,11,0,0,2020-04-10 00:00:00,36029
+Essex,New York,1,0,0,2020-04-10 00:00:00,36031
+Genesee,New York,1,0,0,2020-04-10 00:00:00,36037
+Greene,New York,2,0,0,2020-04-10 00:00:00,36039
+Herkimer,New York,1,0,0,2020-04-10 00:00:00,36043
+Kings,New York,157,1,0,2020-03-18 04:00:00,36047
+Madison,New York,0,0,14,2020-04-10 00:00:00,36053
+Monroe,New York,14,1,0,2020-04-10 00:00:00,36055
+Montgomery,New York,1,0,0,2020-04-10 00:00:00,36057
+Nassau,New York,136,1,0,2020-04-10 00:00:00,36059
+New York,New York,277,0,0,2020-03-18 04:00:00,36061
+Niagara,New York,1,0,0,2020-04-10 00:00:00,36063
+Oneida,New York,3,0,0,2020-04-10 00:00:00,36065
+Onondaga,New York,2,0,0,2020-04-10 00:00:00,36067
+Ontario,New York,1,0,0,2020-04-10 00:00:00,36069
+Orange,New York,15,0,0,2020-04-10 00:00:00,36071
+Putnam,New York,2,0,0,2020-04-10 00:00:00,36079
+Queens,New York,248,0,0,2020-03-18 04:00:00,36081
+Rensselaer,New York,1,0,0,2020-04-10 00:00:00,36083
+Richmond,New York,36,0,0,2020-03-18 04:00:00,36085
+Rockland,New York,22,1,0,2020-04-10 00:00:00,36087
+Saratoga,New York,9,0,0,2020-04-10 00:00:00,36091
+Schenectady,New York,5,0,0,2020-04-10 00:00:00,36093
+Suffolk,New York,97,3,0,2020-04-10 00:00:00,36103
+Sullivan,New York,1,0,0,2020-04-10 00:00:00,36105
+Tioga,New York,1,0,0,2020-04-10 00:00:00,36107
+Tompkins,New York,3,0,0,2020-04-10 00:00:00,36109
+Ulster,New York,8,0,0,2020-04-10 00:00:00,36111
+Westchester,New York,380,0,0,2020-04-10 00:00:00,36119
+Wyoming,New York,1,0,0,2020-04-10 00:00:00,36121
+Brunswick,North Carolina,1,0,0,2020-04-10 00:00:00,37019
+Cabarrus,North Carolina,1,0,0,2020-04-10 00:00:00,37025
+Chatham,North Carolina,3,0,0,2020-04-10 00:00:00,37037
+Craven,North Carolina,1,0,0,2020-04-10 00:00:00,37049
+Durham,North Carolina,16,0,0,2020-04-10 00:00:00,37063
+Forsyth,North Carolina,2,0,0,2020-04-10 00:00:00,37067
+Guilford,North Carolina,1,0,0,2020-04-10 00:00:00,37081
+Harnett,North Carolina,3,0,0,2020-04-10 00:00:00,37085
+Iredell,North Carolina,1,0,0,2020-04-10 00:00:00,37097
+Johnston,North Carolina,2,0,0,2020-04-10 00:00:00,37101
+Lincoln,North Carolina,1,0,0,2020-04-10 00:00:00,37109
+Mecklenburg,North Carolina,11,0,0,2020-04-10 00:00:00,37119
+Onslow,North Carolina,1,0,0,2020-04-10 00:00:00,37133
+Sampson,North Carolina,1,0,0,2020-04-10 00:00:00,37163
+Wake,North Carolina,17,0,0,2020-04-10 00:00:00,37183
+Watauga,North Carolina,1,0,0,2020-04-10 00:00:00,37189
+Wayne,North Carolina,1,0,0,2020-04-10 00:00:00,37191
+Wilson,North Carolina,1,0,0,2020-04-10 00:00:00,37195
+Burleigh,North Dakota,2,0,0,2020-04-10 00:00:00,38015
+Cass,North Dakota,1,0,0,2020-04-10 00:00:00,38017
+Ward,North Dakota,2,0,0,2020-04-10 00:00:00,38101
+Belmont,Ohio,2,0,0,2020-04-10 00:00:00,39013
+Butler,Ohio,6,0,0,2020-04-10 00:00:00,39017
+Coshocton,Ohio,2,0,0,2020-04-10 00:00:00,39031
+Cuyahoga,Ohio,31,0,0,2020-04-10 00:00:00,39035
+Darke,Ohio,1,0,0,2020-04-10 00:00:00,39037
+Franklin,Ohio,4,1,0,2020-04-10 00:00:00,39049
+Geauga,Ohio,1,0,0,2020-04-10 00:00:00,39055
+Lake,Ohio,1,0,0,2020-04-10 00:00:00,39085
+Lorain,Ohio,4,0,0,2020-04-10 00:00:00,39093
+Lucas,Ohio,1,0,0,2020-04-10 00:00:00,39095
+Mahoning,Ohio,1,0,0,2020-04-10 00:00:00,39099
+Medina,Ohio,3,0,0,2020-04-10 00:00:00,39103
+Stark,Ohio,3,0,0,2020-04-10 00:00:00,39151
+Summit,Ohio,4,0,0,2020-04-10 00:00:00,39153
+Trumbull,Ohio,2,0,0,2020-04-10 00:00:00,39155
+Tuscarawas,Ohio,1,0,0,2020-04-10 00:00:00,39157
+Canadian,Oklahoma,1,0,0,2020-04-10 00:00:00,40017
+Cleveland,Oklahoma,2,0,0,2020-04-10 00:00:00,40027
+Jackson,Oklahoma,1,0,0,2020-04-10 00:00:00,40065
+Kay,Oklahoma,2,0,0,2020-04-10 00:00:00,40071
+Oklahoma,Oklahoma,6,0,0,2020-04-10 00:00:00,40109
+Pawnee,Oklahoma,1,0,0,2020-04-10 00:00:00,40117
+Payne,Oklahoma,1,0,0,2020-04-10 00:00:00,40119
+Tulsa,Oklahoma,3,0,0,2020-04-10 00:00:00,40143
+unknown,Oklahoma,0,0,1,2020-04-10 00:00:00,
+Benton,Oregon,2,0,0,2020-04-10 00:00:00,41003
+Clackamas,Oregon,6,0,0,2020-04-10 00:00:00,41005
+Deschutes,Oregon,6,0,0,2020-04-10 00:00:00,41017
+Douglas,Oregon,1,0,0,2020-04-10 00:00:00,41019
+Jackson,Oregon,2,0,0,2020-04-10 00:00:00,41029
+Klamath,Oregon,1,0,0,2020-04-10 00:00:00,41035
+Lane,Oregon,2,1,0,2020-04-10 00:00:00,41039
+Linn,Oregon,15,0,0,2020-04-10 00:00:00,41043
+Marion,Oregon,4,0,0,2020-04-10 00:00:00,41047
+Multnomah,Oregon,3,1,0,2020-04-10 00:00:00,41051
+Polk,Oregon,1,0,0,2020-04-10 00:00:00,41053
+Umatilla,Oregon,2,0,0,2020-04-10 00:00:00,41059
+Washington,Oregon,20,1,0,2020-04-10 00:00:00,41067
+Yamhill,Oregon,1,0,0,2020-04-10 00:00:00,41071
+Allegheny,Pennsylvania,10,0,0,2020-04-10 00:00:00,42003
+Beaver,Pennsylvania,1,0,0,2020-04-10 00:00:00,42007
+Bucks,Pennsylvania,8,0,0,2020-04-10 00:00:00,42017
+Chester,Pennsylvania,6,0,0,2020-04-10 00:00:00,42029
+Cumberland,Pennsylvania,10,0,0,2020-04-10 00:00:00,42041
+Delaware,Pennsylvania,9,0,0,2020-04-10 00:00:00,42045
+Lehigh,Pennsylvania,1,0,0,2020-04-10 00:00:00,42077
+Luzerne,Pennsylvania,1,0,0,2020-04-10 00:00:00,42079
+Monroe,Pennsylvania,8,0,0,2020-04-10 00:00:00,42089
+Montgomery,Pennsylvania,34,0,0,2020-04-10 00:00:00,42091
+Northampton,Pennsylvania,1,1,0,2020-04-10 00:00:00,42095
+Philadelphia,Pennsylvania,19,0,0,2020-04-10 00:00:00,42101
+Pike,Pennsylvania,1,0,0,2020-04-10 00:00:00,42103
+Washington,Pennsylvania,2,0,0,2020-04-10 00:00:00,42125
+Wayne,Pennsylvania,1,0,0,2020-04-10 00:00:00,42127
+Puerto Rico,Puerto Rico,5,0,0,2020-04-10 00:00:00,72000
+Providence,Rhode Island,15,0,0,2020-04-10 00:00:00,44007
+Anderson,South Carolina,2,0,0,2020-04-10 00:00:00,45007
+Beaufort,South Carolina,4,0,0,2020-04-10 00:00:00,45013
+Calhoun,South Carolina,1,0,0,2020-04-10 00:00:00,45017
+Charleston,South Carolina,3,0,0,2020-04-10 00:00:00,45019
+Fairfield,South Carolina,1,0,0,2020-04-10 00:00:00,45039
+Greenville,South Carolina,2,0,0,2020-04-10 00:00:00,45045
+Horry,South Carolina,4,0,0,2020-04-10 00:00:00,45051
+Kershaw,South Carolina,22,0,0,2020-04-10 00:00:00,45055
+Lancaster,South Carolina,2,0,0,2020-04-10 00:00:00,45057
+Lexington,South Carolina,4,1,0,2020-04-10 00:00:00,45063
+Richland,South Carolina,1,0,0,2020-04-10 00:00:00,45079
+Spartanburg,South Carolina,1,0,0,2020-04-10 00:00:00,45083
+York,South Carolina,1,0,0,2020-04-10 00:00:00,45091
+Beadle,South Dakota,1,0,0,2020-04-10 00:00:00,46005
+Bon Homme,South Dakota,1,0,0,2020-04-10 00:00:00,46009
+Charles Mix,South Dakota,1,0,0,2020-04-10 00:00:00,46023
+Davison,South Dakota,1,0,0,2020-04-10 00:00:00,46035
+McCook,South Dakota,1,0,0,2020-04-10 00:00:00,46087
+Minnehaha,South Dakota,5,0,0,2020-04-10 00:00:00,46099
+Pennington,South Dakota,1,1,0,2020-04-10 00:00:00,46103
+Campbell,Tennessee,1,0,0,2020-04-10 00:00:00,47013
+Davidson,Tennessee,46,0,0,2020-04-10 00:00:00,47037
+Hamilton,Tennessee,1,0,0,2020-04-10 00:00:00,47065
+Jefferson,Tennessee,1,0,0,2020-04-10 00:00:00,47089
+Knox,Tennessee,2,0,0,2020-04-10 00:00:00,47093
+Rutherford,Tennessee,1,0,0,2020-04-10 00:00:00,47149
+Sevier,Tennessee,1,0,0,2020-04-10 00:00:00,47155
+Shelby,Tennessee,3,0,0,2020-04-10 00:00:00,47157
+Sullivan,Tennessee,1,0,0,2020-04-10 00:00:00,47163
+Williamson,Tennessee,21,0,0,2020-04-10 00:00:00,47187
+Bell,Texas,3,0,0,2020-04-10 00:00:00,48027
+Bexar,Texas,11,0,0,2020-04-10 00:00:00,48029
+Bowie,Texas,1,0,0,2020-04-10 00:00:00,48037
+Brazoria,Texas,2,0,0,2020-04-10 00:00:00,48039
+Brazos,Texas,1,0,0,2020-04-10 00:00:00,48041
+Collin,Texas,8,0,0,2020-04-10 00:00:00,48085
+Dallas,Texas,28,0,0,2020-04-10 00:00:00,48113
+Denton,Texas,2,0,0,2020-04-10 00:00:00,48121
+El Paso,Texas,3,0,0,2020-04-10 00:00:00,48141
+Ellis,Texas,1,0,0,2020-04-10 00:00:00,48139
+Fort Bend,Texas,10,0,0,2020-04-10 00:00:00,48157
+Galveston,Texas,2,0,0,2020-04-10 00:00:00,48167
+Gregg,Texas,1,0,0,2020-04-10 00:00:00,48183
+Harris--Houston,Texas,5,0,0,2020-04-10 00:00:00,
+Harris--Non Houston,Texas,14,0,0,2020-04-10 00:00:00,
+Hays,Texas,3,0,0,2020-04-10 00:00:00,48209
+Lavaca,Texas,1,0,0,2020-04-10 00:00:00,48285
+Lubbock,Texas,1,0,0,2020-04-10 00:00:00,48303
+Matagorda,Texas,3,1,0,2020-04-10 00:00:00,48321
+Montgomery,Texas,4,0,0,2020-04-10 00:00:00,48339
+Rusk,Texas,1,0,0,2020-04-10 00:00:00,48401
+Smith,Texas,5,0,0,2020-04-10 00:00:00,48423
+Tarrant,Texas,6,1,0,2020-04-10 00:00:00,48439
+Travis,Texas,17,0,0,2020-04-10 00:00:00,48453
+Webb,Texas,1,0,0,2020-04-10 00:00:00,48479
+St. Croix,United States Virgin Islands,1,0,0,2020-04-10 00:00:00,78010
+St. Thomas,United States Virgin Islands,1,0,0,2020-04-10 00:00:00,78030
+Box Elder,Utah,1,0,0,2020-03-18 04:00:00,49003
+Davis,Utah,4,0,0,2020-03-18 04:00:00,49011
+Salt Lake,Utah,22,0,0,2020-03-18 04:00:00,49035
+Summit,Utah,15,0,0,2020-03-18 04:00:00,49043
+Tooele,Utah,1,0,0,2020-03-18 04:00:00,49045
+Utah,Utah,1,0,0,2020-03-18 04:00:00,49049
+Wasatch,Utah,2,0,0,2020-03-18 04:00:00,49051
+Washington,Utah,1,0,0,2020-03-18 04:00:00,49053
+Weber,Utah,4,0,0,2020-03-18 04:00:00,49057
+Bennington,Vermont,3,0,0,2020-04-10 00:00:00,50003
+Chittenden,Vermont,4,0,0,2020-04-10 00:00:00,50007
+Orange,Vermont,1,0,0,2020-04-10 00:00:00,50017
+Washington,Vermont,1,0,0,2020-04-10 00:00:00,50023
+Windsor,Vermont,3,0,0,2020-04-10 00:00:00,50027
+Alexandria,Virginia,2,0,0,2020-04-10 00:00:00,51510
+Arlington,Virginia,13,0,0,2020-04-10 00:00:00,51013
+Charlottesville,Virginia,1,0,0,2020-04-10 00:00:00,51540
+Chesterfield,Virginia,4,0,0,2020-04-10 00:00:00,51041
+Fairfax,Virginia,12,0,0,2020-04-10 00:00:00,51059
+Fairfax,Virginia,12,0,0,2020-04-10 00:00:00,51600
+Goochland,Virginia,1,0,0,2020-04-10 00:00:00,51075
+Hanover,Virginia,1,0,0,2020-04-10 00:00:00,51085
+Harrisonburg,Virginia,1,0,0,2020-04-10 00:00:00,51660
+Henrico,Virginia,2,0,0,2020-04-10 00:00:00,51087
+James City,Virginia,12,1,0,2020-04-10 00:00:00,51095
+Loudoun,Virginia,5,0,0,2020-04-10 00:00:00,51107
+Prince Edward,Virginia,1,0,0,2020-04-10 00:00:00,51147
+Prince William,Virginia,4,0,0,2020-04-10 00:00:00,51153
+Spotsylvania,Virginia,1,0,0,2020-04-10 00:00:00,51177
+Stafford,Virginia,1,0,0,2020-04-10 00:00:00,51179
+Virginia Beach,Virginia,4,0,0,2020-04-10 00:00:00,51810
+Williamsburg,Virginia,1,0,0,2020-04-10 00:00:00,51830
+York,Virginia,1,1,0,2020-04-10 00:00:00,51199
+Chelan,Washington,2,0,0,2020-04-10 00:00:00,53007
+Clark,Washington,4,3,0,2020-04-10 00:00:00,53011
+Columbia,Washington,1,0,0,2020-04-10 00:00:00,53013
+Cowlitz,Washington,1,0,0,2020-04-10 00:00:00,53015
+Franklin,Washington,1,0,0,2020-04-10 00:00:00,53021
+Grant,Washington,7,0,0,2020-04-10 00:00:00,53025
+Grays Harbor,Washington,1,0,0,2020-04-10 00:00:00,53027
+Island,Washington,14,0,0,2020-04-10 00:00:00,53029
+Jefferson,Washington,3,0,0,2020-04-10 00:00:00,53031
+King,Washington,562,46,0,2020-04-10 00:00:00,53033
+Kitsap,Washington,7,0,0,2020-04-10 00:00:00,53035
+Kittitas,Washington,3,0,0,2020-04-10 00:00:00,53037
+Klickitat,Washington,1,0,0,2020-04-10 00:00:00,53039
+Lewis,Washington,1,0,0,2020-04-10 00:00:00,53041
+Lincoln,Washington,1,0,0,2020-04-10 00:00:00,53043
+Mason,Washington,1,0,0,2020-04-10 00:00:00,53045
+Pierce,Washington,45,0,0,2020-04-10 00:00:00,53053
+Skagit,Washington,9,0,0,2020-04-10 00:00:00,53057
+Snohomish,Washington,266,6,0,2020-04-10 00:00:00,53061
+Spokane,Washington,4,0,0,2020-04-10 00:00:00,53063
+Thurston,Washington,5,0,0,2020-04-10 00:00:00,53067
+Whatcom,Washington,6,0,0,2020-04-10 00:00:00,53073
+Yakima,Washington,5,0,0,2020-04-10 00:00:00,53077
+Jefferson,West Virginia,1,0,0,2020-04-10 00:00:00,54037
+Dane,Wisconsin,19,0,1,2020-04-10 00:00:00,55025
+Fond du Lac,Wisconsin,12,0,0,2020-04-10 00:00:00,55039
+Kenosha,Wisconsin,4,0,0,2020-04-10 00:00:00,55059
+Milwaukee,Wisconsin,40,0,0,2020-04-10 00:00:00,55079
+Outagamie,Wisconsin,1,0,0,2020-04-10 00:00:00,55087
+Pierce,Wisconsin,1,0,0,2020-04-10 00:00:00,55093
+Racine,Wisconsin,1,0,0,2020-04-10 00:00:00,55101
+Sheboygan,Wisconsin,3,0,0,2020-04-10 00:00:00,55117
+Washington,Wisconsin,1,0,0,2020-04-10 00:00:00,55131
+Waukesha,Wisconsin,4,0,0,2020-04-10 00:00:00,55133
+Winnebago,Wisconsin,3,0,0,2020-04-10 00:00:00,55139
+Wood,Wisconsin,1,0,0,2020-04-10 00:00:00,55141
+unknown,Wuhan Evacuee,4,0,0,2020-04-10 00:00:00,
+Fremont,Wyoming,8,0,0,2020-04-10 00:00:00,56013
+Laramie,Wyoming,2,0,0,2020-04-10 00:00:00,56021
+Park,Wyoming,1,0,0,2020-04-10 00:00:00,56029
+Sheridan,Wyoming,4,0,0,2020-04-10 00:00:00,56033

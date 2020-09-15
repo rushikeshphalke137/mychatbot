@@ -1,0 +1,65 @@
+Name,Region,Confirmed,newConfirmed,Deaths,newDeaths,Est.Recovered,newEst.Recovered,Est.Active,newEst.Active,Last Update,FIPS/ID,Recovered,newRecovered,Active,newActive
+Australia,Australia,15,0,0,0,4,0,11,0,2020-02-11 23:00:00,AUS,,,,
+Belgium,Belgium,1,0,0,0,0,0,1,0,2020-02-11 23:00:00,BEL,,,,
+Cambodia,Cambodia,1,0,0,0,0,0,1,0,2020-02-11 23:00:00,KHM,,,,
+Canada,Canada,7,0,0,0,2,1,5,-1,2020-02-11 23:00:00,CAN,,,,
+Finland,Finland,1,0,0,0,0,0,1,0,2020-02-11 23:00:00,FIN,,,,
+France,France,11,0,0,0,3,1,8,-1,2020-02-11 23:00:00,FRA,,,,
+Germany,Germany,16,2,0,0,3,3,13,-1,2020-02-11 23:00:00,DEU,,,,
+India,India,3,0,0,0,0,0,3,0,2020-02-11 23:00:00,IND,,,,
+Italy,Italy,3,0,0,0,0,0,3,0,2020-02-11 23:00:00,ITA,,,,
+Japan,Japan,28,2,0,0,5,2,23,0,2020-02-11 23:00:00,JPN,,,,
+Malaysia,Malaysia,18,0,0,0,3,0,15,0,2020-02-11 23:00:00,MYS,,,,
+Nepal,Nepal,1,0,0,0,0,0,1,0,2020-02-11 23:00:00,NPL,,,,
+Others,Japan (Diamond Princess),135,0,0,0,0,0,135,0,2020-02-11 23:00:00,,,,,
+Philippines,Philippines,3,0,1,0,-1,0,3,0,2020-02-11 23:00:00,PHL,,,,
+South Korea,South Korea,28,1,0,0,3,0,25,1,2020-02-11 23:00:00,KOR,,,,
+Russia,Russia,2,0,0,0,0,0,2,0,2020-02-11 23:00:00,RUS,,,,
+Singapore,Singapore,47,2,0,0,5,1,42,1,2020-02-11 23:00:00,SGP,,,,
+Spain,Spain,2,0,0,0,0,0,2,0,2020-02-11 23:00:00,ESP,,,,
+Sri Lanka,Sri Lanka,1,0,0,0,0,0,1,0,2020-02-11 23:00:00,LKA,,,,
+Sweden,Sweden,1,0,0,0,0,0,1,0,2020-02-11 23:00:00,SWE,,,,
+Thailand,Thailand,33,1,0,0,11,5,22,-4,2020-02-11 23:00:00,THA,,,,
+United Kingdom,United Kingdom,8,0,0,0,0,0,8,0,2020-02-11 23:00:00,GBR,,,,
+United Arab Emirates,United Arab Emirates,8,0,0,0,0,0,8,0,2020-02-11 23:00:00,ARE,,,,
+Vietnam,Vietnam,15,1,0,0,1,0,14,1,2020-02-11 23:00:00,VNM,,,,
+Hubei,Mainland China,33366,1638,1068,94,2639,417,29659,1127,2020-02-11 23:33:02,CHN,2639,417,29659,1127
+Guangdong,Mainland China,1219,60,1,0,241,74,977,-14,2020-02-12 01:23:06,CHN,241,74,977,-14
+Henan,Mainland China,1135,62,8,2,231,40,896,20,2020-02-12 00:43:02,CHN,231,40,896,20
+Zhejiang,Mainland China,1131,39,0,0,279,37,852,2,2020-02-12 01:23:06,CHN,279,37,852,2
+Hunan,Mainland China,946,67,2,1,263,55,681,11,2020-02-12 01:43:02,CHN,263,55,681,11
+Anhui,Mainland China,889,59,4,1,119,31,766,27,2020-02-12 01:13:08,CHN,108,20,777,38
+Jiangxi,Mainland China,844,73,1,0,152,47,691,26,2020-02-12 01:23:06,CHN,152,47,691,26
+Jiangsu,Mainland China,543,51,0,0,94,13,449,38,2020-02-12 01:23:06,CHN,94,13,449,38
+Chongqing,Mainland China,505,19,3,1,116,12,386,6,2020-02-11 23:53:02,CHN,79,13,423,5
+Shandong,Mainland China,497,31,1,0,97,28,399,3,2020-02-12 01:43:02,CHN,80,14,416,17
+Sichuan,Mainland China,436,31,1,0,86,6,349,25,2020-02-12 01:03:05,CHN,85,5,350,26
+Heilongjiang,Mainland China,378,47,8,1,28,-2,342,48,2020-02-12 00:13:27,CHN,28,-2,342,48
+Beijing,Mainland China,342,5,3,1,70,8,269,-4,2020-02-11 03:03:07,CHN,48,4,291,0
+Shanghai,Mainland China,306,7,1,0,63,11,242,-4,2020-02-12 00:13:27,CHN,53,5,252,2
+Fujian,Mainland China,272,11,0,0,66,19,206,-8,2020-02-12 00:53:02,CHN,46,7,226,4
+Hebei,Mainland China,251,33,2,0,48,7,201,26,2020-02-12 00:03:12,CHN,48,7,201,26
+Guangxi,Mainland China,222,12,1,0,45,5,176,7,2020-02-12 00:33:02,CHN,31,7,190,5
+Shaanxi,Mainland China,219,6,0,0,45,15,174,-9,2020-02-11 06:03:16,CHN,32,2,187,4
+Yunnan,Mainland China,154,5,0,0,35,14,119,-9,2020-02-12 01:43:02,CHN,20,1,134,4
+Hainan,Mainland China,151,13,3,0,31,8,117,5,2020-02-12 00:33:02,CHN,20,1,128,12
+Guizhou,Mainland China,131,22,1,0,17,7,113,15,2020-02-12 01:13:08,CHN,17,7,113,15
+Shanxi,Mainland China,124,5,0,0,30,5,94,0,2020-02-11 23:33:02,CHN,30,5,94,0
+Liaoning,Mainland China,116,8,0,0,29,8,87,0,2020-02-12 00:43:02,CHN,19,6,97,2
+Tianjin,Mainland China,106,11,2,1,18,1,86,9,2020-02-11 23:13:05,CHN,10,2,94,8
+Gansu,Mainland China,86,0,2,0,24,3,60,-3,2020-02-11 15:23:04,CHN,24,3,60,-3
+Jilin,Mainland China,83,2,1,0,18,5,64,-3,2020-02-12 01:03:05,CHN,18,5,64,-3
+Xinjiang Uygur,Mainland China,59,10,0,0,10,6,49,4,2020-02-12 01:43:02,CHN,3,3,56,7
+Nei Mongol,Mainland China,58,0,0,0,12,4,46,-4,2020-02-10 02:43:05,CHN,5,0,53,0
+Ningxia,Mainland China,53,4,0,0,22,9,31,-5,2020-02-11 10:03:08,CHN,22,9,31,-5
+Hong Kong,Hong Kong,49,11,1,0,5,0,43,11,2020-02-11 09:43:02,HKG,0,0,48,11
+Qinghai,Mainland China,18,0,0,0,5,1,13,-1,2020-02-11 11:23:04,CHN,5,2,13,-2
+Taiwan,Taiwan,18,0,0,0,6,2,12,-2,2020-02-09 09:13:11,TWN,1,0,17,0
+Macau,Macau,10,0,0,0,5,1,5,-1,2020-02-06 14:23:04,MAC,1,0,9,0
+Xizang,Mainland China,1,0,0,0,0,0,1,0,2020-02-01 01:52:40,CHN,0,0,1,0
+California,USA,7,1,0,0,1,0,6,1,2020-02-11 01:23:05,USA,1,0,6,1
+Illinois,USA,2,0,0,0,2,2,0,-2,2020-02-09 19:03:03,USA,2,2,0,-2
+Arizona,USA,1,0,0,0,0,0,1,0,2020-02-01 19:43:00,USA,0,0,1,0
+Massachusetts,USA,1,0,0,0,0,0,1,0,2020-02-01 19:43:00,USA,0,0,1,0
+Washington,USA,1,0,0,0,1,0,0,0,2020-02-09 07:03:00,USA,1,0,0,0
+Wisconsin,USA,1,0,0,0,0,0,1,0,2020-02-05 21:53:00,USA,0,0,1,0
