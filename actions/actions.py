@@ -38,7 +38,7 @@ class ActionCount(Action):
     def run(self, dispatcher, tracker, domain):
     
         # Data Directory
-        data_dir="/app/data/"
+        data_dir="/appp/data/"
         
         case_type = tracker.get_slot("case_type")
         cardinal = tracker.get_slot("CARDINAL")
@@ -88,7 +88,7 @@ class ActionCount(Action):
             dispatcher.utter_message(text="Selected Date {0}".format(entered_date))
         
         #-----------------------------------------------------------------------------#
-        with open('/app/listfile.txt', 'w') as filehandle:
+        with open('/appp/listfile.txt', 'w') as filehandle:
             filehandle.writelines("%s\n" % place for place in tracker.events_after_latest_restart())         
         
         #-----------------------------------------------------------------------------#

@@ -5,7 +5,7 @@ services:
     ports:
       - 5005:5005
     volumes:
-      - ./:/app
+      - ./:/appp
     command:
       - run
       - --enable-api
@@ -17,7 +17,7 @@ services:
   app:
     image: rasa/rasa-action-server
     volumes:
-      - ./actions:/app/actions
+      - ./actions:/appp/actions
     ports:
       - 5055:5055
  
