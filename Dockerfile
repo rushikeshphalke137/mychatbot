@@ -1,27 +1,23 @@
+#Base image
 FROM ubuntu
 
-# Extend the official Rasa SDK image
+#Extend the official Rasa SDK image
 FROM rasa/rasa-sdk:1.10.2
 
 MAINTAINER "Rohit Kumar"
 
-# Change back to root user to install dependencies
+#Change back to root user to install dependencies
 USER root
 
 #Work Directory
 WORKDIR /app
 
-#install git and cloning data
+#Installing git and cloning the data from the gitHub
 RUN apt-get update && apt-get upgrade -y &&  apt-get install -y git
 RUN git clone  https://2b863d8ba6c117a331f107e08241d33a95c572a2:x-oauth-basic@github.com/NSSAC/chatbot.git
 
-RUN ls
-# Copying the cloned data to the work directory
-#COPY . ./
-
+#Adding the codebase to our work directory
 RUN cp -R ./chatbot/* ./
-
-RUN ls
 
 # Install extra requirements for actions code, if necessary (uncomment next line)
 RUN pip install -U pip && pip install word2number && pip install dateparser
