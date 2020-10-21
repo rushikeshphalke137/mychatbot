@@ -14,7 +14,7 @@ WORKDIR /app
 
 #Installing git and cloning the data from the gitHub
 RUN apt-get update && apt-get upgrade -y &&  apt-get install -y git
-RUN git clone  https://2b863d8ba6c117a331f107e08241d33a95c572a2:x-oauth-basic@github.com/NSSAC/chatbot.git
+RUN git clone https://github.com/NSSAC/chatbot.git
 
 #Adding the codebase to our work directory
 RUN cp -R ./chatbot/* ./
