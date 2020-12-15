@@ -6,13 +6,14 @@ MAINTAINER "Rohit Kumar"
 # Use subdirectory as working directory
 WORKDIR /app
 
-# Copying the codebase to the containers 
-COPY . ./
-
 # Change back to root user to install dependencies
 USER root
 
-# Install extra requirements for actions code, if necessary (uncomment next line)
+#Installing git and cloning the data from the gitHub
+RUN apt-get update && apt-get upgrade -y &&  apt-get install -y git
+RUN git clone https://rohit-persistent:GitHu3Passw0rd@github.com/NSSAC/chatbot.git:
+
+# Installing extra requirements for actions code
 RUN pip install -U pip && pip install word2number && pip install dateparser
 RUN pip3 install pandas
 
