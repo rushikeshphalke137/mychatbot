@@ -1,0 +1,281 @@
+actions:
+- action_crisis_mode
+- action_expected_hospitalization_in_region
+- action_highest_projected_hospitalization
+- action_highest_projected_occupied_beds
+- action_hospitalization_peak
+- action_hospitalized_current_week
+- action_max_projected_hospitalization_current_week
+- action_projected_greater_occupied_beds
+- action_projected_more_hospitalization_updated_week_duration
+- action_projected_percentage_occupied_beds
+- action_projected_percentage_occupied_beds_hc
+- action_select_days
+- action_select_region
+- action_select_scenario
+- action_select_week
+- action_top_5_regions_hospitalization
+- utter_about_forecast
+- utter_about_hospitalization
+- utter_about_mrdd
+- utter_about_occupied_beds
+- utter_about_projected_forecast
+- utter_about_projected_mean
+- utter_about_scenario
+- utter_fallback
+- utter_goodbye
+- utter_greet
+- utter_hospitalization
+- utter_hospitalized_current_week
+- utter_no
+- utter_occupied_beds
+- utter_projected_greater_occupied_beds
+- utter_projected_percentage_occupied_beds_hc
+- utter_rephrase
+- utter_under_dev
+- utter_week_duration
+entities:
+- CARDINAL
+- hospitalization_days
+- region
+- scenario
+- week_ending_date
+intents:
+- no
+- projected_percentage_occupied_beds_hc
+- greet
+- select_scenario
+- occupied_beds
+- select_week
+- yes
+- select_region
+- projected_percentage_occupied_beds
+- utter_projected_percentage_occupied_beds_hc
+- select_days
+- projected_greater_occupied_beds
+- highest_projected_occupied_beds
+- crisis_mode
+- number_check
+- about_forecast
+- hospitalized_current_week
+- max_projected_hospitalization_current_week
+- highest_projected_hospitalization
+- hospitalization_peak
+- top_5_regions_hospitalization
+- expected_hospitalization_in_region
+- hospitalization
+- about_mrdd
+- about_hospitalization
+- about_occupied_beds
+- about_projected_mean
+- about_projected_forecast
+- about_scenario
+- under_dev
+- goodbye
+responses:
+  utter_about_forecast:
+  - buttons:
+    - payload: /about_mrdd
+      title: Back to About MRDD
+    - payload: /greet
+      title: Back to Main Menu
+    text: A "forecast" is the predicted number of people expected to fall ill from
+      a disease. It can be very difficult to make accurate forecasts for epidemics
+      because there are many unknowns, and people frequently adjust their behavior
+      if they see case counts going up, so forecasts tend to worsen the further you
+      go into the future.
+  utter_about_hospitalization:
+  - buttons:
+    - payload: /about_mrdd
+      title: Back to About MRDD
+    - payload: /greet
+      title: Back to Main Menu
+    text: When we say "hospitalizations" or "weekly hospitalizations", we are referring
+      to the projected hospital admissions in a given region for the selected week.
+      It does not include people who were admitted in previous weeks and are still
+      in the hospital in the selected week.
+  utter_about_mrdd:
+  - buttons:
+    - payload: /about_hospitalization
+      title: What is meant by "hospitalizations"?
+    - payload: /about_occupied_beds
+      title: What is meant by "% of occupied beds"?
+    - payload: /about_projected_mean
+      title: What does "projected" mean?
+    - payload: /about_forecast
+      title: What does "forecast" mean?
+    - payload: /about_projected_forecast
+      title: What is the difference between "projected" and "forecast"?
+    - payload: /about_scenario
+      title: What is a scenario?
+    - payload: /greet
+      title: Back to Main Menu
+    text: MRDD stands for Medical Resource Demand Dashboard. This application allows
+      users to see which areas are likely to see shortages of hospital resources based
+      on projected hospitalizations due to COVID-19. Below are few of the questions
+      which I can answer related to MRDD.
+  utter_about_occupied_beds:
+  - buttons:
+    - payload: /about_mrdd
+      title: Back to About MRDD
+    - payload: /greet
+      title: Back to Main Menu
+    text: Percentage of occupied beds is the percentage of the total hospital capacity
+      of beds for a given region that are projected to be filled in the selected week.  This
+      equation does anticipate that a percentage of the beds are filled with non-COVID-19
+      patients (by default, 80%) and that, and we report only the maximum percentage
+      for the "worst" day (ie, so if the percentage of occupied beds was projected
+      to be 99% on Wednesday, and 80% the rest of the week, this application would
+      report 99%.)  This value also depends on the average duration of COVID-19 hospital
+      stays (a person who enters the hospital and stays for 8 days will be occupying
+      the bed on each of the eight days.)
+  utter_about_projected_forecast:
+  - buttons:
+    - payload: /about_mrdd
+      title: Back to About MRDD
+    - payload: /greet
+      title: Back to Main Menu
+    text: Projections are used to get a general trend of expected COVID-19 cases over
+      time to answer questions like, "When are cases likely to peak?" and "What interventions
+      are likely to flatten or delay the peak?"  Forecasts try to answer the question,
+      "How many people are likely to get ill?", but can be difficult to calculate
+      because of unknowns, and tend to be less reliable the further into the future
+      they go.
+  utter_about_projected_mean:
+  - buttons:
+    - payload: /about_mrdd
+      title: Back to About MRDD
+    - payload: /greet
+      title: Back to Main Menu
+    text: At NSSAC, we develop projections of future COVID-19 activity. These numbers
+      are not expected to be exact, but they should show expected trends in COVID-19
+      prevalence.  Because we are providing projections instead of forecasts, we can
+      focus more on trends rather than specific numbers.
+  utter_about_scenario:
+  - buttons:
+    - payload: /about_mrdd
+      title: Back to About MRDD
+    - payload: /greet
+      title: Back to Main Menu
+    text: Scenarios consider what would happen to the number of COVID-19 cases over
+      time under differing conditions; another way to look at it is that scenarios
+      answer the "What If?" questions. For example, scenarios could measure the impact
+      of interventions- "What if we close the schools?" "What if a vaccine is ready
+      in October?"  It can also consider the timing of events- "What if we have a
+      surge in the beginning of October vs. the end of November?" or the magnitude
+      of different events- "What would happen if we have a big surge in October? Would
+      it lead to lower activity in November than a smaller surge in October?" Scenarios
+      can give us insight into the different ways the pandemic may play out.
+  utter_fallback:
+  - buttons:
+    - payload: /hospitalization
+      title: Hospitalization
+    - payload: /occupied_beds
+      title: Occupied Beds
+    - payload: /about_mrdd
+      title: About MRDD
+    text: What else do you want to check about?
+  utter_goodbye:
+  - text: Bye
+  utter_greet:
+  - buttons:
+    - payload: /hospitalization
+      title: Hospitalization
+    - payload: /occupied_beds
+      title: Occupied Beds
+    - payload: /about_mrdd
+      title: About MRDD
+    text: Welcome to the MRDD Chatbot!! The MRDD helps public health officials see
+      where hospitals are at risk of being overwhelmed by incoming COVID-19 patients.
+      I can guide you through questions about projected hospitalizations or hospital
+      occupancy, or you enter your own questions.  Where would you like to begin?
+  utter_hospitalization:
+  - buttons:
+    - payload: /hospitalized_current_week
+      title: How many people are projected to be hospitalized this week?
+    - payload: /max_projected_hospitalization_current_week
+      title: What is the maximum number of people who are projected to be hospitalized
+        this week?
+    - payload: /highest_projected_hospitalization
+      title: Which scenario shows the highest number of hospitalizations?
+    - payload: /top_5_regions_hospitalization
+      title: What are the top 5 regions for hospitalizations?
+    - payload: /hospitalization_peak
+      title: When do hospitalizations peak?
+    - payload: /expected_hospitalization_in_region
+      title: How many hospitalizations are expected in "region_name"?
+    - payload: /greet
+      title: Back to Main Menu
+    text: Please click on one of the following questions, or enter your own question
+      in the textbox below.
+  utter_hospitalized_current_week:
+  - buttons:
+    - payload: /hospitalization
+      title: Back to Hospitalization
+    - payload: /greet
+      title: Back to Main Menu
+    text: null
+  utter_no:
+  - buttons:
+    - payload: /hospitalization
+      title: Back to Hospitalization
+    - payload: /greet
+      title: Back to Main Menu
+    text: null
+  utter_occupied_beds:
+  - buttons:
+    - payload: /projected_greater_occupied_beds
+      title: Which regions are projected to have greater than number% of occupied
+        beds?
+    - payload: /highest_projected_occupied_beds
+      title: What is the highest projected percentage of occupied beds?
+    - payload: /crisis_mode
+      title: Which regions are projected to enter the crisis stage?
+    - payload: /projected_percentage_occupied_beds
+      title: What is the projected percentage of occupied beds?
+    - payload: /projected_percentage_occupied_beds_hc
+      title: Get projected percentages of occupied beds based on hospital capacity
+    - payload: /greet
+      title: Back to Main Menu
+    text: Please click on one of the following questions, or enter your own question
+      in the textbox below.
+  utter_projected_greater_occupied_beds:
+  - text: Please enter the minimum percentage of occupied beds
+  utter_projected_percentage_occupied_beds_hc:
+  - text: Please enter the percentage of hospital beds reserved for non-COVID-19 patients.
+  utter_rephrase:
+  - buttons:
+    - payload: /hospitalization
+      title: Hospitalization
+    - payload: /occupied_beds
+      title: Occupied Beds
+    - payload: /about_mrdd
+      title: About MRDD
+    text: Sorry, I didn't get that. Can you please rephrase or select from the below
+      options.
+  utter_under_dev:
+  - buttons:
+    - payload: /greet
+      title: Back to Main Menu
+    text: This feature is still under development.
+  utter_week_duration:
+  - buttons:
+    - payload: /select_week
+      title: Update Week
+    - payload: /select_days
+      title: Update Duration
+    text: Please Select from the below options.
+session_config:
+  carry_over_slots_to_new_session: false
+  session_expiration_time: 1
+slots:
+  CARDINAL:
+    type: text
+  hospitalization_days:
+    type: text
+  region:
+    type: text
+  scenario:
+    type: text
+  week_ending_date:
+    type: text
