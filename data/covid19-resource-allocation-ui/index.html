@@ -1,0 +1,546 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name=" description" content="A dashboard for 2019 Novel Coronavirus (COVID-19) surveillance data. Time slider provides a different perspective. Supports interactive heatmap, data query and export.">
+    <meta name="keywords" content="2019 Novel Coronavirus, covid dashboard, covid-19 dashboard, COVID-19, resource 0ptimization data, heatmap">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,user-scalable=0" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@uva_bi" />
+    <meta name="twitter:creator" content="@uva_bi" />
+    <meta property="og:url" content="https://nssac.bii.virginia.edu/covid-19/dashboard" />
+    <meta property="og:title" content="COVID-19 Medical Resource Demand Dashboard" />
+    <meta property="og:description" content="." />
+    <meta property="og:image" content="https://nssac.bii.virginia.edu/covid-19/vmrddash/uva_dashboard.png" />
+    <title>COVID-19 Medical Resource Demand Dashboard</title>
+    <link rel="icon" sizes="16x16 32x32" href="images/favicon.ico">
+
+    <!-- Owl Stylesheets -->
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+
+    <link rel="stylesheet" href="https://js.arcgis.com/3.31/dijit/themes/claro/claro.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/3.31/dojox/form/resources/RangeSlider.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/3.31/esri/css/esri.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="css/buttons.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="css/datepicker.css" />
+
+    <!-- local css to layout -->
+    <link rel="stylesheet" href="css/layout-local.css" />
+    <link rel="stylesheet" type="text/css" href="css/noUISlider.css" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/media-query.css" />
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/1.0.8/jquery.csv.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/v/dt/dt-1.10.20/b-1.6.1/b-html5-1.6.1/datatables.min.js"></script>
+    <script defer src="https://js.arcgis.com/3.31/"></script>
+    <script defer type="text/javascript" src="scripts/main.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+
+    <script src="https://www.amcharts.com/lib/version/4.9.16/core.js"></script>
+    <script src="https://www.amcharts.com/lib/version/4.9.16/charts.js"></script>
+    <script src="https://www.amcharts.com/lib/version/4.9.16/themes/animated.js"></script>
+    <script src="https://www.amcharts.com/lib/version/4.9.16/themes/dark.js"></script>
+
+    <!-- <script src="js/amchart_barchart.js"></script> -->
+    <script src="js/amchart_linechart.js"></script>
+    <script src="js/noUISlider.js"></script>
+
+
+    <!-- carosel file -->
+    <script src="js/owl.carousel.js"></script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0">
+    </script>
+    <script src="https://platform.linkedin.com/in.js" type="text/javascript">
+        lang: en_US
+    </script>
+    <script src="js/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
+</head>
+
+<body class="container-fluid h-100 claro" data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="design:'headline',gutters:false">
+
+    <header class="row">
+        <!-- Application Header -->
+        <div class="col-12" style="border-bottom: 3px solid #e57200;">
+
+            <!-- Desktop/IPad View -->
+            <div class="w-100 d-none d-lg-flex align-items-center justify-content-left">
+                <div class="d-flex mr-auto align-items-center">
+                    <a href="https://biocomplexity.virginia.edu/" target="_blank">
+                        <img src="images/logos/bii_logo_v5-01.png" class="img-fluid" style="height: 4rem;" alt="BII@UVA">
+                    </a>
+                    <div class="d-none d-lg-flex" style="margin-top: 0.5rem;color: white; font-size: 1.7rem;margin-left: 1rem;">
+                        <div class="applicationTitle d-flex">COVID-19 Medical Resource Demand Dashboard</div>
+                    </div>
+                </div>
+
+                <div class="icon-bar d-flex">
+                    <div class="d-flex linksContainer align-items-center justify-content-end">
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fnssac.bii.virginia.edu%2Fcovid-19%2Fdashboard%2F&amp;src=sdkpreparse" target="_blank" class="icon-link round-corner facebook fill ml-1"><i
+                                class="fa fa-facebook"></i>
+                            <!-- <span style="color: white;padding-left: 6px;">Share</span> -->
+                        </a>
+                        <a class="icon-link round-corner twitter fill ml-1" href="https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Flocalhost%3A8080%2Fmaster%2Findex.html&ref_src=twsrc%5Etfw&text=Check%20out%20this%20%23covid19%20dashboard%20by%20%40UVA_BI%20which%20has%20a%20time%20slider.%20Search%20is%20easy%3A%20click%20on%20Data%20icon%20and%20type%20something.&tw_p=tweetbutton&url=https%3A%2F%2Fnssac.bii.virginia.edu%2Fcovid-19%2Fdashboard%2F"
+                            data-url="https://nssac.bii.virginia.edu/covid-19/dashboard/" data-show-count="false" data-text="Check out this #covid19 dashboard by @UVA_BI which has a time slider. Search is easy: click on Data icon and type something." target="_blank">
+                            <i class="fa fa-twitter"></i>
+                            <!-- <span style="color: white;padding-left: 6px;">Tweet</span> -->
+                        </a>
+                        <a class="icon-link round-corner linkedin fill ml-1" href="https://www.linkedin.com/login?fromSignIn=true&trk=guest_homepage-basic_nav-header-signin" data-url="https://nssac.bii.virginia.edu/covid-19/dashboard/" target="_blank">
+                            <i class="fa fa-linkedin"></i>
+                            <!-- <span style="color: white;padding-left: 6px;">Share</span> -->
+                        </a>
+                        <a href="https://youtu.be/9Hss4vP01IY" target="_blank" class="dt-button dashboardButton videoButton ml-1">
+                            <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                            <!-- <img src="images/social/youtube-logo-hd-8.png"/> -->
+                            <!-- <i class="fa fa-caret-right" aria-hidden="true"></i> -->
+                            Tutorial
+                        </a>
+
+
+                        <a class="dt-button dashboardButton ml-1" href="http://nssac.bii.virginia.edu/covid-19/dashboard/" target="_blank">Surveillance
+                            Dashboard
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="d-flex align-items-center">
+                    <button type="button" class="btn video-btn d-inline-flex moreOptionDropDown" style="vertical-align: top !important;">
+
+                        <i class="fa fa-bars hamburgerIcon hamburgerIconMobile" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile/iPad Portrait View -->
+            <div class="w-100 pt-2 pb-2 d-flex d-lg-none justify-content-between mobileHeaderRow">
+
+                <div class="d-flex mr-auto align-items-center">
+                    <a href="https://biocomplexity.virginia.edu/" target="_blank">
+                        <img src="images/favicon.ico" sizes="16x16 32x32" class="img-fluid logo" alt="BII@UVA">
+                    </a>
+                    <div class="applicationTitle title">
+                        COVID-19 Medical Resource Demand Dashboard
+                    </div>
+                </div>
+
+                <div class="icon-bar d-flex">
+                    <div class="d-flex linksContainer align-items-center justify-content-end">
+
+                    </div>
+
+                </div>
+                <div class="d-flex align-items-center ">
+                    <i class="fa fa-bars hamburgerIcon hamburgerIconMobile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+                </div>
+            </div>
+
+        </div>
+
+    </header>
+
+    <div id="overlay" style="display:block;">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- This is to show not-supported message when in Mobile's Landscape mode-->
+    <div class="not-supported d-none w-100 justify-content-center align-items-center" style="flex-direction: column;">
+
+        <div class="pb-2">Our Application is designed to work in Portrait mode. Please rotate your device</div>
+        <div class="d-flex justify-content-center"> <img class="tooltip-img" style="width: 65%;" src="images/not-supported.png" alt="Help"> </div>
+
+    </div>
+
+    <div class="supported-content w-100">
+
+        <div class="row my-1 scenarioRow">
+            <div class="col-12 d-lg-flex" style="align-items: center;">
+
+                <div class="d-flex scenario-heading-section" style="align-items: center;">
+                    <div class="d-none d-lg-flex scenario-heading">
+                        <span>Scenarios</span>
+                        <i class="d-flex justify-content-center align-items-center fa fa-info-circle pl-1" style="cursor: pointer; padding-top: 3px;" data-toggle="popover" data-html="true" data-trigger="hover focus" data-placement="bottom" data-title="What are Scenarios?" data-content="Scenarios are calibrated simulation models used to calculate projected hospitalizations and resource demands.
+              These models depend on transmissibility parameters that indicate how contagious the disease is and the characteristics and number of people who are infected at the onset of the outbreak;
+               they may also include interventions, such as stay-at-home orders."></i>
+                    </div>
+                    <!-- only for mobile Scenarios start-->
+                    <div class="d-flex d-lg-none scenarioText" style="color: white;">Scenarios</div>
+                    <div class="arrow-right d-none d-lg-flex"></div>
+                    <!-- only for mobile Scenarios end-->
+                </div>
+
+                <div class="scenario-content-section pl-3 ml-2 ml-lg-0 mr-2 mr-lg-auto">
+                    <div id="scenarios" class="owl-carousel scenarios-contener" style="align-items: center;"> </div>
+                </div>
+
+                <!-- <div class="d-none d-lg-flex query-content-section largedeviceQueryBoxRow"> -->
+                <div class="d-flex query-content-section">
+                    <div id="queryWrapper" class="d-flex" style="align-items: center;">
+
+                        <div class="input-group mr-1">
+                            <input name="queryByName" id="queryByName" type="text" class="form-control" aria-label="Small" placeholder="Query by comma separated names" aria-describedby="Query by comma separated names">
+
+                            <div class="d-lg-none input-group-append queryFilter" style="cursor: pointer;">
+                                <span class="input-group-text" style="padding: .375rem .5rem;"><i
+                                        class="fa fa-search"></i></span>
+                            </div>
+
+                            <div class="input-group-append resetDefault" style="cursor: pointer;">
+                                <span class="input-group-text" style="padding: .375rem .5rem;"><i
+                                        class="fa fa-times-circle" style="font-size: 1.4em;"></i></span>
+                            </div>
+                        </div>
+
+                        <button class="d-none d-lg-flex btn btn-warning queryFilter">Query</button>
+                        <!-- <button  class="btn btn-light resetDefault">Reset</button> -->
+
+                        <button id="noResultFoundButton" class="d-none" type="button" class="btn btn-primary" data-toggle="modal" data-target="#noResultFoundPopUp">
+                            Trigger No result found Popup
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row mb-1 mt-2 sliderRow">
+
+            <div class="d-flex col-lg-6 col-xl-6 col-md-12 col-sm-12 col-12 pr-lg-0 mb-2 mb-lg-0 align-items-center hospitalSliderContainer">
+                <div class="d-flex scenario-heading">
+                    <span>Capacity (Beds)</span>
+                    <i class="d-flex justify-content-center align-items-center fa fa-info-circle pl-1" style="cursor: pointer; padding-top: 3px;" data-toggle="popover" data-html="true" data-trigger="hover focus" data-placement="bottom" data-title="What is Capacity(Beds) ?"
+                        data-content="The Percentage of Occupied Beds calculations assume by default that 80% of the hospital beds in each region are taken up with non-COVID-2019 patients, and that most regions could support up to 120% of their normal capacity with minimal assistance. 
+                        The Capacity (Beds) slider allows users to customize that range based on knowledge they may have of actual non-COVID-19 activity or maximum capacities in their areas. The calculations do not take staffing considerations or ventilators into account."></i>
+                </div>
+                <div class="d-flex arrow-right mr-2"></div>
+                <div id="slider-range"></div>
+                <div class="d-flex ml-auto mr-2 applyBtn align-items-center justify-content-center">
+                    <button type="button" value="Hospitalizations (Median)" class="btn btn-warning activeBtn applyHospitalCapacity" style="padding: 3px 10px;" title="Apply">Apply
+                    </button>
+                </div>
+            </div>
+
+            <div class="d-flex col-lg-6 col-xl-6 col-md-12 col-sm-12 col-12 pl-lg-0 align-items-center hospitalSliderContainer">
+                <div class="d-flex scenario-heading">
+                    <span>Hospital Duration</span>
+                    <i class="d-flex justify-content-center align-items-center fa fa-info-circle pl-1" style="cursor: pointer; padding-top: 3px;" data-toggle="popover" data-html="true" data-trigger="hover focus" data-placement="bottom" data-title="What is Hospital Duration?"
+                        data-content="Hospital Occupancy depends not only on the number of people entering the hospital, but also on the duration of their stay.
+                         If people with COVID-19 are hospitalized for 14 days on average as opposed to 8 days, then they will hold onto their beds much longer, significantly increasing hospital occupancy and the Percentage of Occupied Beds."></i>
+                </div>
+                <div class="d-flex arrow-right mr-2"></div>
+                <div id="duration-slider"></div>
+                <div class="d-flex ml-auto mr-2 applyBtn align-items-center justify-content-center">
+                    <button type="button" value="Hospital Duration" class="btn btn-warning activeBtn applyHospitalDuration" style="padding: 3px 10px;" title="Apply">Apply
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Space for Map and Data-->
+
+        <div class="row mapDataContainer mt-1">
+
+            <div class="col-lg-6 col-xl-7 col-sm-12 pr-lg-0" id="mapContainerRow">
+                <div class="col-12 p-0 mapContainer">
+                    <div class="h-100" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:' left'">
+
+                        <!--Map Section-->
+                        <div class="h-100" id="mapCanvas" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'center'">
+                            <div class="row w-100 map-rendering-options">
+                                <div class="d-lg-none d-flex justify-content-start mr-2 toolbarProjectionsMobile btn-whitesmoke" role="toolbar" aria-label="Toolbar with button groups">
+                                    <div id="renderField" class="btn-group ml-auto d-flex " role="group" aria-label="First group">
+                                        <button type="button" value="Projected Demand (%)" class="btn btn-primary confirmBtn renderField pr-2 mr-2" title="Percentage of Occupied Beds">
+                                            <span class="fa fa-bed pr-2" aria-hidden="true"></span>
+                                        </button>
+
+                                        <button type="button" value="Hospitalizations (Median)" class="btn btn-danger activeBtn disabled renderField" title="Weekly Hospitalizations">
+                                            <span class="fa fa-users pr-2" aria-hidden="true"></span>
+                                        </button>
+
+                                    </div>
+                                </div>
+
+                                <div class="d-lg-flex d-none timeline-heading-section" style="align-items: center;background-color: transparent;padding-left: 0px;">
+                                    <div class="d-none d-lg-flex scenario-heading">
+                                        <span>Projections</span>
+                                        <i class="d-flex justify-content-center align-items-center fa fa-info-circle pl-1" style="cursor: pointer; padding-top: 3px;" data-toggle="popover" data-html="true" data-trigger="hover focus" data-placement="bottom" data-title="What are Projections?"
+                                            data-content="Our projections depend on output from our model simulations (Scenarios.) 
+                  Weekly Hospitalizations represent general trends compared across different models, but should not be interpreted as hard forecasts because 
+                  conditions will change as disease parameters are refined and new interventions emerge. 
+                  The Percentage of Occupied Beds is calculated from projected weekly hospitalizations, the number of hospital beds in the selected regions (assuming that 80% of total occupancy is taken up by non-COVID-19 patients),
+                   and the duration of the typical hospital stay." data-original-title="" title=""></i>
+                                    </div>
+                                    <div class="d-none d-lg-flex arrow-right"></div>
+                                </div>
+
+
+                                <div class="d-lg-flex d-none justify-content-start toolbarProjections btn-whitesmoke" role="toolbar" aria-label="Toolbar with button groups">
+                                    <div id="renderField" class="btn-group ml-auto d-flex" role="group" aria-label="First group">
+                                        <button type="button" value="Projected Demand (%)" class="btn btn-primary confirmBtn renderField pr-1 mr-1" title="Percentage of Occupied Beds">
+                                            <span class="fa fa-bed pr-1" aria-hidden="true"></span>Percentage of
+                                            Occupied Beds
+                                        </button>
+
+                                        <button type="button" value="Hospitalizations (Median)" class="btn btn-danger activeBtn disabled renderField" title="Weekly Hospitalizations">
+                                            <span class="fa fa-users pr-1" aria-hidden="true"></span>Weekly
+                                            Hospitalizations
+                                        </button>
+
+                                    </div>
+                                </div>
+
+                                <div class="d-flex justify-content-end btn-whitesmoke reset-container ml-auto" role="toolbar" aria-label="Toolbar with button groups">
+                                    <div class="btn-group ml-auto d-flex" role="group" aria-label="First group">
+                                        <button type="button" value="2" class="btn btn-secondary getQueryResultsBtn d-none align-items-center mr-1" title="Back to Query Results" style="color: white !important;">
+                                            <i class="fa fa-long-arrow-left pr-lg-1" style="font-size: 1.5em;"></i>
+                                            <span class="d-lg-flex d-none">Back to Query</span>
+                                        </button>
+
+                                        <button type="button" value="2" class="btn btn-secondary resetBtn d-flex align-items-center" title="Reset" style="color: white !important;">
+                                            <i class="fa fa-undo pr-lg-1" style="font-size: 1.2em;"></i>
+                                            <span class="d-lg-flex d-none">Reset</span>
+                                        </button>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="d-lg-none d-flex justify-content-start mr-2 toolbarProjectionsMobile" role="toolbar"
+                aria-label="Toolbar with button groups">
+                <div id="renderField" class="btn-group ml-auto d-flex resetOptions" role="group"
+                  aria-label="First group">
+                  <button type="button" value="Projected Demand (%)"
+                    class="btn btn-primary confirmBtn renderField pr-2 mr-2" title="Projected Resource Demand (%)">
+                    <span class="fa fa-bed pr-2" aria-hidden="true"></span>
+                  </button>
+                  <button type="button" value="Hospitalizations (Median)"
+                    class="btn btn-danger activeBtn disabled renderField" title="Weekly Hospitalizations">
+                    <span class="fa fa-users pr-2" aria-hidden="true"></span>
+                  </button>
+                </div>
+              </div>
+              <div class="d-lg-flex d-none timeline-heading-section resetOptions"
+                style="align-items: center;background-color: transparent;padding-left: 0px;">
+                <div class="d-none d-lg-flex scenario-heading">
+                  <span>Projections</span>
+                  <i class="d-flex justify-content-center align-items-center fa fa-info-circle pl-1"
+                    style="cursor: pointer; padding-top: 3px;" data-toggle="popover" data-html="true"
+                    data-trigger="hover focus" data-placement="bottom" data-title="What are Projections?" data-content="Our projections depend on output from our model simulations (Scenarios.) 
+                  Weekly Hospitalizations represent general trends compared across different models, but should not be interpreted as hard forecasts because 
+                  conditions will change as disease parameters are refined and new interventions emerge. 
+                  The Percentage of Occupied Beds is calculated from projected weekly hospitalizations, the number of hospital beds in the selected regions (assuming that 80% of total occupancy is taken up by non-COVID-19 patients),
+                   and the duration of the typical hospital stay." data-original-title="" title=""></i>
+                </div>
+                <div class="d-none d-lg-flex arrow-right mr-2"></div>
+              </div>
+              <div class="d-lg-flex d-none justify-content-start mr-2 toolbarProjections" role="toolbar"
+                aria-label="Toolbar with button groups">
+                <div id="renderField" class="btn-group ml-auto d-flex resetOptions" role="group"
+                  aria-label="First group" style="left: 17%;">
+                  <button type="button" value="Projected Demand (%)"
+                    class="btn btn-primary confirmBtn renderField pr-1 mr-1" title="Projected Resource Demand (%)">
+                    <span class="fa fa-bed pr-1" aria-hidden="true"></span>Percentage of Occupied Beds
+                  </button>
+                  <button type="button" value="Hospitalizations (Median)"
+                    class="btn btn-danger activeBtn disabled renderField" title="Weekly Hospitalizations">
+                    <span class="fa fa-users pr-2" aria-hidden="true"></span>Weekly Hospitalizations
+                  </button>
+                </div>
+              </div>
+              <div class="d-flex justify-content-end" role="toolbar" aria-label="Toolbar with button groups">
+                <div class="btn-group ml-auto d-flex resetOptions" role="group" aria-label="First group">
+                  <button type="button" value="2"
+                    class="btn btn-secondary getQueryResultsBtn d-none align-items-center mr-1"
+                    title="Back to Query Results" style="color: white !important;">
+                    <i class="fa fa-long-arrow-left pr-lg-1" style="font-size: 1.5em;"></i>
+                    <span class="d-lg-flex d-none">Back to Query</span>
+                  </button>
+                  <button type="button" value="2" class="btn btn-secondary resetBtn d-flex align-items-center"
+                    title="Reset" style="color: white !important;">
+                    <i class="fa fa-undo pr-lg-2" style="font-size: 1.2em;"></i>
+                    <span class="d-lg-flex d-none">Reset</span>
+                  </button>
+                </div>
+              </div> -->
+                        </div>
+
+                        <div id="displayOptionWrapper">
+                            <div id="legend"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 p-0 timelineContainer my-1 d-flex">
+
+                    <!-- <div class="col-12 d-flex p-0" style="align-items: center;">
+            <div class="timeline-content-section mr-auto">
+            </div>
+          </div> -->
+
+                    <!-- <input type="button" value="Play" id="playTimeline"> -->
+                    <div class="col-12 col-lg-10 col-md-10 col-xl-10 col-sm-10 d-flex p-0 timeline-content" style="align-items: center;">
+                        <div class="timeline-content-section mr-auto">
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-2 col-md-2 col-xl-2 col-sm-2 d-flex p-0 timeline-video-container" style="align-items: center;">
+                        <div class="timeline-video-item-section mr-auto d-flex w-100">
+                            <a href="javascript:void(0)" class="icon-link round-corner ml-1" id="playTimelineVideo" title="Play timeline video">
+                                <i class="fa fa-play" aria-hidden="true"></i>
+                            </a>
+
+                            <a href="javascript:void(0)" class="icon-link round-corner ml-1 disableVideoBtn" id="pauseTimelineVideo" title="pause timeline video">
+                                <i class="fa fa-pause" aria-hidden="true"></i>
+                            </a>
+
+                            <a href="javascript:void(0)" class="icon-link round-corner ml-1 disableVideoBtn" id="stopTimelineVideo" title="stop timeline video">
+                                <i class="fa fa-stop" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-6 col-xl-5 col-sm-12 col-12 dataContainer" id="chartDataTableContainerRow">
+                <!-- <div class="h-100"> -->
+                <div class="row tabMenu">
+                    <div class="col-12 d-flex align-items-center">
+                        <div class="map d-flex col-lg-6 col-md-6 col-sm-4 d-xl-none d-lg-none pt-2 pb-1 justify-content-center dataChartFilter selectedFilter" style="border-bottom: 2px solid rgb(255,140,0);">Map</div>
+                        <div class="charts col-lg-6 col-md-6 col-sm-4 pt-2 pb-1 d-flex justify-content-center dataChartFilter" style="border-bottom: 2px solid rgb(255,140,0);">Chart</div>
+                        <div class="data col-lg-6 col-md-6 col-sm-4 pt-2 pb-1 d-flex justify-content-center dataChartFilter" style="border-bottom: 2px solid rgb(255,140,0);">Data</div>
+                    </div>
+
+                </div>
+                <div style="height: calc(100% - 35px);">
+                    <div class="col-12 d-flex align-items-centers">
+                        <div class="mt-2">
+                            <input id="allToggleButton" type="checkbox" checked data-toggle="toggle" data-width="150" data-height="35" data-off="All Scenarios" data-on="Selected Scenario" data-onstyle="success" data-offstyle="danger" />
+                        </div>
+
+                        <div class="scenarioDropdown mt-2" style="display:none; margin-left: 25px;">
+                            <select name="dropdown" id="scenariosDropdown" class="topKSelect custom-select">
+                                    <option value="pob">Percentage of Occupied Beds</option>
+                                    <option value="wh">Weekly Hospitalizations</option>
+                                </select>
+                        </div>
+                    </div>
+
+                    <div class="row d-none dataTableContainer">
+                        <div id="dataTable" class="col-12 h-100"></div>
+                    </div>
+
+                    <div class="charContainerHeight">
+                        <div class="row h-100 chartContainer">
+                            <div id="chartdiv" class="col-12 pl-0 pr-0"></div>
+                        </div>
+                    </div>
+
+                    <div class="foot-note-chart" id="chartMessage">Weekly Hospitalizations and Percentage of Occupied Beds are projected values to convey relative trends, and should not be taken as actuals. They will be updated as more information becomes available.</div>
+                </div>
+                <!-- </div> -->
+
+            </div>
+
+        </div>
+    </div>
+
+    </div>
+
+    <footer class=" footer-section d-flex mt-1 ">
+        <div class=" mobileDeviceSocial ">
+
+            <div class=" d-lg-none d-flex footerIcons ">
+                <a href=" https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fnssac.bii.virginia.edu%2Fcovid-19%2Fdashboard%2F&amp;src=sdkpreparse " target=" _blank " class=" icon-link round-corner facebook fill "><i class=" fa fa-facebook "></i>
+
+                </a>
+                <a class=" icon-link round-corner twitter fill " href=" https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Flocalhost%3A8080%2Fmaster%2Findex.html&ref_src=twsrc%5Etfw&text=Check%20out%20this%20%23covid19%20dashboard%20by%20%40UVA_BI%20which%20has%20a%20time%20slider.%20Search%20is%20easy%3A%20click%20on%20Data%20icon%20and%20type%20something.&tw_p=tweetbutton&url=https%3A%2F%2Fnssac.bii.virginia.edu%2Fcovid-19%2Fdashboard%2F "
+                    data-url=" https://nssac.bii.virginia.edu/covid-19/dashboard/ " data-show-count=" false " data-text=" Check out this #covid19 dashboard by @UVA_BI which has a time slider. Search is easy: click on Data icon and type something.
+                                " target=" _blank ">
+                    <i class=" fa fa-twitter "></i>
+                </a>
+                <a class=" icon-link round-corner linkedin fill " href=" https://www.linkedin.com/login?fromSignIn=true&trk=guest_homepage-basic_nav-header-signin " data-url=" https://nssac.bii.virginia.edu/covid-19/dashboard/ " target=" _blank ">
+                    <i class=" fa fa-linkedin "></i>
+                </a>
+                <a href=" https://youtu.be/9Hss4vP01IY " target=" _blank " class=" dt-button dashboardButton videoButton ml-1 ">
+                    <i class=" fa fa-youtube-play " aria-hidden=" true "></i> Tutorial
+                </a>
+
+            </div>
+
+            Copyright © 2020, UVA; ALL RIGHTS RESERVED. THE CONTENTS OF THIS DASHBOARD--INCLUDING DATA, MAPS, AND PLOTS--IS PROVIDED TO THE PUBLIC SOLELY FOR RESEARCH AND ACADEMIC PURPOSES. UVA PROVIDES NO WARRANTIES, CLAIMS OR REPRESENTATIONS–WHETHER EXPRESS, IMPLIED,
+            OR STATUTORY–WITH RESPECT TO THIS DASHBOARD, INCLUDING, WITHOUT LIMITATION, WARRANTIES OF QUALITY, PERFORMANCE, NON–INFRINGEMENT, MERCHANTABILITY, ACCURACY, ADEQUACY, VALIDITY, RELIABILITY, COMPLETENESS, OR FITNESS FOR A PARTICULAR PURPOSE,
+            AND DISAVOWS ANY REPRESENTATIONS OR WARRANTIES CREATED BY COURSE OF DEALING, COURSE OF PERFORMANCE, TRADE USAGE OR OTHERWISE. UNDER NO CIRCUMSTANCES WILL UVA HAVE ANY LIABILITY FOR ANY LOSS OR DAMAGE INCURRED AS A RESULT OF THE USE OF THIS
+            DASHBOARD OR RELIANCE ON ANY INFORMATION PROVIDED HEREIN. THIS DASHBOARD MAY INCORPORATE DATA OR OTHER CONTENT BELONGING TO OR ORIGINATING FROM THIRD PARTIES. WE DO NOT WARRANT, ENDORSE, GUARANTEE, OR ASSUME RESPONSIBILITY FOR THE ACCURACY
+            OR RELIABILITY OF ANY THIRD-PARTY INFORMATION.
+        </div>
+
+    </footer>
+
+    <div id="optionMenu" class="optionMenu text-left" style="display: none;" aria-labelledby="navbarDropdown">
+        <ul>
+
+            <a href="https://covid19.biocomplexity.virginia.edu/" target="_blank">
+                <li>NSSAC COVID-19</li>
+            </a>
+
+            <a href="https://nssac.github.io/covid-19/resource-demand-dashboard/" target="_blank">
+                <li>README</li>
+            </a>
+
+            <a href="https://nssac.github.io" target="_blank">
+                <li style="border-top: 1px solid black">
+                    NSSAC Research
+                </li>
+            </a>
+
+            <a href="http://nssac.bii.virginia.edu/covid-19/dashboard/" class="d-lg-none" target="_blank">
+                <li style="border-top: 1px solid black; ">
+                    Surveillance Dashboard
+                </li>
+            </a>
+            <a href="mailto:nssac_ncov_support@virginia.edu">
+                <li style=" border-top: 1px solid black;">
+                    Contact Us
+                </li>
+            </a>
+
+        </ul>
+    </div>
+
+    <!-- No Result Popup -->
+    <div class=" modal fade " id=" noResultFoundPopUp " tabindex=" -1 " role=" dialog " aria-labelledby=" exampleModalCenterTitle " aria-hidden=" true ">
+        <div class=" modal-dialog modal-dialog-centered " role=" document ">
+            <div class=" modal-content ">
+                <div class=" modal-header ">
+                    <h5 class=" modal-title " id=" exampleModalLongTitle ">Query Result</h5>
+                    <button type=" button " class=" close " data-dismiss=" modal " aria-label=" Close ">
+                        <span aria-hidden=" true ">&times;</span>
+                    </button>
+                </div>
+                <div class=" modal-body queryResultPopUp ">
+
+                </div>
+                <div class=" modal-footer ">
+                    <button type=" button " class=" btn btn-secondary " data-dismiss=" modal ">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
