@@ -20,6 +20,13 @@ RUN pip3 install pandas
 #Adding the codebase to our work directory
 RUN cp -R ./chatbot/* ./
 
+
+RUN ls
+
+RUN chmod 777 ./logs
+
+
+
 # By best practices, don't run the code with root user
 USER 1001
 
