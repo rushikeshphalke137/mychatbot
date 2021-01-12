@@ -2,7 +2,7 @@
     "configuration": {
         "region": "region",
         "application_title": "COVID-19 Medical Resource Demand Dashboard - US National",
-        "chart_title": "United States National Demand Forecast",
+        "chart_title": "United States National Demand Projections",
         "layer_url": "https://services2.arcgis.com/8k2PygHqghVevhzy/arcgis/rest/services/covid19_nssac_resource_optimization/FeatureServer/0",
         "layer_attribute": "HRRCITY",
         "query_attribute": "HRRNUM",
@@ -33,31 +33,32 @@
             "Total_Pop"
         ],
         "defaultDuration": 7,
-        "regionFile": "data_us_durations/HRR_Data.csv"
+        "regionFile": "data_us_durations/HRR_Data.csv",
+        "noticeMessage": ""
     },
     "scenarios": [{
             "scenario_display_name_line1": "Adaptive",
             "scenario_display_name_line2": "",
             "position": 0,
             "directory": "data_us_durations/sc-Adaptive-dur7-projBounds",
-            "description": "The Adaptive Fitting Projection model fits each HRR region precisely, using recent trends to guide the future projections. This scenario assumes typical COVID-19 hospitalizations last about 7 days. Updated 2020-12-08.",
-			"last_update": "2020-12-08"
+            "description": "The Adaptive Fitting Projection model fits each HRR region precisely, using recent trends to guide the future projections. This scenario assumes typical COVID-19 hospitalizations last about 7 days. Updated 2021-01-06.",
+            "last_update": "2021-01-06"
         },
         {
             "scenario_display_name_line1": "Adaptive-MoreControl",
             "scenario_display_name_line2": "",
             "position": 0,
             "directory": "data_us_durations/sc-Adaptive-MoreControl-dur7-projBounds",
-            "description": "The Adaptive-MoreControl Fitting Projection model fits each HRR region precisely, using recent trends to guide the future projections, but considers the impact if there is a 15% decrease in transmission starting December 10, 2020. This scenario assumes typical COVID-19 hospitalizations last about 7 days. Updated 2020-12-08.",
-			"last_update": "2020-12-08"
+            "description": "The Adaptive-MoreControl Fitting Projection model fits each HRR region precisely, using recent trends to guide the future projections, but considers the impact if there is a 15% decrease in transmission starting December 10, 2020. This scenario assumes typical COVID-19 hospitalizations last about 7 days. Updated 2021-01-06.",
+            "last_update": "2021-01-06"
         },
         {
             "scenario_display_name_line1": "Adaptive-LessControl",
             "scenario_display_name_line2": "",
             "position": 0,
             "directory": "data_us_durations/sc-Adaptive-LessControl-dur7-projBounds",
-            "description": "The Adaptive-LessControl Fitting Projection model fits each HRR region precisely, using recent trends to guide the future projections, but considers the impact if there is a 15% increase in transmission starting December 10, 2020. This scenario assumes typical COVID-19 hospitalizations last about 7 days. Updated 2020-12-08.",
-			"last_update": "2020-12-08"
+            "description": "The Adaptive-LessControl Fitting Projection model fits each HRR region precisely, using recent trends to guide the future projections, but considers the impact if there is a 15% increase in transmission starting December 10, 2020. This scenario assumes typical COVID-19 hospitalizations last about 7 days. Updated 2021-01-06.",
+            "last_update": "2021-01-06"
         }
     ]
 }

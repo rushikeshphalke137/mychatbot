@@ -153,6 +153,8 @@ require([
                 globals.scenariosDirectory = globals.selectedScenario.directory;
 
                 $('.applicationTitle').html(globals.configuration.application_title);
+                $('#notice').text(globals.configuration.noticeMessage);
+
                 $('#queryByName')[0].value = "";
                 globals.durationSlider.noUiSlider.set(globals.configuration.defaultDuration);
                 globals.hospitalDuration = globals.configuration.defaultDuration;

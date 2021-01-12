@@ -4,12 +4,12 @@ function renderSummaryDataChart() {
 }
 
 function renderQueriedRegionsChart() {
-    var chartTitle = "Demand Forecast for Queried Regions";
+    var chartTitle = "Demand Projections for Queried Regions";
     renderChartData(chartTitle);
 }
 
 function renderSelectedRegionsChart(selectedHRRNumber, selectedHRRName) {
-    var chartTitle = "Demand Forecast for " + selectedHRRName;
+    var chartTitle = "Demand Projections for " + selectedHRRName;
     renderChartData(chartTitle);
 }
 
@@ -459,11 +459,11 @@ function mergeDataAcrossScenarios() {
 function renderAllScenarios() {
     var chartTitle;
     if (globals.selectedRegionNum != 0) {
-        chartTitle = "Demand Forecast for " + globals.selectedRegionName;
+        chartTitle = "Demand Projections for " + globals.selectedRegionName;
     } else if (globals.queriedRegionNames.length != 0) {
-        chartTitle = "Demand Forecast for Queried Regions";
+        chartTitle = "Demand Projections for Queried Regions";
     } else {
-        chartTitle = "Demand Forecast for All Scenarios";
+        chartTitle = "Demand Projections for All Scenarios";
     }
     var selection = $("#scenariosDropdown").children("option:selected").val();
     if (selection == "wh")
