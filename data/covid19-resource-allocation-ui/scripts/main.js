@@ -86,6 +86,7 @@ globals.rawData = {};
 globals.jsonData = {};
 globals.timelineJsonData = {};
 globals.regionData = {};
+globals.actualTimelineData = {};
 
 globals.minHospitalCapacity = 80;
 globals.maxHospitalCapacity = 120;
@@ -144,7 +145,7 @@ require([
             $("#allToggleButton").bootstrapToggle("on");
         });
 
-        $.getJSON("data_us_durations/supported_scenarios.json")
+        $.getJSON("data_va_actuals/supported_scenarios.json")
             //$.getJSON("data_va/supported_scenarios.json")
             .done(function(json) {
                 globals.configuration = json.configuration;
@@ -158,6 +159,9 @@ require([
                 $('#queryByName')[0].value = "";
                 globals.durationSlider.noUiSlider.set(globals.configuration.defaultDuration);
                 globals.hospitalDuration = globals.configuration.defaultDuration;
+
+                if (globals.configuration.region == 'vhass')
+                    $(".scenarioActualDropdown").show();
 
                 loadRegionData();
                 setupMapLayer();
@@ -191,6 +195,25 @@ require([
             updateHospitalDuration();
         });
 
+        $("#scenariosDropdown").change(function() {
+            renderAllScenarios();
+        });
+
+        $("#scenariosActualDropdown").change(function() {
+            var selection = $("#scenariosActualDropdown").children("option:selected").val();
+            if (selection == "withActuals")
+                renderProjectionsChart();
+            else {
+                if (globals.selectedRegionNum != 0) {
+                    renderSelectedRegionsChart(globals.selectedRegionNum, globals.selectedRegionName);
+                } else if (globals.queriedRegionNames.length != 0) {
+                    renderQueriedRegionsChart();
+                } else {
+                    renderSummaryDataChart();
+                }
+            }
+        });
+
         bindMenuEvents();
         bindChartAndDataTab();
         bindSearchAndResetButton();
@@ -220,12 +243,17 @@ require([
             }
 
             if ($('#allToggleButton')[0].checked) {
-                if (globals.selectedRegionNum != 0) {
-                    renderSelectedRegionsChart(globals.selectedRegionNum, globals.selectedRegionName);
-                } else if (globals.queriedRegionNames.length != 0) {
-                    renderQueriedRegionsChart();
-                } else {
-                    renderSummaryDataChart();
+                var selection = $("#scenariosActualDropdown").children("option:selected").val();
+                if (selection == "withActuals")
+                    renderProjectionsChart();
+                else {
+                    if (globals.selectedRegionNum != 0) {
+                        renderSelectedRegionsChart(globals.selectedRegionNum, globals.selectedRegionName);
+                    } else if (globals.queriedRegionNames.length != 0) {
+                        renderQueriedRegionsChart();
+                    } else {
+                        renderSummaryDataChart();
+                    }
                 }
             } else {
                 renderAllScenarios();
@@ -345,10 +373,6 @@ require([
             });
         }
 
-        $("#scenariosDropdown").change(function() {
-            renderAllScenarios();
-        });
-
         function readDataFromCSVFile(file) {
             $.ajax({
                 url: file,
@@ -358,7 +382,14 @@ require([
                     var jsonobject = JSON.stringify(items);
 
                     globals.timelineJsonData = JSON.parse(jsonobject);
-                    //globals.rawData = JSON.parse(jsonobject);
+
+                    globals.actualTimelineData = globals.timelineJsonData.filter(function(data) {
+                        return data.Type == "actual";
+                    });
+
+                    globals.timelineJsonData = globals.timelineJsonData.filter(function(data) {
+                        return data.Type != "actual";
+                    });
                 },
                 dataType: "text",
                 complete: function() {}
@@ -554,7 +585,8 @@ require([
                 var csvFipsValue = globals.jsonData[i][key];
 
                 if (fipsValue == csvFipsValue) {
-                    return Number(globals.jsonData[i][globals.renderFieldIndex]);
+                    // toFixed returns string, hence using Number() function again to convert string to number.
+                    return Number(Number(globals.jsonData[i][globals.renderFieldIndex]).toFixed(1));
                 }
             }
             return 0;
@@ -695,7 +727,11 @@ require([
 
                     // Display Chart
                     if ($('#allToggleButton')[0].checked) {
-                        renderQueriedRegionsChart();
+                        var selection = $("#scenariosActualDropdown").children("option:selected").val();
+                        if (selection == "withActuals")
+                            renderProjectionsChart();
+                        else
+                            renderQueriedRegionsChart();
                     } else {
                         renderAllScenarios();
                     }
@@ -745,7 +781,11 @@ require([
                     }
 
                     if ($('#allToggleButton')[0].checked) {
-                        renderSelectedRegionsChart(globals.selectedRegionNum, globals.selectedRegionName);
+                        var selection = $("#scenariosActualDropdown").children("option:selected").val();
+                        if (selection == "withActuals")
+                            renderProjectionsChart();
+                        else
+                            renderSelectedRegionsChart(globals.selectedRegionNum, globals.selectedRegionName);
                     } else {
                         renderAllScenarios();
                     }
@@ -1005,7 +1045,7 @@ require([
             $("#timeline .owl-item").children('div:first').addClass('content-selected');
         });
 
-        $('#pauseTimelineVideo').off().on('click', function(event) { //pause button clciked timeline video action
+        $('#pauseTimelineVideo').off().on('click', function(event) { //pause button clicked timeline video action
             $('#playTimelineVideo').removeClass('disableVideoBtn');
             $('#pauseTimelineVideo').addClass('disableVideoBtn');
             $('#stopTimelineVideo').removeClass('disableVideoBtn');
@@ -1110,12 +1150,17 @@ require([
             renderTimeline();
 
             if ($('#allToggleButton')[0].checked) {
-                if (globals.selectedRegionNum != 0) {
-                    renderSelectedRegionsChart(globals.selectedRegionNum, globals.selectedRegionName);
-                } else if (globals.queriedRegionNames.length != 0) {
-                    renderQueriedRegionsChart();
-                } else {
-                    renderSummaryDataChart();
+                var selection = $("#scenariosActualDropdown").children("option:selected").val();
+                if (selection == "withActuals")
+                    renderProjectionsChart();
+                else {
+                    if (globals.selectedRegionNum != 0) {
+                        renderSelectedRegionsChart(globals.selectedRegionNum, globals.selectedRegionName);
+                    } else if (globals.queriedRegionNames.length != 0) {
+                        renderQueriedRegionsChart();
+                    } else {
+                        renderSummaryDataChart();
+                    }
                 }
             } else {
                 renderAllScenarios();
@@ -1185,12 +1230,17 @@ require([
             renderTimeline();
 
             if ($('#allToggleButton')[0].checked) {
-                if (globals.selectedRegionNum != 0) {
-                    renderSelectedRegionsChart(globals.selectedRegionNum, globals.selectedRegionName);
-                } else if (globals.queriedRegionNames.length != 0) {
-                    renderQueriedRegionsChart();
-                } else {
-                    renderSummaryDataChart();
+                var selection = $("#scenariosActualDropdown").children("option:selected").val();
+                if (selection == "withActuals")
+                    renderProjectionsChart();
+                else {
+                    if (globals.selectedRegionNum != 0) {
+                        renderSelectedRegionsChart(globals.selectedRegionNum, globals.selectedRegionName);
+                    } else if (globals.queriedRegionNames.length != 0) {
+                        renderQueriedRegionsChart();
+                    } else {
+                        renderSummaryDataChart();
+                    }
                 }
             } else {
                 renderAllScenarios();
@@ -1229,6 +1279,11 @@ require([
             } else {
                 globals.rawData = mergeDailyDataAcrossRegions();
             }
+
+            // Apply duration changes only on projection data. Filter out actual data.
+            globals.timelineJsonData = globals.timelineJsonData.filter(function(data) {
+                return data.Type != "actual";
+            });
 
             if (applyDuration) {
                 var cumulativeBeds = 0;
@@ -1618,12 +1673,17 @@ function bindChartAndDataTab() {
             $('.foot-note-chart').removeClass('d-none');
 
             if ($('#allToggleButton')[0].checked) {
-                if (globals.selectedRegionNum != 0) {
-                    renderSelectedRegionsChart(globals.selectedRegionNum, globals.selectedRegionName);
-                } else if (globals.queriedRegionNames.length != 0) {
-                    renderQueriedRegionsChart();
-                } else {
-                    renderSummaryDataChart();
+                var selection = $("#scenariosActualDropdown").children("option:selected").val();
+                if (selection == "withActuals")
+                    renderProjectionsChart();
+                else {
+                    if (globals.selectedRegionNum != 0) {
+                        renderSelectedRegionsChart(globals.selectedRegionNum, globals.selectedRegionName);
+                    } else if (globals.queriedRegionNames.length != 0) {
+                        renderQueriedRegionsChart();
+                    } else {
+                        renderSummaryDataChart();
+                    }
                 }
             } else {
                 renderAllScenarios();
@@ -1633,6 +1693,7 @@ function bindChartAndDataTab() {
         $('#chartdiv').parent().removeClass('invisibleHeight0');
         $('#allToggleButton').parent().removeClass('d-none');
         $('#scenariosDropdown').parent().removeClass('d-none');
+        $('#scenariosActualDropdown').parent().removeClass('d-none');
     });
 
     $('.data').on('click', function(e) {
@@ -1650,6 +1711,7 @@ function bindChartAndDataTab() {
         $('#dataTable').parent().removeClass('d-none');
         $('#allToggleButton').parent().addClass('d-none');
         $('#scenariosDropdown').parent().addClass('d-none');
+        $('#scenariosActualDropdown').parent().addClass('d-none');
         $('#chartDataTableContainerRow').css('height', '100%');
         $($.fn.dataTable.tables(true)).DataTable().columns.adjust();
     });
@@ -1668,6 +1730,7 @@ function bindChartAndDataTab() {
             $('.charContainerHeight').hide();
             $('#allToggleButton').parent().addClass('d-none');
             $('#scenariosDropdown').parent().addClass('d-none');
+            $('#scenariosActualDropdown').parent().addClass('d-none');
             $('.foot-note-chart').addClass('d-none');
         }
     });
@@ -1748,14 +1811,24 @@ function loadRegionData() {
 $('#allToggleButton').on('change', function(e) {
     if (this.checked) {
         $(".scenarioDropdown").hide();
-        if (globals.selectedRegionNum != 0) {
-            renderSelectedRegionsChart(globals.selectedRegionNum, globals.selectedRegionName);
-        } else if (globals.queriedRegionNames.length != 0) {
-            renderQueriedRegionsChart();
-        } else {
-            renderSummaryDataChart();
+
+        if (globals.configuration.region == 'vhass')
+            $(".scenarioActualDropdown").show();
+
+        var selection = $("#scenariosActualDropdown").children("option:selected").val();
+        if (selection == "withActuals")
+            renderProjectionsChart();
+        else {
+            if (globals.selectedRegionNum != 0) {
+                renderSelectedRegionsChart(globals.selectedRegionNum, globals.selectedRegionName);
+            } else if (globals.queriedRegionNames.length != 0) {
+                renderQueriedRegionsChart();
+            } else {
+                renderSummaryDataChart();
+            }
         }
     } else {
+        $(".scenarioActualDropdown").hide();
         $(".scenarioDropdown").show();
         renderAllScenarios();
     }

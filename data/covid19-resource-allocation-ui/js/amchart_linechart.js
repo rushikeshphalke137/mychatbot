@@ -265,7 +265,6 @@ function createHospitalizationSeries(chart, color) {
     hospitalizationSeries.tooltipText = `Weekly Hospitalizations: 
 {rangeValueY}`;
 
-
     hospitalizationSeries.tooltip.background.fill = am4core.color(color);
     hospitalizationSeries.showOnInit = true;
 
@@ -327,6 +326,8 @@ function mergeDataAcrossRegions(scenarioDirectory) {
                         mergedData[loop]["Upper Projected Demand Bound"] = parseFloat(mergedData[loop]["Upper Projected Demand Bound"]) + parseFloat(filteredData["Upper Projected Demand Bound"]);
                         mergedData[loop]["Total Projected Demand (%)"] = parseFloat(mergedData[loop]["Total Projected Demand (%)"]) + parseFloat(filteredData["Total Projected Demand (%)"]);
                         mergedData[loop]["Total Hospitalizations (Median)"] = parseFloat(mergedData[loop]["Total Hospitalizations (Median)"]) + parseFloat(filteredData["Total Hospitalizations (Median)"]);
+
+                        mergedData[loop]["Max Occupied Beds"] = parseFloat(mergedData[loop]["Max Occupied Beds"]) + parseFloat(filteredData["Max Occupied Beds"]);
                     }
                 } else {
                     mergedData = currentData;
@@ -348,6 +349,15 @@ function mergeDataAcrossRegions(scenarioDirectory) {
         mergedData[loop]["Total Projected Demand (Range)"] = (mergedData[loop]["Total Projected Demand (%)"]).toFixed(2) +
             "% [" + (mergedData[loop]["Lower Projected Demand Bound"]).toFixed(2) + "% - " + (mergedData[loop]["Upper Projected Demand Bound"]).toFixed(2) + "%]";
     }
+
+    globals.actualTimelineData = mergedData.filter(function(data) {
+        return data["Type"] == "actual";
+    });
+
+    mergedData = mergedData.filter(function(data) {
+        return data["Type"] != "actual";
+    });
+
     return mergedData;
 }
 
@@ -453,23 +463,29 @@ function mergeDataAcrossScenarios() {
         }
     }
 
+    mergedData = mergedData.filter(function(data) {
+        return data["Type"] != "actual";
+    });
     return mergedData;
 }
 
 function renderAllScenarios() {
     var chartTitle;
     if (globals.selectedRegionNum != 0) {
-        chartTitle = "Demand Projections for " + globals.selectedRegionName;
+        chartTitle = globals.selectedRegionName;
     } else if (globals.queriedRegionNames.length != 0) {
-        chartTitle = "Demand Projections for Queried Regions";
+        chartTitle = "Queried Regions";
     } else {
-        chartTitle = "Demand Projections for All Scenarios";
+        chartTitle = "All Scenarios";
     }
     var selection = $("#scenariosDropdown").children("option:selected").val();
-    if (selection == "wh")
+    if (selection == "wh") {
+        chartTitle = "Weekly Hospitalizations for " + chartTitle;
         renderAllScenariosWH(chartTitle);
-    else
+    } else {
+        chartTitle = "Demand Projections for " + chartTitle;
         renderAllScenariosPOB(chartTitle);
+    }
 }
 
 function renderAllScenariosPOB(chartTitle) {
@@ -559,7 +575,7 @@ function renderAllScenariosPOB(chartTitle) {
     range.label.verticalCenter = "bottom";
     range2.label.fill = am4core.color("red");
 
-    var colors = ["#bd1e2e", "#5e3aba", "#7de067", "#c2305a", "#167d1a", "#c6d42c", "#80cbd9", "#b60fdb", "#9c2187", "#bd1e2e", "#5e3aba", "#fc4505", "#167d1b", "#c6d42d", "#7de065", "#80cbd7", "#b60fdd", "#c2305b", "#9c2178"];
+    var colors = ["#5e3aba", "#5ab4ac", "#e6550d", "#7de067", "#c2305a", "#167d1a", "#c6d42c", "#80cbd9", "#b60fdb", "#9c2187", "#bd1e2e", "#5e3aba", "#fc4505", "#167d1b", "#c6d42d", "#7de065", "#80cbd7", "#b60fdd", "#c2305b", "#9c2178"];
 
     globals.series = [];
     globals.uncertainitySeries = [];
@@ -697,7 +713,7 @@ function renderAllScenariosWH(chartTitle) {
 
     demandValueAxis.renderer.labels.template.fill = am4core.color("#fff");
 
-    var colors = ["#bd1e2e", "#5e3aba", "#7de067", "#c2305a", "#167d1a", "#c6d42c", "#80cbd9", "#b60fdb", "#9c2187", "#bd1e2e", "#5e3aba", "#fc4505", "#167d1b", "#c6d42d", "#7de065", "#80cbd7", "#b60fdd", "#c2305b", "#9c2178"];
+    var colors = ["#5e3aba", "#5ab4ac", "#e6550d", "#7de067", "#c2305a", "#167d1a", "#c6d42c", "#80cbd9", "#b60fdb", "#9c2187", "#bd1e2e", "#5e3aba", "#fc4505", "#167d1b", "#c6d42d", "#7de065", "#80cbd7", "#b60fdd", "#c2305b", "#9c2178"];
 
     globals.series = [];
     globals.uncertainitySeries = [];
@@ -768,6 +784,174 @@ function renderAllScenariosWH(chartTitle) {
 
     // Add cursor
     chart.cursor = new am4charts.XYCursor();
+}
+
+function renderProjectionsChart() {
+    // Dispose all Charts and clear Browser memory/cache
+    am4core.disposeAllCharts();
+
+    // Themes begin
+    am4core.useTheme(am4themes_animated);
+
+    var chartTitle;
+    if (globals.selectedRegionNum != 0) {
+        chartTitle = "Maximum bed occupancy per week for " + globals.selectedRegionName;
+    } else if (globals.queriedRegionNames.length != 0) {
+        chartTitle = "Maximum bed occupancy per week for Queried Regions";
+    } else {
+        chartTitle = "Maximum bed occupancy per week for Virginia";
+    }
+
+    // Create chart instance
+    var chart = am4core.create("chartdiv", am4charts.XYChart);
+
+    // Chart title
+    var title = chart.titles.create();
+    title.text = chartTitle;
+    title.stroke = am4core.color("#fff");
+    title.fill = am4core.color("#fff");
+    title.fontSize = 16;
+    title.marginBottom = 10;
+
+    // Add data
+    chart.data = getActualData();
+
+    let maxValue = 0;
+    let minValue = 100;
+
+    chart.data.forEach(function(chartValue, index) {
+        if (maxValue < Number(chartValue['projected_ub']))
+            maxValue = Number(chartValue['projected_ub']);
+
+        if (minValue > Number(chartValue['projected_lb']))
+            minValue = Number(chartValue['projected_lb']);
+    });
+
+    // Create axes
+    var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+    categoryAxis.dataFields.category = "date";
+
+    categoryAxis.renderer.minGridDistance = 10;
+    categoryAxis.renderer.grid.template.strokeWidth = 1;
+
+    categoryAxis.renderer.labels.template.fill = am4core.color("#fff");
+    categoryAxis.renderer.labels.template.rotation = -25;
+    categoryAxis.renderer.labels.template.horizontalCenter = "right";
+    categoryAxis.renderer.labels.template.verticalCenter = "middle";
+
+    categoryAxis.tooltip.disabled = true; //to disable button blackcolor tooltip #43
+
+    // Create Demand Value axis
+    var demandValueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+
+    demandValueAxis.min = minValue;
+    demandValueAxis.max = maxValue;
+
+    demandValueAxis.title.text = "Max Occupied Beds";
+    demandValueAxis.title.fill = am4core.color("#fff");
+    demandValueAxis.title.fontSize = 14;
+
+    demandValueAxis.renderer.grid.template.strokeWidth = 1;
+    demandValueAxis.tooltip.disabled = true; //right hand size 
+
+    demandValueAxis.renderer.labels.template.fill = am4core.color("#fff");
+
+    // Create series
+    function createSeries(field, name, color, dashed) {
+
+        // Create Uncertainity Bound Series
+        var uncertainitySeries = chart.series.push(new am4charts.LineSeries());
+
+        uncertainitySeries.dataFields.categoryX = "date";
+        uncertainitySeries.dataFields.openValueY = "projected_lb"
+        uncertainitySeries.dataFields.valueY = "projected_ub";
+        uncertainitySeries.yAxis = demandValueAxis;
+
+        uncertainitySeries.stroke = am4core.color(color);
+        uncertainitySeries.fill = am4core.color(color);
+        uncertainitySeries.hiddenInLegend = true;
+
+        uncertainitySeries.fillOpacity = 0.4;
+        uncertainitySeries.sequencedInterpolation = true;
+        uncertainitySeries.defaultState.transitionDuration = 1000;
+
+        var series = chart.series.push(new am4charts.LineSeries());
+
+        series.yAxis = demandValueAxis;
+
+        series.dataFields.valueY = field;
+        series.dataFields.categoryX = "date";
+        series.dataFields.rangeValueY = "range";
+
+        series.name = name;
+
+        series.tooltip.label.ignoreFormatting = true;
+        series.tooltipText = '{categoryX}: {rangeValueY}';
+        //series.tooltipText = '[bold]{name}[/]{dateX}: [b]{rangeValueY}[/]';
+
+        // To turn off "inheritance" of color from related object
+        series.tooltip.getFillFromObject = false;
+        series.tooltip.background.fill = am4core.color(color);
+
+        series.smoothing = "monotoneX";
+
+        series.strokeWidth = 2;
+        series.stroke = color;
+
+        if (dashed) {
+            series.strokeDasharray = "5 3";
+        }
+
+        var bullet = series.bullets.push(new am4charts.CircleBullet());
+        bullet.width = 5;
+        bullet.height = 5;
+
+        bullet.circle.fill = am4core.color(color);
+        bullet.circle.stroke = am4core.color(color);
+        bullet.circle.strokeWidth = 2;
+
+        return series;
+    }
+
+    createSeries("actual", "Actual", am4core.color("#3479A1"));
+    createSeries("projected", "Projected", am4core.color("#dc3545"), true);
+
+    chart.legend = new am4charts.Legend();
+    chart.legend.labels.template.fill = am4core.color("#fff");
+
+    chart.cursor = new am4charts.XYCursor();
+}
+
+function getActualData() {
+    var data = [];
+
+    for (var i = 0; i < globals.actualTimelineData.length; i++) {
+        var obj = {};
+
+        obj.date = globals.actualTimelineData[i]["date"];
+        obj.actual = globals.actualTimelineData[i]["Max Occupied Beds"];
+        obj.range = globals.actualTimelineData[i]["Max Occupied Beds"];
+
+        data.push(obj);
+    }
+
+    for (var i = 0; i < globals.timelineJsonData.length - 1; i++) {
+        var obj = {};
+
+        obj.date = globals.timelineJsonData[i]["date"];
+        obj.projected = globals.timelineJsonData[i]["Max Occupied Beds"];
+        obj.projected_lb = globals.timelineJsonData[i]["Lower Max Occupied Beds"];
+        obj.projected_ub = globals.timelineJsonData[i]["Upper Max Occupied Beds"];
+        obj.range = obj.projected + " [" + obj.projected_lb + " - " + obj.projected_ub + "]";
+
+        // if (i == 0) {
+        //     data[data.length - 1].projected = data[data.length - 1].actual;
+        // }
+
+        data.push(obj);
+    }
+
+    return data;
 }
 
 function numFormatter(num) {

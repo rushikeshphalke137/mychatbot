@@ -379,9 +379,17 @@
 
                         <div class="scenarioDropdown mt-2" style="display:none; margin-left: 25px;">
                             <select name="dropdown" id="scenariosDropdown" class="topKSelect custom-select">
-                                    <option value="pob">Percentage of Occupied Beds</option>
+                                    <option class="d-md-flex d-none" value="pob">Percentage of Occupied Beds</option>
+                                    <option class="d-flex d-md-none" value="pob">% of Occupied Beds</option>
                                     <option value="wh">Weekly Hospitalizations</option>
                                 </select>
+                        </div>
+
+                        <div class="scenarioActualDropdown mt-2" style="margin-left: 25px; display: none;">
+                            <select name="dropdown" id="scenariosActualDropdown" class="topKSelect custom-select" style="width: 160px !important;">
+                                <option value="withoutActuals">Without Actuals</option>
+                                <option value="withActuals">With Actuals</option>
+                            </select>
                         </div>
                     </div>
 
@@ -427,7 +435,7 @@
 
             </div>
 
-            Copyright © 2020, UVA; ALL RIGHTS RESERVED. THE CONTENTS OF THIS DASHBOARD--INCLUDING DATA, MAPS, AND PLOTS--IS PROVIDED TO THE PUBLIC SOLELY FOR RESEARCH AND ACADEMIC PURPOSES. UVA PROVIDES NO WARRANTIES, CLAIMS OR REPRESENTATIONS–WHETHER EXPRESS, IMPLIED,
+            Copyright © 2021, UVA; ALL RIGHTS RESERVED. THE CONTENTS OF THIS DASHBOARD--INCLUDING DATA, MAPS, AND PLOTS--IS PROVIDED TO THE PUBLIC SOLELY FOR RESEARCH AND ACADEMIC PURPOSES. UVA PROVIDES NO WARRANTIES, CLAIMS OR REPRESENTATIONS–WHETHER EXPRESS, IMPLIED,
             OR STATUTORY–WITH RESPECT TO THIS DASHBOARD, INCLUDING, WITHOUT LIMITATION, WARRANTIES OF QUALITY, PERFORMANCE, NON–INFRINGEMENT, MERCHANTABILITY, ACCURACY, ADEQUACY, VALIDITY, RELIABILITY, COMPLETENESS, OR FITNESS FOR A PARTICULAR PURPOSE,
             AND DISAVOWS ANY REPRESENTATIONS OR WARRANTIES CREATED BY COURSE OF DEALING, COURSE OF PERFORMANCE, TRADE USAGE OR OTHERWISE. UNDER NO CIRCUMSTANCES WILL UVA HAVE ANY LIABILITY FOR ANY LOSS OR DAMAGE INCURRED AS A RESULT OF THE USE OF THIS
             DASHBOARD OR RELIANCE ON ANY INFORMATION PROVIDED HEREIN. THIS DASHBOARD MAY INCORPORATE DATA OR OTHER CONTENT BELONGING TO OR ORIGINATING FROM THIRD PARTIES. WE DO NOT WARRANT, ENDORSE, GUARANTEE, OR ASSUME RESPONSIBILITY FOR THE ACCURACY
