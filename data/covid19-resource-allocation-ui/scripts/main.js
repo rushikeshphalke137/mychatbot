@@ -155,6 +155,7 @@ require([
 
                 $('.applicationTitle').html(globals.configuration.application_title);
                 $('#notice').text(globals.configuration.noticeMessage);
+                $("#copyrightYear").html(new Date().getFullYear());
 
                 $('#queryByName')[0].value = "";
                 globals.durationSlider.noUiSlider.set(globals.configuration.defaultDuration);

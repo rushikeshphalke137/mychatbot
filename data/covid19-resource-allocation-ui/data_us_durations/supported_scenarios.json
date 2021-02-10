@@ -41,24 +41,32 @@
             "scenario_display_name_line2": "",
             "position": 0,
             "directory": "data_us_durations/sc-Adaptive-dur7-projBounds",
-            "description": "The Adaptive Fitting Projection model fits each HRR region precisely, using recent trends to guide the future projections. This scenario assumes typical COVID-19 hospitalizations last about 7 days. Updated 2021-01-13.",
-            "last_update": "2021-01-13"
+            "description": "The Adaptive Fitting Projection model fits each HRR region precisely, using recent trends to guide the future projections. This scenario assumes typical COVID-19 hospitalizations last about 7 days. Updated 2021-02-02.",
+            "last_update": "2021-02-02"
         },
         {
-            "scenario_display_name_line1": "Adaptive-BestPastControl",
+            "scenario_display_name_line1": "Adaptive-BestPast",
             "scenario_display_name_line2": "",
             "position": 0,
-            "directory": "data_us_durations/sc-Adaptive-BestPastControl-dur7-projBounds",
-            "description": "The Adaptive-BestPastControl Fitting Projection model fits each HRR region precisely, using recent trends to guide the future projections; however, it also looks at transmission levels since May 2020, and transitions (over the next two months) from the current transmission level to the lowest transmission level experienced so far. Updated 2021-01-13.",
-            "last_update": "2021-01-13"
+            "directory": "data_us_durations/sc-Adaptive-BestPast-dur7-projBounds",
+            "description": "The Adaptive-BestPast Fitting Projection model fits each HRR region precisely, using recent trends to guide the future projections; however, it also looks at transmission levels since May 2020, and transitions (over the next two months) from the current transmission level to the lowest transmission level experienced so far. Updated 2021-02-02.",
+            "last_update": "2021-02-02"
         },
         {
             "scenario_display_name_line1": "Adaptive-FatigueControl",
             "scenario_display_name_line2": "",
             "position": 0,
             "directory": "data_us_durations/sc-Adaptive-FatigueControl-dur7-projBounds",
-            "description": "The Adaptive-FatigueControl Fitting Projection model fits each HRR region precisely, using recent trends to guide the future projections; however, it also looks at transmission levels since May 2020, and transitions (over the next two months) from the current transmission level to the highest transmission level experienced so far. Updated 2021-01-13.",
-            "last_update": "2021-01-13"
+            "description": "The Adaptive-FatigueControl Fitting Projection model fits each HRR region precisely, using recent trends to guide the future projections; however, it also looks at transmission levels since May 2020, and transitions (over the next two months) from the current transmission level to the highest transmission level experienced so far. Updated 2021-02-02.",
+            "last_update": "2021-02-02"
+        },
+        {
+            "scenario_display_name_line1": "Adaptive-VariantB117",
+            "scenario_display_name_line2": "",
+            "position": 0,
+            "directory": "data_us_durations/sc-Adaptive-VariantB117-dur7-projBounds",
+            "description": "The Adaptive-VariantB117 Fitting Projection model fits each HRR region precisely like the Adaptive model does, but also factors in the emergence of the new COVID-19 variants with higher transmissability rates by gradually increasing transmissability over a 4 month period to 50% higher than current transmissability rates. Updated 2021-02-02.",
+            "last_update": "2021-02-02"
         }
     ]
 }
