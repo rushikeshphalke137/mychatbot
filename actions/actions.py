@@ -23,7 +23,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 root_dir= "/app/data/covid19-resource-allocation-ui/data_va_durations/"
-beds_data_path="/app/data/covid19-resource-allocation-ui/data_va/"
+beds_data_path="/app/data/covid19-resource-allocation-ui/data_va_durations/"
 
 log_file_location="/app/logs/"
 
