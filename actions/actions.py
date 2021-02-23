@@ -71,7 +71,7 @@ class ActionHospitalizedCurrentWeek(Action):
         scenario_map=pd.DataFrame()
         for i in range(len(data['scenarios'])):
             f_name=data['scenarios'][i]['directory']
-            f_name=f_name.replace("data_va_durations/","")
+            f_name=f_name.replace("data_va_actuals/","")
             
             s_name=data['scenarios'][i]['scenario_display_name_line1']
             
@@ -146,7 +146,7 @@ class ActionMaxProjectedHospitalizationCurrentWeek(Action):
         scenario_map=pd.DataFrame()
         for i in range(len(data['scenarios'])):
             f_name=data['scenarios'][i]['directory']
-            f_name=f_name.replace("data_va_durations/","")
+            f_name=f_name.replace("data_va_actuals/","")
             
             s_name=data['scenarios'][i]['scenario_display_name_line1']
             
@@ -210,7 +210,7 @@ class ActionHighestProjectedHospitalization(Action):
         scenario_map=pd.DataFrame()
         for i in range(len(data['scenarios'])):
             f_name=data['scenarios'][i]['directory']
-            f_name=f_name.replace("data_va_durations/","")
+            f_name=f_name.replace("data_va_actuals/","")
             
             s_name=data['scenarios'][i]['scenario_display_name_line1']
             
@@ -250,7 +250,7 @@ class ActionHospitalizationPeak(Action):
         scenario_map=pd.DataFrame()
         for i in range(len(data['scenarios'])):
             f_name=data['scenarios'][i]['directory']
-            f_name=f_name.replace("data_va_durations/","")
+            f_name=f_name.replace("data_va_actuals/","")
             
             s_name=data['scenarios'][i]['scenario_display_name_line1']
             
@@ -307,7 +307,7 @@ class ActionTop5RegionsHospitalization(Action):
         scenario_map=pd.DataFrame()
         for i in range(len(data['scenarios'])):
             f_name=data['scenarios'][i]['directory']
-            f_name=f_name.replace("data_va_durations/","")
+            f_name=f_name.replace("data_va_actuals/","")
             
             s_name=data['scenarios'][i]['scenario_display_name_line1']
             
@@ -392,7 +392,7 @@ class ActionExpectedHospitalizationInRegion(Action):
         scenario_map=pd.DataFrame()
         for i in range(len(data['scenarios'])):
             f_name=data['scenarios'][i]['directory']
-            f_name=f_name.replace("data_va_durations/","")
+            f_name=f_name.replace("data_va_actuals/","")
             
             s_name=data['scenarios'][i]['scenario_display_name_line1']
             
@@ -466,7 +466,7 @@ class ActionProjectedPercentageOccupiedBedsHC(Action):
         scenario_map=pd.DataFrame()
         for i in range(len(data['scenarios'])):
             f_name=data['scenarios'][i]['directory']
-            f_name=f_name.replace("data_va_durations/","")
+            f_name=f_name.replace("data_va_actuals/","")
             
             s_name=data['scenarios'][i]['scenario_display_name_line1']
             
@@ -545,7 +545,7 @@ class ActionProjectedGreaterOccupiedBeds(Action):
             scenario_map=pd.DataFrame()
             for i in range(len(data['scenarios'])):
                 f_name=data['scenarios'][i]['directory']
-                f_name=f_name.replace("data_va_durations/","")
+                f_name=f_name.replace("data_va_actuals/","")
                 
                 s_name=data['scenarios'][i]['scenario_display_name_line1']
                 
@@ -623,7 +623,7 @@ class ActionHighestProjectedOccupiedBeds(Action):
         scenario_map=pd.DataFrame()
         for i in range(len(data['scenarios'])):
             f_name=data['scenarios'][i]['directory']
-            f_name=f_name.replace("data_va_durations/","")
+            f_name=f_name.replace("data_va_actuals/","")
             
             s_name=data['scenarios'][i]['scenario_display_name_line1']
             
@@ -689,7 +689,7 @@ class ActionCrisisMode(Action):
         scenario_map=pd.DataFrame()
         for i in range(len(data['scenarios'])):
             f_name=data['scenarios'][i]['directory']
-            f_name=f_name.replace("data_va_durations/","")
+            f_name=f_name.replace("data_va_actuals/","")
             
             s_name=data['scenarios'][i]['scenario_display_name_line1']
             
@@ -771,7 +771,7 @@ class ActionProjectedPercentageOccupiedBeds(Action):
         scenario_map=pd.DataFrame()
         for i in range(len(data['scenarios'])):
             f_name=data['scenarios'][i]['directory']
-            f_name=f_name.replace("data_va_durations/","")
+            f_name=f_name.replace("data_va_actuals/","")
             
             s_name=data['scenarios'][i]['scenario_display_name_line1']
             
@@ -823,7 +823,7 @@ class ActionSelectScenario(Action):
         scenario_map=pd.DataFrame()
         for i in range(len(data['scenarios'])):
             f_name=data['scenarios'][i]['directory']
-            f_name=f_name.replace("data_va_durations/","")
+            f_name=f_name.replace("data_va_actuals/","")
             
             s_name=data['scenarios'][i]['scenario_display_name_line1']
             
