@@ -46,7 +46,7 @@
             "scenario_display_name_line2": "",
             "position": 0,
             "directory": "data_va_actuals/scVA-Adaptive-BestPast-dur7-projBounds",
-            "description": "The Adaptive-BestPastControl Fitting Projection model fits each county precisely, using recent trends to guide the future projections; however, it also looks at transmission levels since May 2020, and transitions (over the next two months) from the current transmission level to the lowest transmission level experienced so far. Updated 2021-02-24.",
+            "description": "The Adaptive-BestPast Fitting Projection model fits each county precisely, using recent trends to guide the future projections; however, it also looks at transmission levels since May 2020, and transitions (over the next two months) from the current transmission level to the lowest transmission level experienced so far. Updated 2021-02-24.",
             "last_update": "2021-02-24"
         },
         {
