@@ -915,6 +915,9 @@ class ActionSelectWeek(Action):
 
         week_date.sort()
         week_date.pop()
+        #Removing first 3 actual week
+        n = 3
+        del week_date[:n]        
         #week_date=[x.strftime('%m-%d-%Y') for x in week_date]
 
         # Create a list for week with number
