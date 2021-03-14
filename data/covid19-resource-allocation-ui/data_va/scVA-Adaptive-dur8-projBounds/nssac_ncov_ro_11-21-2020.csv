@@ -1,0 +1,7 @@
+VHASSNum,VHASS Region,Projected Demand (%),Hospitalizations (Median),Lower Hospitalization Bound,Upper Hospitalization Bound,Lower Projected Demand Bound,Upper Projected Demand Bound,Total Hospitalizations (Range),Total Projected Demand (Range),Max Occupied Beds,Lower Max Occupied Beds,Upper Max Occupied Beds,Last Update
+Central,Central,86.47,234,217,273,83.61,92.81,234 [217 - 273],86.47% [83.61% - 92.81%],267,149,529,10-20-2020
+Eastern,Eastern,86.44,214,198,255,83.28,94.42,214 [198 - 255],86.44% [83.28% - 94.42%],244,124,546,10-20-2020
+Far_SW,Far SW,92.34,130,119,155,86.67,106.02,130 [119 - 155],92.34% [86.67% - 106.02%],148,80,312,10-20-2020
+Near_SW,Near SW,92.13,358,329,412,86.18,102.83,358 [329 - 412],92.13% [86.18% - 102.83%],406,207,764,10-20-2020
+Northern,Northern,90.45,323,303,377,86.15,100.81,323 [303 - 377],90.45% [86.15% - 100.81%],367,216,731,10-20-2020
+Northwest,Northwest,89.93,170,155,190,84.21,96.22,170 [155 - 190],89.93% [84.21% - 96.22%],191,81,312,10-20-2020

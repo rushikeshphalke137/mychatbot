@@ -1,0 +1,52 @@
+{
+    "configuration": {
+        "region": "hrr",
+        "application_title": "COVID-19 Medical Resource Demand Dashboard - US National",
+        "chart_title": "United States National Demand Forecast",
+        "layer_url": "https://services2.arcgis.com/8k2PygHqghVevhzy/arcgis/rest/services/covid19_nssac_resource_optimization/FeatureServer/0",
+        "layer_attribute": "HRRCITY",
+        "query_attribute": "HRRNUM",
+        "zoom_level": 4,
+        "min_zoom_level": 4,
+        "extent": {
+            "xmin": -124.730045456146,
+            "xmax": -66.9505093527641,
+            "ymin": 24.5439397696533,
+            "ymax": 49.3839397693269,
+            "spatialReference": {
+                "wkid": 4326
+            }
+        },
+        "extentMobile": {
+            "xmin": -134.730045456146,
+            "xmax": -66.9505093527641,
+            "ymin": 2.5439397696533,
+            "ymax": 25.3839397693269,
+            "spatialReference": {
+                "wkid": 4326
+            }
+        },
+        "out_fields": [
+            "HRRNUM",
+            "HRRCITY",
+            "DHS_Beds",
+            "Total_Pop"
+        ],
+        "defaultDuration": 7
+    },
+    "scenarios": [{
+            "scenario_display_name_line1": "BestFit",
+            "scenario_display_name_line2": "Duration: 7 Days",
+            "position": 0,
+            "directory": "data_us/sc-BestFit-dur7-projBounds",
+            "description": "This model is made up of 'BestFit' scenarios at local levels, so it can predict variation based on local levels of activity and compliance with official health department guidelines. It also assumes typical COVID-19 hospitalizations last about 7 days. Updated 2020-07-13."
+        },
+        {
+            "scenario_display_name_line1": "BestFit",
+            "scenario_display_name_line2": "Duration: 14 Days",
+            "position": 1,
+            "directory": "data_us/sc-BestFit-dur14-projBounds",
+            "description": "This model is made up of 'BestFit' scenarios at local levels, so it can predict variation based on local levels of activity and compliance with official health department guidelines. It also assumes typical COVID-19 hospitalizations last about 14 days. Updated 2020-07-13."
+        }
+    ]
+}
