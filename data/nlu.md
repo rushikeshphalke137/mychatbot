@@ -96,7 +96,7 @@
 - highest projected percerntage of occupied beds in a region
 - highest projected %age of occupied beds in a region
 - what is the highest projected percentage of occupied beds in a region
-- what is the maximum projected percentage of occupied beds in a region
+
 
 ## intent:crisis_mode
 - Which regions are projected to enter crisis stage?

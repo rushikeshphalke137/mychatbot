@@ -266,8 +266,8 @@ responses:
       title: Update Duration
     text: Please Select from the below options.
 session_config:
-  carry_over_slots_to_new_session: false
-  session_expiration_time: 1
+  carry_over_slots_to_new_session: true
+  session_expiration_time: 60
 slots:
   CARDINAL:
     type: text
