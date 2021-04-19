@@ -1,8 +1,0 @@
-date,Total Projected Demand (%),Total Hospitalizations (Median),Lower Hospitalization Bound,Upper Hospitalization Bound,Lower Projected Demand Bound,Upper Projected Demand Bound,Total Hospitalizations (Range),Total Projected Demand (Range),Max Occupied Beds,Lower Max Occupied Beds,Upper Max Occupied Beds,Type
-04-10-2021,81.31,14,13,16,81.19,81.43,14 [13 - 16],81.31% [81.19% - 81.43%],11,10,12,projected
-04-17-2021,81.31,14,13,18,80.6,82.39,14 [13 - 18],81.31% [80.6% - 82.39%],11,5,20,projected
-04-24-2021,81.67,13,12,19,80.6,85.01,13 [12 - 19],81.67% [80.6% - 85.01%],14,5,42,projected
-05-01-2021,82.39,21,18,27,80.6,86.32,21 [18 - 27],82.39% [80.6% - 86.32%],20,5,53,projected
-05-08-2021,83.22,28,24,37,80.0,89.07,28 [24 - 37],83.22% [80.0% - 89.07%],27,0,76,projected
-05-15-2021,83.22,28,24,40,80.0,89.79,28 [24 - 40],83.22% [80.0% - 89.79%],27,0,82,projected
-05-22-2021,82.98,28,24,40,80.0,92.41,28 [24 - 40],82.98% [80.0% - 92.41%],25,0,104,projected
