@@ -1,0 +1,67 @@
+{
+    "configuration": {
+        "region": "vhass",
+        "application_title": "COVID-19 Medical Resource Demand Dashboard - Virginia",
+        "chart_title": "Virginia Health Demand Projections",
+        "layer_url": "https://services2.arcgis.com/8k2PygHqghVevhzy/arcgis/rest/services/covid19_nssac_resource_optimization/FeatureServer/1",
+        "layer_attribute": "VHASS_Reg",
+        "query_attribute": "VHASS_Reg",
+        "zoom_level": 7,
+        "min_zoom_level": 4,
+        "extent": {
+            "xmin": -83.6753991625592,
+            "xmax": -75.2417293387953,
+            "ymin": 36.541660218841,
+            "ymax": 39.4660198481876,
+            "spatialReference": {
+                "wkid": 4326
+            }
+        },
+        "extentMobile": {
+            "xmin": -82.6753991625592,
+            "xmax": -75.2417293387953,
+            "ymin": 32.541660218841,
+            "ymax": 39.4660198481876,
+            "spatialReference": {
+                "wkid": 4326
+            }
+        },
+        "out_fields": [
+            "VHASS_Reg",
+            "InPoly_FID"
+        ],
+        "defaultDuration": 8,
+        "regionFile": "data_va_actuals/VHASS_Region_Counts.csv",
+        "chatbotVisible": false
+    },
+    "scenarios": [{
+            "scenario_display_name_line1": "Adaptive-SQ",
+            "scenario_display_name_line2": "",
+            "position": 0,
+            "directory": "data_va_actuals/scVA-Adaptive-dur7-projBounds",
+            "description": "The Adaptive-SQ model shows the likely trajectory based on conditions remaining similar to how they are now, including vaccination (SQ = status quo). Updated 2021-05-18.",
+            "last_update": "2021-05-18"
+        },{
+            "scenario_display_name_line1": "Adaptive-VaxOpt",
+            "scenario_display_name_line2": "",
+            "position": 0,
+            "directory": "data_va_actuals/scVA-Adaptive-VaxOpt-dur7-projBounds",
+            "description": "The Adaptive-VaxOpt model shows the likely trajectory based on conditions remaining similar to now, but with improvements to vaccine acceptance. Updated 2021-05-18.",
+            "last_update": "2021-05-18"
+        },{
+            "scenario_display_name_line1": "FatigueControl-SQ",
+            "scenario_display_name_line2": "",
+            "position": 0,
+            "directory": "data_va_actuals/scVA-Adaptive-FatigueControl-dur7-projBounds",
+            "description": "The FatigueControl-SQ model shows the worst case trajectory if control conditions deteriorate to highest transmission rates of the past, vaccination stays at status quo. Updated 2021-05-18.",
+            "last_update": "2021-05-18"
+        },{
+            "scenario_display_name_line1": "FatigueControl-VaxOpt",
+            "scenario_display_name_line2": "",
+            "position": 0,
+            "directory": "data_va_actuals/scVA-Adaptive-FatigueControl-VaxOpt-dur7-projBounds",
+            "description": "The FatigueControl-VaxOpt model shows worst case trajectory if control conditions deteriorate to worst of the past, with improvements to vax acceptance. Updated 2021-05-18.",
+            "last_update": "2021-05-18"
+        }
+    ]
+}
