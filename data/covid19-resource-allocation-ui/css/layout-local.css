@@ -793,7 +793,7 @@ button.owl-prev:focus {
     padding: 2px 0px;
     color: white;
     border-top: 1px solid #E57200;
-    font-size: 0.8em;
+    font-size: 0.74em;
     height: 40px;
 }
 
@@ -1507,4 +1507,10 @@ div#socialSharing a span#linkedin:hover {
 
 .charContainerHeight {
     height: calc(100% - 85px);
+}
+
+.datatableTitle {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-left: 50px;
 }

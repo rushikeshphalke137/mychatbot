@@ -42,7 +42,7 @@ def readData(inScenarioId, inDataTable, inDataDir, OutFile):
       for file_path in sorted(data_dir_path.glob('nssac_ncov_ro_??-*.csv')):
           print(f"processing {file_path}")
 
-          file_name_prefix = file_name_pattern.match(file_path.stem)[1]
+          #file_name_prefix = file_name_pattern.match(file_path.stem)[1]
           date_string = file_name_pattern.match(file_path.stem)[2]
           #print(f"file_name_prefix = {file_name_prefix}    date_string = {date_string}")
 
@@ -55,7 +55,7 @@ def readData(inScenarioId, inDataTable, inDataDir, OutFile):
                # scenario_id,region_id,region_name,reported_date,weekly_hospitalizations_med,weekly_hospitalizations_lower_bound,
 			   # weekly_hospitalizations_upper_bound, max_daily_occupancy,max_daily_occupancy_lower_bound,
 			   # max_daily_occupancy_upper_bound, last_update
-               insert_str = f'INSERT INTO {data_table} (scenario_id,region_id,region_name,reported_date,weekly_hospitalizations_med,weekly_hospitalizations_lower_bound,weekly_hospitalizations_upper_bound, max_daily_occupancy,max_daily_occupancy_lower_bound,max_daily_occupancy_upper_bound, last_update, duration) VALUES '+"\n"
+               insert_str = f'INSERT INTO {data_table} (scenario_id,region_id,region_name,reported_date,weekly_hospitalizations_med,weekly_hospitalizations_lower_bound,weekly_hospitalizations_upper_bound, max_daily_occupancy,max_daily_occupancy_lower_bound,max_daily_occupancy_upper_bound, last_update, duration, type) VALUES '+"\n"
 
 			   # Remove any starting and trailing whitespace from each field
                row = [field.strip() for field in row]
@@ -72,13 +72,18 @@ def readData(inScenarioId, inDataTable, inDataDir, OutFile):
                max_daily_occupancy_lower_bound = row[11]
                max_daily_occupancy_upper_bound = row[12]
                last_update=row[13]
+               type = row[14]
                duration = i
                 
 				#print(f"scenario_id={scenario_id}, region_name={region_name}, region_id={region_id}, reported_date={reported_date}, weekly_hospitalizations_med={weekly_hospitalizations_med}, weekly_hospitalizations_lower_bound={weekly_hospitalizations_lower_bound}, weekly_hospitalizations_upper_bound={weekly_hospitalizations_upper_bound}, max_daily_occupancy={max_daily_occupancy}, max_daily_occupancy_lower_bound={max_daily_occupancy_lower_bound}, max_daily_occupancy_upper_bound={max_daily_occupancy_upper_bound}, last_update={last_update}, ")
 
-               insert_str += f"('{scenario_id}','{region_name}','{region_id}','{reported_date}',{weekly_hospitalizations_med},{weekly_hospitalizations_lower_bound},{weekly_hospitalizations_upper_bound},{max_daily_occupancy},{max_daily_occupancy_lower_bound},{max_daily_occupancy_upper_bound},'{last_update}', {duration}),\n"
+               insert_str += f"('{scenario_id}','{region_name}','{region_id}','{reported_date}',{weekly_hospitalizations_med},{weekly_hospitalizations_lower_bound},{weekly_hospitalizations_upper_bound},{max_daily_occupancy},{max_daily_occupancy_lower_bound},{max_daily_occupancy_upper_bound},'{last_update}', {duration}, '{type}'),\n"
 
-			   #print(f"current_insert_str = {insert_str}")
+               if type == 'actual':
+                   insert_str = f'INSERT INTO {data_table} (scenario_id,region_id,region_name,reported_date, max_daily_occupancy, last_update, duration, type) VALUES '+"\n"
+                   insert_str += f"('{scenario_id}','{region_name}','{region_id}','{reported_date}',{max_daily_occupancy},'{last_update}', {duration}, '{type}'),\n"
+
+               #print(f"current_insert_str = {insert_str}")
                out_file.write(f"{insert_str[:-2]};"+"\n")
             
         #out_file.write(f"SELECT COUNT(*) AS DATA_RECORDS_INSERTED FROM {data_table};")

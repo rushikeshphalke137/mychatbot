@@ -14,7 +14,7 @@ from pathlib import Path
 def readHRRData():
     #print(f"readHRRData() Started")
     
-    file_name = Path(f'{(os.environ["BASE_DIR_PATH"])}/data_us/HRR_Data.csv')
+    file_name = Path(f'{(os.environ["BASE_DIR_PATH"])}/data_us_actuals/HRR_Data.csv')
     #print(f"#73-file_name = {file_name}")
 
     schema_name = os.environ["SCHEMA_NAME"]

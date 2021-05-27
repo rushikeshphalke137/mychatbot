@@ -14,7 +14,7 @@ from pathlib import Path
 def readVHASSData():
     #print(f"readVHASSData() Started")
     
-    file_name = Path(f'{(os.environ["BASE_DIR_PATH"])}/data_va/VHASS_Region_Counts.csv')
+    file_name = Path(f'{(os.environ["BASE_DIR_PATH"])}/data_va_actuals/VHASS_Region_Counts.csv')
     #print(f"#73-file_name = {file_name}")
 
     schema_name = os.environ["SCHEMA_NAME"]

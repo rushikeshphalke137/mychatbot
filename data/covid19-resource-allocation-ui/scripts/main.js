@@ -82,7 +82,8 @@ globals.selectedRegionNum = 0;
 globals.selectedRegionName = "";
 
 globals.rawData = {};
-
+globals.isclosed = true;
+globals.isRestart = false;
 globals.jsonData = {};
 globals.timelineJsonData = {};
 globals.regionData = {};
@@ -104,6 +105,7 @@ require([
         "esri/Color",
         "esri/geometry/Extent",
         "esri/graphic",
+        "esri/lang",
         "esri/dijit/Legend",
         "esri/InfoTemplate",
         "esri/layers/FeatureLayer",
@@ -131,7 +133,7 @@ require([
         "dojo/domReady!"
     ],
     function(
-        Color, Extent, Graphic, Legend, InfoTemplate,
+        Color, Extent, Graphic, esriLang, Legend, InfoTemplate,
         FeatureLayer, GraphicsLayer, Map, ClassBreaksRenderer,
         SimpleFillSymbol, SimpleLineSymbol, SimpleRenderer,
         TimeExtent, TimeSlider,
@@ -141,11 +143,11 @@ require([
         CsvStore
     ) {
         parser.parse();
-        $(document).ready(function() {
-            $("#allToggleButton").bootstrapToggle("on");
-        });
+        // $(document).ready(function() {
+        //     $("#allToggleButton").bootstrapToggle("on");
+        // });
 
-        $.getJSON("data_va_actuals/supported_scenarios.json")
+        $.getJSON("data_us_actuals/supported_scenarios.json")
             //$.getJSON("data_va/supported_scenarios.json")
             .done(function(json) {
                 globals.configuration = json.configuration;
@@ -163,6 +165,12 @@ require([
 
                 if (globals.configuration.region == 'vhass')
                     $(".scenarioActualDropdown").show();
+
+                if (!globals.configuration.chatbotVisible) {
+                    $('.profile_div').addClass('d-none');
+                }
+
+                $("#allToggleButton").bootstrapToggle("on");
 
                 loadRegionData();
                 setupMapLayer();
@@ -329,6 +337,19 @@ require([
 
             //setup QueryTask (for filter by region)
             setQueryTask();
+
+            layer.on("mouse-out", closeDialog);
+
+            layer.on("mouse-over", function mouseOver(evt) {
+                var content = esriLang.substitute(evt.graphic.attributes, globals.getRegionInfoForMouseOver(evt.graphic.attributes[globals.configuration.layer_attribute]));
+                globals.map.infoWindow.setTitle(evt.graphic.attributes[globals.configuration.layer_attribute]);
+                globals.map.infoWindow.setContent(content);
+                globals.map.infoWindow.show(evt.screenPoint);
+            });
+
+            function closeDialog() {
+                globals.map.infoWindow.hide();
+            }
 
             globals.map.on("update-end", function() {
                 $('#overlay').hide();
@@ -593,6 +614,19 @@ require([
             return 0;
         }
 
+        globals.getRegionInfoForMouseOver = function(regionName) {
+            var content = '';
+            for (var i = 0; i < globals.jsonData.length; i++) {
+                var key = Object.keys(globals.jsonData[i])[1];
+                if (globals.jsonData[i][key] == regionName) {
+                    content += "<b> Percentage of Occupied Beds:</b><br>&emsp;" + globals.jsonData[i]["Total Projected Demand (Range)"];
+                    content += "<br><b>Weekly Hospitalizations:</b><br>&emsp;" + globals.jsonData[i]["Total Hospitalizations (Range)"];
+                    break;
+                }
+            }
+            return content;
+        }
+
         globals.getRegionInfo = function(value) {
             var returnValue = '';
             for (var i = 0; i < globals.jsonData.length; i++) {
@@ -739,8 +773,9 @@ require([
                     showCSVDataInTable(globals.jsonData);
 
                 } else {
-                    $('.queryResultPopUp')[0].innerHTML = "No result found for <b>" + inputStr + "</b>.";
-                    $('#noResultFoundButton').click();
+                    alert("No result found for " + inputStr + ".");
+                    // $('.queryResultPopUp')[0].innerHTML = "No result found for <b>" + inputStr + "</b>.";
+                    // $('#noResultFoundButton').click();
                     $('#overlay').hide(); //need to remove from here later(hide on mobile after query button clicked)
                 }
             });
@@ -792,8 +827,8 @@ require([
                     }
 
                     showCSVDataInTable(globals.jsonData);
-                    var extent = esri.graphicsExtent(fset.features);
-                    globals.map.setExtent(extent, true);
+                    //var extent = esri.graphicsExtent(fset.features);
+                    //globals.map.setExtent(extent, true);
                 } else {
                     $('.queryResultPopUp')[0].innerHTML = "No result found for <b>" + inputStr + "</b>.";
                     $('#noResultFoundButton').click();
@@ -802,52 +837,83 @@ require([
         }
 
         function showCSVDataInTable(csvData) {
+            var title = globals.configuration.chart_title;
+
             var filteredNames = [];
             if (globals.selectedRegionNum != 0) {
                 filteredNames.push(globals.selectedRegionName);
+                title = "Demand Projections for " + globals.selectedRegionName;
             } else if (globals.queriedRegionNames.length != 0) {
                 filteredNames = globals.queriedRegionNames;
+                title = "Demand Projections for Queried Regions"
             }
             var tableHTML = null;
             var lengthMenuOptions = null;
             var downloadOptions = "";
             downloadAllOption = "";
 
-            var regionNameColumn = Object.keys(csvData[0])[1];
-            tableHTML = '<table id="example" class="display" cellspacing="0" width="100%">\n<thead><tr>';
-            tableHTML += "<th>" + "Region Name" + "</th>";
-            tableHTML += "<th>" + "Percentage of Occupied Beds" + "</th>";
-            tableHTML += "<th>" + "Weekly Hospitalizations" + "</th>";
+            // If user has selected the region on map, then display data for all dates.
+            if (globals.selectedRegionNum != 0) {
+                var regionNameColumn = Object.keys(csvData[0])[1];
+                tableHTML = '<table id="example" class="display" cellspacing="0" width="100%">\n<thead><tr>';
+                tableHTML += "<th>" + "Week Ending" + "</th>";
+                tableHTML += "<th>" + "Percentage of Occupied Beds" + "</th>";
+                tableHTML += "<th>" + "Weekly Hospitalizations" + "</th>";
 
-            tableHTML += "</tr></thead><tbody>";
-            for (var i = 0; i < csvData.length; i++) {
-                var name = csvData[i][regionNameColumn];
+                tableHTML += "</tr></thead><tbody>";
+                for (var i = 0; i < globals.timelineJsonData.length - 1; i++) {
 
-                if (filteredNames.length > 0 && filteredNames.indexOf(name) == -1)
-                    continue;
-                else {
                     tableHTML += "<tr>";
 
-                    // Region Name, Hospitalizations (Range), Projected Demand (Range)
-                    tableHTML += "<td>" + csvData[i][regionNameColumn] + "</td>";
-                    tableHTML += "<td>" + csvData[i]["Total Projected Demand (Range)"] + "</td>";
-                    tableHTML += "<td>" + csvData[i]["Total Hospitalizations (Range)"] + "</td>";
+                    formattedDate = new Date(globals.timelineJsonData[i]["date"].replace(/-/g, "/"));
+                    representationDate = new Date(formattedDate).toDateString().slice(4).substring(0, 6);
+
+                    // Date, Hospitalizations (Range), Projected Demand (Range)
+                    tableHTML += "<td>" + representationDate + "</td>";
+                    tableHTML += "<td>" + globals.timelineJsonData[i]["Total Projected Demand (Range)"] + "</td>";
+                    tableHTML += "<td>" + globals.timelineJsonData[i]["Total Hospitalizations (Range)"] + "</td>";
 
                     tableHTML += "</tr>\n";
                 }
+                tableHTML += "</table>";
+            } else {
+                var regionNameColumn = Object.keys(csvData[0])[1];
+                tableHTML = '<table id="example" class="display" cellspacing="0" width="100%">\n<thead><tr>';
+                tableHTML += "<th>" + "Region Name" + "</th>";
+                tableHTML += "<th>" + "Percentage of Occupied Beds" + "</th>";
+                tableHTML += "<th>" + "Weekly Hospitalizations" + "</th>";
+
+                tableHTML += "</tr></thead><tbody>";
+                for (var i = 0; i < csvData.length; i++) {
+                    var name = csvData[i][regionNameColumn];
+
+                    if (filteredNames.length > 0 && filteredNames.indexOf(name) == -1)
+                        continue;
+                    else {
+                        tableHTML += "<tr>";
+
+                        // Region Name, Hospitalizations (Range), Projected Demand (Range)
+                        tableHTML += "<td>" + csvData[i][regionNameColumn] + "</td>";
+                        tableHTML += "<td>" + csvData[i]["Total Projected Demand (Range)"] + "</td>";
+                        tableHTML += "<td>" + csvData[i]["Total Hospitalizations (Range)"] + "</td>";
+
+                        tableHTML += "</tr>\n";
+                    }
+                }
+                tableHTML += "</table>";
             }
-            tableHTML += "</table>";
+
             dojo.byId("dataTable").innerHTML = tableHTML;
 
             if (/Android|webOS|iPhone|iPod|ipad|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
                 lengthMenuOptions = '<select> <option value="10">10</option> <option value="25">25</option>' +
-                    '<option value="50">50</option> <option value="-1">All</option> </select>';
+                    '<option value="50">50</option> <option value="-1">All</option> </select>' + '<span class="datatableTitle">' + title + '</span>';
 
                 downloadOptions = '<i class="fa fa-download" aria-hidden="true"></i>';
                 downloadAllOption = '<i class="fa fa-download float-right" aria-hidden="true"></i>';
             } else {
                 lengthMenuOptions = 'Display <select> <option value="10">10</option> <option value="25">25</option>' +
-                    '<option value="50">50</option> <option value="-1">All</option> </select>';
+                    '<option value="50">50</option> <option value="-1">All</option> </select>' + '<span class="datatableTitle">' + title + '</span>';
 
                 downloadOptions = 'Download';
                 downloadAllOption = 'Download All';

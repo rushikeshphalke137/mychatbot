@@ -443,6 +443,11 @@ function mergeDataAcrossScenarios() {
                 mergedData[loop]["Lower Hospitalization Bound-" + index] = Number(filteredData["Lower Hospitalization Bound"]);
                 mergedData[loop]["Upper Hospitalization Bound-" + index] = Number(filteredData["Upper Hospitalization Bound"]);
 
+                mergedData[loop]["Hospitalizations (Range)-" + index] = numFormatter(mergedData[loop]["Total Hospitalizations (Median)-" + index]) +
+                    " [" + numFormatter(mergedData[loop]["Lower Hospitalization Bound-" + index]) + " - " + numFormatter(mergedData[loop]["Upper Hospitalization Bound-" + index]) + "]";
+                mergedData[loop]["Projected Demand (Range)-" + index] = (mergedData[loop]["Total Projected Demand (%)-" + index]).toFixed(2) +
+                    "% [" + (mergedData[loop]["Lower Projected Demand Bound-" + index]).toFixed(2) + "% - " + (mergedData[loop]["Upper Projected Demand Bound-" + index]).toFixed(2) + "%]";
+
                 if (globals.demandMinValue > Number(mergedData[loop]["Lower Projected Demand Bound-" + index]))
                     globals.demandMinValue = Number(mergedData[loop]["Lower Projected Demand Bound-" + index]);
                 if (globals.demandMaxValue < Number(mergedData[loop]["Upper Projected Demand Bound-" + index]))
@@ -458,6 +463,12 @@ function mergeDataAcrossScenarios() {
                 currentData[loop]["Upper Projected Demand Bound-" + index] = Number(filteredData["Upper Projected Demand Bound"]);
                 currentData[loop]["Lower Hospitalization Bound-" + index] = Number(filteredData["Lower Hospitalization Bound"]);
                 currentData[loop]["Upper Hospitalization Bound-" + index] = Number(filteredData["Upper Hospitalization Bound"]);
+
+                currentData[loop]["Hospitalizations (Range)-" + index] = numFormatter(currentData[loop]["Total Hospitalizations (Median)-" + index]) +
+                    " [" + numFormatter(currentData[loop]["Lower Hospitalization Bound-" + index]) + " - " + numFormatter(currentData[loop]["Upper Hospitalization Bound-" + index]) + "]";
+                currentData[loop]["Projected Demand (Range)-" + index] = (currentData[loop]["Total Projected Demand (%)-" + index]).toFixed(2) +
+                    "% [" + (currentData[loop]["Lower Projected Demand Bound-" + index]).toFixed(2) + "% - " + (currentData[loop]["Upper Projected Demand Bound-" + index]).toFixed(2) + "%]";
+
             }
             mergedData = currentData;
         }
@@ -602,6 +613,8 @@ function renderAllScenariosPOB(chartTitle) {
         globals.series[i] = chart.series.push(new am4charts.LineSeries());
 
         globals.series[i].dataFields.valueY = "Total Projected Demand (%)-" + i;
+        globals.series[i].dataFields.rangeValueY = "Projected Demand (Range)-" + i;
+
         globals.series[i].dataFields.categoryX = "date";
 
         globals.series[i].yAxis = demandValueAxis;
@@ -612,7 +625,9 @@ function renderAllScenariosPOB(chartTitle) {
         globals.series[i].defaultState.transitionDuration = 1000;
 
         globals.series[i].name = globals.scenarios[i].scenario_display_name_line1;
-        globals.series[i].tooltipText = "{name}: [bold]{valueY}%[/]";
+        globals.series[i].tooltipText = `{name}: {rangeValueY}`;
+
+        globals.series[i].tooltip.label.ignoreFormatting = true;
         globals.series[i].tooltip.getFillFromObject = false;
         globals.series[i].tooltip.background.fill = am4core.color(colors[i]);
 
@@ -740,6 +755,7 @@ function renderAllScenariosWH(chartTitle) {
         globals.series[i] = chart.series.push(new am4charts.LineSeries());
 
         globals.series[i].dataFields.valueY = "Total Hospitalizations (Median)-" + i;
+        globals.series[i].dataFields.rangeValueY = "Hospitalizations (Range)-" + i;
         globals.series[i].dataFields.categoryX = "date";
 
         globals.series[i].yAxis = demandValueAxis;
@@ -750,7 +766,9 @@ function renderAllScenariosWH(chartTitle) {
         globals.series[i].defaultState.transitionDuration = 1000;
 
         globals.series[i].name = globals.scenarios[i].scenario_display_name_line1;
-        globals.series[i].tooltipText = "{name}: [bold]{valueY}[/]";
+        globals.series[i].tooltipText = `{name}: {rangeValueY}`;
+
+        globals.series[i].tooltip.label.ignoreFormatting = true;
         globals.series[i].tooltip.getFillFromObject = false;
         globals.series[i].tooltip.background.fill = am4core.color(colors[i]);
 

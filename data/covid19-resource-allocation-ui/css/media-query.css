@@ -355,6 +355,9 @@
         width: 100%;
         display: flex;
     }
+    .datatableTitle {
+        font-size: 1em;
+    }
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1100px) and (orientation:portrait) {
@@ -541,6 +544,9 @@
     .mapContainer {
         height: calc(100% - 120px);
     }
+    .datatableTitle {
+        font-size: 0.9em;
+    }
 }
 
 
@@ -557,6 +563,9 @@
         color: black !important;
         padding: 3px !important;
         border: rgb(114, 96, 96) 1px solid !important;
+    }
+    .datatableTitle {
+        font-size: 0.8em;
     }
 }
 

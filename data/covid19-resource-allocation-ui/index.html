@@ -16,6 +16,8 @@
     <title>COVID-19 Medical Resource Demand Dashboard</title>
     <link rel="icon" sizes="16x16 32x32" href="images/favicon.ico">
 
+    <link rel="stylesheet" type="text/css" href="css/chatbot-css/style.css">
+
     <!-- Owl Stylesheets -->
     <link rel="stylesheet" href="css/owl.carousel.min.css">
 
@@ -36,14 +38,17 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/media-query.css" />
-    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.5.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/1.0.8/jquery.csv.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
     </script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="https://cdn.datatables.net/v/dt/dt-1.10.20/b-1.6.1/b-html5-1.6.1/datatables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
     <script defer src="https://js.arcgis.com/3.31/"></script>
+
+    <script defer type="text/javascript" src="js/chatbot-js/script.js"></script>
     <script defer type="text/javascript" src="scripts/main.js"></script>
 
     <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
@@ -386,7 +391,7 @@
                         </div>
 
                         <div class="scenarioActualDropdown mt-2" style="margin-left: 25px; display: none;">
-                            <select name="dropdown" id="scenariosActualDropdown" class="topKSelect custom-select" style="width: 160px !important;">
+                            <select name="dropdown" id="scenariosActualDropdown" class="topKSelect custom-select" style="width: 175px !important;">
                                 <option value="withoutActuals">Projected Demand</option>
                                 <option value="withActuals">Occupancy</option>
                             </select>
@@ -443,6 +448,58 @@
         </div>
 
     </footer>
+    <div class=" chatbot_container">
+        <!-- <div id="modal1" class="modal12">
+            <canvas id="modal-chart"></canvas>
+        </div> -->
+
+        <div class="widget">
+
+            <div class="chat_header w-100">
+                <div class="d-flex">
+                    <div class="chat_header_title ml-2 w-75">MRDD Bot</div>
+                    <div class="d-flex w-25 header_icon">
+                        <i class="fa fa-window-minimize minimizeIcon1" data-toggle="tooltip" title="Minimize" data-placement="bottom" id="minimize" aria-hidden="true"></i>
+                        <i class="fa fa-refresh resetIcon" id="restart" data-toggle="tooltip" title="Restart" data-placement="bottom" aria-hidden="true"></i>
+                        <i class="fa fa-times closeIcon1" id="close" data-toggle="tooltip" title="Close" data-placement="bottom" aria-hidden="true"></i>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!--Chatbot contents goes here -->
+            <div class="chats" id="chats">
+                <div class="clearfix"></div>
+            </div>
+
+            <!--keypad for user to type the message -->
+            <div class="d-flax keypad">
+                <input type="text" id="userInput" placeholder="Enter your own question!" class="usrInput">
+                <div id="sendButton"><i class="fa fa-paper-plane" style="color:#00396F !important;" aria-hidden="true"></i></div>
+            </div>
+
+        </div>
+
+        <div class="widget1">
+            <div class="chat_header w-100">
+                <div class="d-flex">
+                    <div class="chat_header_title ml-2 w-75">MRDD Bot</div>
+                    <div class="d-flex w-25 header_icon justify-content-end">
+                        <i class="fa fa-window-maximize maximizeIcon1" data-toggle="tooltip" title="Maximize" data-placement="bottom" id="maximize" aria-hidden="true"></i>
+                        <!-- <i class="fa fa-refresh resetIcon" id="restart" data-toggle="tooltip"
+                                                title="Restart" data-placement="bottom" aria-hidden="true"></i> -->
+                        <i class="fa fa-times closeIcon1" id="close_max" data-toggle="tooltip" title="Close" data-placement="bottom" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--bot profile-->
+        <div class="profile_div" id="profile_div">
+            <img class="imgProfile" src="images/chatbot-img/botAvatar.svg" />
+        </div>
+        <!-- </div> -->
+    </div>
 
     <div id="optionMenu" class="optionMenu text-left" style="display: none;" aria-labelledby="navbarDropdown">
         <ul>
@@ -476,7 +533,7 @@
     </div>
 
     <!-- No Result Popup -->
-    <div class=" modal fade " id=" noResultFoundPopUp " tabindex=" -1 " role=" dialog " aria-labelledby=" exampleModalCenterTitle " aria-hidden=" true ">
+    <!-- <div class=" modal fade " id=" noResultFoundPopUp " tabindex=" -1 " role=" dialog " aria-labelledby=" exampleModalCenterTitle " aria-hidden=" true ">
         <div class=" modal-dialog modal-dialog-centered " role=" document ">
             <div class=" modal-content ">
                 <div class=" modal-header ">
@@ -493,7 +550,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </body>
 
 </html>

@@ -16,7 +16,7 @@ from pathlib import Path
 def readScenariosData():
     #print(f"73 - readScenariosData() Started")
 
-    file_name = Path(f'{(os.environ["BASE_DIR_PATH"])}/data_us_durations/supported_scenarios.json')
+    file_name = Path(f'{(os.environ["BASE_DIR_PATH"])}/data_us_actuals/supported_scenarios.json')
     #print(f"#73 - file_name = {file_name}")
 
     schema_name = os.environ["SCHEMA_NAME"]
