@@ -13,6 +13,7 @@ services:
       - endpoints.yml
       - --cors
       - "*"
+      - --debug
 
   app:
     image: rasa/rasa-action-server
