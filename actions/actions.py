@@ -28,11 +28,11 @@ logger = logging.getLogger(__name__)
 
 data_path = cfg.prod["data_path"]
 #root_dir= os.path.abspath(data_path)
-root_dir= data_path
+root_dir= "/app/data/covid19-resource-allocation-ui/data_us_actuals"
 
-
-log_file_location=os.path.abspath("logs")
-log_file_location = log_file_location+os.sep
+log_file_location="/app/logs/"
+#log_file_location=os.path.abspath("logs")
+#log_file_location = log_file_location+os.sep
 
 chatbot_title = cfg.prod["chatbot_title"]
 is_actual = cfg.prod["is_actual_exists"]
