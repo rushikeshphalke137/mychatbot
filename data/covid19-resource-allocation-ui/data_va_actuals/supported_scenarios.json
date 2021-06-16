@@ -39,29 +39,29 @@
             "scenario_display_name_line2": "",
             "position": 0,
             "directory": "data_va_actuals/scVA-Adaptive-dur7-projBounds",
-            "description": "The Adaptive-SQ model shows the likely trajectory based on conditions remaining similar to how they are now, including vaccination (SQ = status quo). Updated 2021-05-25.",
-            "last_update": "2021-05-25"
+            "description": "The Adaptive-SQ model shows the likely trajectory based on conditions remaining similar to how they are now, including vaccination (SQ = status quo). Updated 2021-06-01.",
+            "last_update": "2021-06-01"
         },{
             "scenario_display_name_line1": "Adaptive-VaxOpt",
             "scenario_display_name_line2": "",
             "position": 0,
             "directory": "data_va_actuals/scVA-Adaptive-VaxOpt-dur7-projBounds",
-            "description": "The Adaptive-VaxOpt model shows the likely trajectory based on conditions remaining similar to now, but with improvements to vaccine acceptance. Updated 2021-05-25.",
-            "last_update": "2021-05-25"
+            "description": "The Adaptive-VaxOpt model shows the likely trajectory based on conditions remaining similar to now, but with improvements to vaccine acceptance. Updated 2021-06-01.",
+            "last_update": "2021-06-01"
         },{
             "scenario_display_name_line1": "FatigueControl-SQ",
             "scenario_display_name_line2": "",
             "position": 0,
             "directory": "data_va_actuals/scVA-Adaptive-FatigueControl-dur7-projBounds",
-            "description": "The FatigueControl-SQ model shows the worst case trajectory if control conditions deteriorate to highest transmission rates of the past, vaccination stays at status quo. Updated 2021-05-25.",
-            "last_update": "2021-05-25"
+            "description": "The FatigueControl-SQ model shows the worst case trajectory if control conditions deteriorate to highest transmission rates of the past, vaccination stays at status quo. Updated 2021-06-01.",
+            "last_update": "2021-06-01"
         },{
             "scenario_display_name_line1": "FatigueControl-VaxOpt",
             "scenario_display_name_line2": "",
             "position": 0,
             "directory": "data_va_actuals/scVA-Adaptive-FatigueControl-VaxOpt-dur7-projBounds",
-            "description": "The FatigueControl-VaxOpt model shows worst case trajectory if control conditions deteriorate to worst of the past, with improvements to vax acceptance. Updated 2021-05-25.",
-            "last_update": "2021-05-25"
+            "description": "The FatigueControl-VaxOpt model shows worst case trajectory if control conditions deteriorate to worst of the past, with improvements to vax acceptance. Updated 2021-06-01.",
+            "last_update": "2021-06-01"
         }
     ]
 }

@@ -90,17 +90,22 @@
 
 ## intent:highest_projected_occupied_beds
 - What is the highest projected percentage of occupied beds?
+- what is the highest projected percentage of occupied beds
 - What is the highest projected percentage of occupied bed
-- What is the highest projected % of occupied bed
+- What is the highest projected % of occupied beds
+- What is the highest projected %age of occupied beds
+- What is the highest projected percent of occupied beds
+- highest projected % of occupied beds
+- highest projected %age of occupied beds
+- highest projected percent of occupied beds
 - highest projected percentage of occupied beds
-- highest projected percerntage of occupied beds in a region
-- highest projected %age of occupied beds in a region
-- what is the highest projected percentage of occupied beds in a region
-
+- Get highest projected % of occupied beds
+- Get highest projected %age of occupied beds
+- Get highest projected percent of occupied beds
+- Get highest projected percentage of occupied beds
 
 ## intent:crisis_mode
 - Which regions are projected to enter crisis stage?
-- Which regions are projected to enter crisis stage
 - Which regions are projected to enter crisis stage
 - Which regions are projected to enter crisis mode
 - which region is projected to enter crisis mode
@@ -110,15 +115,18 @@
 - regions in crisis stage
 - regions projected to enter crisis stage
 
-
 ## intent:projected_percentage_occupied_beds
 - What is the projected percentage of occupied beds?
-- What is the projected percentage of occupied beds in a region
-- What is the projected % of occupied beds in a region
-- What is the projected %age of occupied beds in a region
-- projected %age of occupied beds in a region
-- Get projected percentages of occupied beds based on hospital capacity
-- What is the projected percentages of occupied beds based on hospital capacity
+- What is the projected percentage of occupied beds
+- What is the projected percentage of occupied bed
+- projected % of occupied beds
+- projected %age of occupied beds
+- projected percent of occupied beds
+- projected percentage of occupied beds
+- Get projected % of occupied beds
+- Get projected %age of occupied beds
+- Get projected percent of occupied beds
+- Get projected percentage of occupied beds
 
 ## intent:no
 - no

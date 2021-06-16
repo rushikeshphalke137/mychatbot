@@ -15,6 +15,8 @@ actions:
 - action_select_scenario
 - action_select_week
 - action_top_5_regions_hospitalization
+- action_crisis_mode_scenario
+- action_crisis_mode_day_duration
 - utter_about_forecast
 - utter_about_hospitalization
 - utter_about_mrdd
@@ -47,11 +49,13 @@ intents:
 - select_scenario
 - occupied_beds
 - select_week
+- select_days
+- choose_week
+- choose_days
 - yes
 - select_region
 - projected_percentage_occupied_beds
 - utter_projected_percentage_occupied_beds_hc
-- select_days
 - projected_greater_occupied_beds
 - highest_projected_occupied_beds
 - crisis_mode
@@ -72,6 +76,7 @@ intents:
 - about_scenario
 - under_dev
 - goodbye
+- select_day_week
 responses:
   utter_about_forecast:
   - buttons:
@@ -260,14 +265,14 @@ responses:
     text: This feature is still under development.
   utter_week_duration:
   - buttons:
-    - payload: /select_week
+    - payload: /choose_week
       title: Update Week
-    - payload: /select_days
+    - payload: /choose_days
       title: Update Duration
     text: Please Select from the below options.
 session_config:
   carry_over_slots_to_new_session: true
-  session_expiration_time: 180
+  session_expiration_time: 120
 slots:
   CARDINAL:
     type: text

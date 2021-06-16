@@ -53,16 +53,6 @@
 	- action_max_projected_hospitalization_current_week
 	- utter_fallback
 	- action_restart
-
-##What is the maximum number of people who are projected to be hospitalized?
-* greet
-    - utter_greet
-* hospitalization
-    - utter_hospitalization
-* max_projected_hospitalization_current_week
-	- action_max_projected_hospitalization_current_week
-	- utter_fallback
-	- action_restart
 	
 ##When do hospitalizations peak?
 * greet
@@ -76,7 +66,9 @@
 	- action_hospitalization_peak
 	- utter_fallback
 	- action_restart
-	
+
+
+
 ##What are the top 5 regions for hospitalizations?
 * greet
     - utter_greet
@@ -88,23 +80,6 @@
 * select_scenario{"scenario": "Adaptive"}
     - slot{"scenario": "Adaptive"}
 	- action_top_5_regions_hospitalization
-* no
-	- utter_fallback
-	- action_restart
-
-	
-	
-##What are the top 5 regions for hospitalizations?  - Yes Loop
-* greet
-    - utter_greet
-* hospitalization
-    - utter_hospitalization
-* top_5_regions_hospitalization
-	- slot{"CARDINAL":"5"}
-	- action_select_scenario
-* select_scenario{"scenario": "Adaptive"}
-    - slot{"scenario": "Adaptive"}
-	- action_top_5_regions_hospitalization
 * yes
 	- action_select_week
 * select_week{"week_ending_date":"10-17-2020"}
@@ -112,18 +87,42 @@
 	- action_top_5_regions_hospitalization
 * yes
 	- action_select_week
-* select_week{"week_ending_date":"10-24-2020"}
-	- slot{"week_ending_date":"10-24-2020"}
-	- action_top_5_regions_hospitalization
-* yes
-	- action_select_week
-* select_week{"week_ending_date":"10-31-2020"}
-	- slot{"week_ending_date":"10-31-2020"}
+* select_week{"week_ending_date":"10-17-2020"}
+	- slot{"week_ending_date":"10-17-2020"}
 	- action_top_5_regions_hospitalization
 * no
 	- utter_fallback
 	- action_restart
 
+
+## Which regions are projected to enter crisis stage?
+* greet
+    - utter_greet
+* occupied_beds
+    - utter_occupied_beds
+* crisis_mode
+    - action_crisis_mode_scenario
+* select_scenario{"scenario": "Adaptive-MoreControl"}
+    - slot{"scenario": "Adaptive-MoreControl"}
+	- action_crisis_mode_day_duration
+* select_day_week{"hospitalization_days":"10","week_ending_date":"06-05-2021"}
+	- slot{"hospitalization_days":"10","week_ending_date":"06-05-2021"}
+	- action_crisis_mode
+* yes
+	- action_crisis_mode_day_duration
+* select_day_week{"hospitalization_days":"11","week_ending_date":"06-12-2021"}
+	- slot{"hospitalization_days":"11","week_ending_date":"06-12-2021"}
+	- action_crisis_mode
+* yes
+	- action_crisis_mode_day_duration
+* select_day_week{"hospitalization_days":"11","week_ending_date":"06-12-2021"}
+	- slot{"hospitalization_days":"11","week_ending_date":"06-12-2021"}
+	- action_crisis_mode
+* no
+    - utter_fallback
+    - action_restart
+	
+	
 ##How many hospitalizations are expected in <region_name>?
 * greet
     - utter_greet
@@ -133,24 +132,16 @@
 	- action_select_region
 * select_region{"region":"central"}
 	- slot{"region":"central"}
-	- action_select_scenario
-* select_scenario{"scenario": "Adaptive"}
-    - slot{"scenario": "Adaptive"}
 	- action_expected_hospitalization_in_region
 * yes
 	- action_select_week
-* select_week{"week_ending_date":"10-17-2020"}
-	- slot{"week_ending_date":"10-17-2020"}
+* select_week{"week_ending_date":"06-05-2021"}
+	- slot{"week_ending_date":"06-05-2021"}
 	- action_expected_hospitalization_in_region
 * yes
 	- action_select_week
-* select_week{"week_ending_date":"10-24-2020"}
-	- slot{"week_ending_date":"10-24-2020"}
-	- action_expected_hospitalization_in_region
-* yes
-	- action_select_week
-* select_week{"week_ending_date":"10-31-2020"}
-	- slot{"week_ending_date":"10-31-2020"}
+* select_week{"week_ending_date":"06-12-2021"}
+	- slot{"week_ending_date":"06-12-2021"}
 	- action_expected_hospitalization_in_region
 * no
 	- utter_fallback
@@ -168,7 +159,7 @@
 	- utter_fallback
 	- action_restart
 	
-##Which regions are projected to have greater than <number>% of occupied beds?
+##Which regions are projected to have greater than <number>% of occupied beds?(Yes Week Option)
 * greet
     - utter_greet
 * occupied_beds
@@ -182,19 +173,35 @@
     - slot{"scenario": "Adaptive-MoreControl"}
     - action_projected_greater_occupied_beds
 * yes
-    - action_select_days
-* select_days{"hospitalization_days": "11"}
-    - slot{"hospitalization_days": "11"}
+    - utter_week_duration
+* choose_week
+    - action_select_week
+* select_week{"week_ending_date": "05-29-2021"}
+    - slot{"week_ending_date": "05-29-2021"}
+    - action_projected_greater_occupied_beds
+* no
+    - utter_fallback
+    - action_restart
+	
+##Which regions are projected to have greater than <number>% of occupied beds?(Yes Days Option)
+* greet
+    - utter_greet
+* occupied_beds
+    - utter_occupied_beds
+* projected_greater_occupied_beds
+    - utter_projected_greater_occupied_beds
+* projected_greater_occupied_beds{"CARDINAL": "86"}
+    - slot{"CARDINAL": "86"}
+    - action_select_scenario
+* select_scenario{"scenario": "Adaptive-MoreControl"}
+    - slot{"scenario": "Adaptive-MoreControl"}
     - action_projected_greater_occupied_beds
 * yes
+    - utter_week_duration
+* choose_days
     - action_select_days
-* select_days{"hospitalization_days": "11"}
-    - slot{"hospitalization_days": "11"}
-    - action_projected_greater_occupied_beds
-* yes
-    - action_select_days
-* select_days{"hospitalization_days": "11"}
-    - slot{"hospitalization_days": "11"}
+* select_days{"hospitalization_days": "10"}
+    - slot{"hospitalization_days": "10"}
     - action_projected_greater_occupied_beds
 * no
     - utter_fallback
@@ -209,142 +216,38 @@
 * projected_percentage_occupied_beds_hc
     - utter_projected_percentage_occupied_beds_hc
 * number_check{"CARDINAL": "89.5"}
-    - slot{"CARDINAL": "80"}
+    - slot{"CARDINAL": "89.5"}
 	- action_select_scenario
 * select_scenario{"scenario": "Adaptive-LessControl"}
     - slot{"scenario": "Adaptive-LessControl"}
     - action_projected_percentage_occupied_beds_hc
 * yes
     - utter_week_duration
-* select_week
+* choose_week
     - action_select_week
 * select_week{"week_ending_date": "11-28-2020"}
     - slot{"week_ending_date": "11-28-2020"}
-    - action_projected_percentage_occupied_beds_hc
-* yes
-    - utter_week_duration
-* select_week
-    - action_select_week
-* select_week{"week_ending_date": "12-12-2020"}
-    - slot{"week_ending_date": "12-12-2020"}
-    - action_projected_percentage_occupied_beds_hc
-* yes
-    - utter_week_duration
-* select_week
-    - action_select_week
-* select_week{"week_ending_date": "12-12-2020"}
-    - slot{"week_ending_date": "12-12-2020"}
     - action_projected_percentage_occupied_beds_hc
 * no
     - utter_fallback
     - action_restart
 	
-##Get projected percentages of occupied beds based on hospital capacity (Update Week)
+##Get projected percentages of occupied beds based on hospital capacity (Update Day)
 * greet
     - utter_greet
 * occupied_beds
     - utter_occupied_beds
 * projected_percentage_occupied_beds_hc
     - utter_projected_percentage_occupied_beds_hc
-* number_check{"CARDINAL": "70"}
-    - slot{"CARDINAL": "70"}
+* number_check{"CARDINAL": "89.5"}
+    - slot{"CARDINAL": "89.5"}
 	- action_select_scenario
 * select_scenario{"scenario": "Adaptive-LessControl"}
     - slot{"scenario": "Adaptive-LessControl"}
     - action_projected_percentage_occupied_beds_hc
 * yes
     - utter_week_duration
-* select_week
-    - action_select_week
-* select_week{"week_ending_date": "11-28-2020"}
-    - slot{"week_ending_date": "11-28-2020"}
-    - action_projected_percentage_occupied_beds_hc
-* yes
-    - utter_week_duration
-* select_week
-    - action_select_week
-* select_week{"week_ending_date": "12-12-2020"}
-    - slot{"week_ending_date": "12-12-2020"}
-    - action_projected_percentage_occupied_beds_hc
-* yes
-    - utter_week_duration
-* select_week
-    - action_select_week
-* select_week{"week_ending_date": "12-12-2020"}
-    - slot{"week_ending_date": "12-12-2020"}
-    - action_projected_percentage_occupied_beds_hc
-* no
-    - utter_fallback
-    - action_restart
-	
-##Get projected percentages of occupied beds based on hospital capacity (Update Week)
-* greet
-    - utter_greet
-* occupied_beds
-    - utter_occupied_beds
-* projected_percentage_occupied_beds_hc
-    - utter_projected_percentage_occupied_beds_hc
-* number_check{"CARDINAL": "90"}
-    - slot{"CARDINAL": "90"}
-	- action_select_scenario
-* select_scenario{"scenario": "Adaptive-LessControl"}
-    - slot{"scenario": "Adaptive-LessControl"}
-    - action_projected_percentage_occupied_beds_hc
-* yes
-    - utter_week_duration
-* select_week
-    - action_select_week
-* select_week{"week_ending_date": "11-28-2020"}
-    - slot{"week_ending_date": "11-28-2020"}
-    - action_projected_percentage_occupied_beds_hc
-* yes
-    - utter_week_duration
-* select_week
-    - action_select_week
-* select_week{"week_ending_date": "12-12-2020"}
-    - slot{"week_ending_date": "12-12-2020"}
-    - action_projected_percentage_occupied_beds_hc
-* yes
-    - utter_week_duration
-* select_week
-    - action_select_week
-* select_week{"week_ending_date": "12-12-2020"}
-    - slot{"week_ending_date": "12-12-2020"}
-    - action_projected_percentage_occupied_beds_hc
-* no
-    - utter_fallback
-    - action_restart
-	
-##Get projected percentages of occupied beds based on hospital capacity (Update Duration)
-* greet
-    - utter_greet
-* occupied_beds
-    - utter_occupied_beds
-* projected_percentage_occupied_beds_hc
-    - utter_projected_percentage_occupied_beds_hc
-* number_check{"CARDINAL": "86"}
-    - slot{"CARDINAL": "86"}
-    - action_select_scenario
-* select_scenario{"scenario": "Adaptive-LessControl"}
-    - slot{"scenario": "Adaptive-LessControl"}
-    - action_projected_percentage_occupied_beds_hc
-* yes
-    - utter_week_duration
-* select_days
-    - action_select_days
-* select_days{"hospitalization_days": "11"}
-    - slot{"hospitalization_days": "11"}
-    - action_projected_percentage_occupied_beds_hc
-* yes
-    - utter_week_duration
-* select_days
-    - action_select_days
-* select_days{"hospitalization_days": "11"}
-    - slot{"hospitalization_days": "11"}
-    - action_projected_percentage_occupied_beds_hc
-* yes
-    - utter_week_duration
-* select_days
+* choose_days
     - action_select_days
 * select_days{"hospitalization_days": "11"}
     - slot{"hospitalization_days": "11"}
@@ -354,95 +257,102 @@
     - action_restart
 
 
-## What is the highest projected percentage of occupied beds?
+## What is the highest projected percentage of occupied beds?(Update Week)
 * greet
     - utter_greet
 * occupied_beds
     - utter_occupied_beds
 * highest_projected_occupied_beds
-    - action_select_scenario
-* select_scenario{"scenario": "Adaptive-MoreControl"}
-    - slot{"scenario": "Adaptive-MoreControl"}
     - action_highest_projected_occupied_beds
 * yes
-    - action_select_days
-* select_days{"hospitalization_days": "11"}
-    - slot{"hospitalization_days": "11"}
+    - utter_week_duration
+* choose_week
+    - action_select_week
+* select_week{"week_ending_date": "05-29-2021"}
+    - slot{"week_ending_date": "05-29-2021"}
     - action_highest_projected_occupied_beds
 * yes
-    - action_select_days
-* select_days{"hospitalization_days": "10"}
-    - slot{"hospitalization_days": "10"}
-    - action_highest_projected_occupied_beds
-* yes
-    - action_select_days
-* select_days{"hospitalization_days": "12"}
-    - slot{"hospitalization_days": "12"}
+    - utter_week_duration
+* choose_week
+    - action_select_week
+* select_week{"week_ending_date": "05-29-2021"}
+    - slot{"week_ending_date": "05-29-2021"}
     - action_highest_projected_occupied_beds
 * no
     - utter_fallback
     - action_restart
 
-## Which regions are projected to enter crisis stage?
+## What is the highest projected percentage of occupied beds?(Update Day)
 * greet
     - utter_greet
 * occupied_beds
     - utter_occupied_beds
-* crisis_mode
-    - action_select_scenario
-* select_scenario{"scenario": "Adaptive-MoreControl"}
-    - slot{"scenario": "Adaptive-MoreControl"}
-	- action_crisis_mode
+* highest_projected_occupied_beds
+    - action_highest_projected_occupied_beds
 * yes
+    - utter_week_duration
+* choose_days
     - action_select_days
 * select_days{"hospitalization_days": "11"}
     - slot{"hospitalization_days": "11"}
-    - action_crisis_mode
+    - action_highest_projected_occupied_beds
 * yes
+    - utter_week_duration
+* choose_days
     - action_select_days
-* select_days{"hospitalization_days": "10"}
-    - slot{"hospitalization_days": "10"}
-    - action_crisis_mode
-* yes
-    - action_select_days
-* select_days{"hospitalization_days": "12"}
-    - slot{"hospitalization_days": "12"}
-    - action_crisis_mode
+* select_days{"hospitalization_days": "11"}
+    - slot{"hospitalization_days": "11"}
+    - action_highest_projected_occupied_beds
 * no
     - utter_fallback
     - action_restart
 
-## What is the projected percentage of occupied beds?
+
+
+## What is the projected percentage of occupied beds? (Update Week)
 * greet
     - utter_greet
 * occupied_beds
     - utter_occupied_beds
 * projected_percentage_occupied_beds
-	- action_select_region
-* select_region{"region":"central"}
-	- slot{"region":"central"}
     - action_select_scenario
 * select_scenario{"scenario": "Adaptive-MoreControl"}
     - slot{"scenario": "Adaptive-MoreControl"}
 	- action_projected_percentage_occupied_beds
 * yes
-    - action_select_days
-* select_days{"hospitalization_days": "11"}
-    - slot{"hospitalization_days": "11"}
-    - action_projected_percentage_occupied_beds
-* yes
-    - action_select_days
-* select_days{"hospitalization_days": "10"}
-    - slot{"hospitalization_days": "10"}
-    - action_projected_percentage_occupied_beds
-* yes
-    - action_select_days
-* select_days{"hospitalization_days": "12"}
-    - slot{"hospitalization_days": "12"}
+    - utter_week_duration
+* choose_week
+    - action_select_week
+* select_week{"week_ending_date": "05-29-2021"}
+    - slot{"week_ending_date": "05-29-2021"}
     - action_projected_percentage_occupied_beds
 * no
     - utter_fallback
     - action_restart
+
+
+
+## What is the projected percentage of occupied beds? (Update Day)
+* greet
+    - utter_greet
+* occupied_beds
+    - utter_occupied_beds
+* projected_percentage_occupied_beds
+    - action_select_scenario
+* select_scenario{"scenario": "Adaptive-MoreControl"}
+    - slot{"scenario": "Adaptive-MoreControl"}
+	- action_projected_percentage_occupied_beds
+* yes
+    - utter_week_duration
+* choose_days
+    - action_select_days
+* select_days{"hospitalization_days": "10"}
+    - slot{"hospitalization_days": "10"}
+    - action_projected_percentage_occupied_beds
+* no
+    - utter_fallback
+    - action_restart
+	
 
 
 ## About MRDD Loop using back to About MRDD button
@@ -525,75 +435,3 @@
 	- utter_greet
 * about_mrdd
 	- utter_about_mrdd
-	
-
-## interactive_story_1
-* greet
-    - utter_greet
-* occupied_beds
-    - utter_occupied_beds
-* projected_greater_occupied_beds
-    - utter_projected_greater_occupied_beds
-* projected_greater_occupied_beds{"CARDINAL": "86"}
-    - slot{"CARDINAL": "86"}
-    - action_select_scenario
-* select_scenario{"scenario": "Adaptive-MoreControl"}
-    - slot{"scenario": "Adaptive-MoreControl"}
-    - action_projected_greater_occupied_beds
-* yes
-    - action_select_days
-* select_days{"hospitalization_days": "11"}
-    - slot{"hospitalization_days": "11"}
-    - action_projected_greater_occupied_beds
-* no
-    - utter_fallback
-    - action_restart
-
-
-## interactive_story_1
-* greet
-    - utter_greet
-* occupied_beds
-    - utter_occupied_beds
-* projected_percentage_occupied_beds_hc
-    - utter_projected_percentage_occupied_beds_hc
-* select_scenario{"CARDINAL": "90"}
-    - slot{"CARDINAL": "90"}
-    - action_select_scenario
-* select_scenario{"scenario": "Adaptive-LessControl"}
-    - slot{"scenario": "Adaptive-LessControl"}
-    - action_projected_percentage_occupied_beds_hc
-* yes
-    - utter_week_duration
-* select_week
-    - action_select_week
-* select_week{"week_ending_date": "11-28-2020"}
-    - slot{"week_ending_date": "11-28-2020"}
-    - action_projected_percentage_occupied_beds_hc
-* yes
-    - utter_week_duration
-* select_week
-    - action_select_week
-* select_week{"week_ending_date": "12-12-2020"}
-    - slot{"week_ending_date": "12-12-2020"}
-    - action_projected_percentage_occupied_beds_hc
-* no
-    - utter_fallback
-    - action_restart
-
-## interactive_story_1
-* greet
-    - utter_greet
-* occupied_beds
-    - utter_occupied_beds
-* projected_percentage_occupied_beds_hc
-    - utter_projected_percentage_occupied_beds_hc
-* number_check{"CARDINAL": "80"}
-    - slot{"CARDINAL": "80"}
-    - action_select_scenario
-* select_scenario{"scenario": "Adaptive-LessControl"}
-    - slot{"scenario": "Adaptive-LessControl"}
-    - action_projected_percentage_occupied_beds_hc
-* no
-    - utter_fallback
-    - action_restart
