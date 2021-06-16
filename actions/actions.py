@@ -27,7 +27,9 @@ import chatbot_config as cfg
 logger = logging.getLogger(__name__)
 
 data_path = cfg.prod["data_path"]
-root_dir= os.path.abspath(data_path)
+#root_dir= os.path.abspath(data_path)
+root_dir= data_path
+
 
 log_file_location=os.path.abspath("logs")
 log_file_location = log_file_location+os.sep
