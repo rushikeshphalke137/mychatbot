@@ -3,7 +3,7 @@ services:
   rasa-us:
     image: rasa/rasa:1.10.11-full
     ports:
-      - 6005:5005
+      - 6005:6005
     volumes:
       - ./:/app
     command:
@@ -14,7 +14,7 @@ services:
       - --cors
       - "*"
       - --debug
-
+      - -p 6005
   app-us:
     image: rasa/rasa-action-server-us
     volumes:
