@@ -28,7 +28,7 @@ services:
   rasa-us-uva2:
     image: rasa/rasa:1.10.11-full
     ports:
-      - 7005:8005
+      - 7005:7005
     volumes:
       - ./:/app
     command:
@@ -39,7 +39,7 @@ services:
       - --cors
       - "*"
       - --debug
-      - -p 8005
+      - -p 7005
     networks:
       - Virginia-network
   app-us-uva2:
