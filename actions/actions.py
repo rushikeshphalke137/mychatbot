@@ -26,14 +26,14 @@ import chatbot_config as cfg
 
 logger = logging.getLogger(__name__)
 
-data_path = cfg.prod["data_path"]
+data_path = "data/covid19-resource-allocation-ui/data_us_actuals"
 root_dir= os.path.abspath(data_path)
 
 log_file_location=os.path.abspath("logs")
 log_file_location = log_file_location+os.sep
 
-chatbot_title = cfg.prod["chatbot_title"]
-is_actual = cfg.prod["is_actual_exists"]
+chatbot_title ="US"
+is_actual = False
 
 
 class ActionGetActual(Action):

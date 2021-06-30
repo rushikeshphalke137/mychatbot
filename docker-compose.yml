@@ -1,9 +1,9 @@
 version: '3.0'
 services:
-  rasa-us:
+  rasa-us-uva:
     image: rasa/rasa:1.10.11-full
     ports:
-      - 6005:6005
+      - 8005:8005
     volumes:
       - ./:/app
     command:
@@ -14,11 +14,11 @@ services:
       - --cors
       - "*"
       - --debug
-      - -p 6005
-  app-us:
-    image: rasa/rasa-action-server-us
+      - -p 8005
+  app-us-uva:
+    image: rasa/rasa-action-server-us-uva
     volumes:
       - ./actions:/app/actions
     ports:
-      - 6055:5055
+      - 8055:8055
  

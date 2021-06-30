@@ -11,7 +11,7 @@
 # https://rasa.com/docs/rasa/core/actions/#custom-actions/
 
 action_endpoint:
-  url: "http://app-us:5055/webhook"
+  url: "http://app-us-uva:8055/webhook"
 #  url: "http://${ACTION_SERVER_ENDPOINT}/webhook"
 #  url: "http://localhost:5055/webhook"
 #  url: "http://rsa-action-server.uvadcos.io/webhook"  
