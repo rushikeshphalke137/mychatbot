@@ -26,14 +26,14 @@ import chatbot_config as cfg
 
 logger = logging.getLogger(__name__)
 
-data_path = "data/covid19-resource-allocation-ui/data_us_actuals"
+data_path = cfg.prod["data_path"]
 root_dir= os.path.abspath(data_path)
 
 log_file_location=os.path.abspath("logs")
 log_file_location = log_file_location+os.sep
 
-chatbot_title ="US"
-is_actual = False
+chatbot_title = cfg.prod["chatbot_title"]
+is_actual = cfg.prod["is_actual_exists"]
 
 
 class ActionGetActual(Action):
@@ -466,8 +466,6 @@ class ActionProjectedPercentageOccupiedBedsHC(Action):
         cardinal= tracker.get_slot("CARDINAL")
         hospitalization_days=tracker.get_slot("hospitalization_days")
 
-        bed_data=pd.read_csv(root_dir+"/VHASS_Region_Counts.csv")
-
         json_path=root_dir+"/supported_scenarios.json"
 
         # Get list of scenarios. These are the list of folders in root directory
@@ -511,8 +509,6 @@ class ActionProjectedPercentageOccupiedBedsHC(Action):
         read_df_path=root_dir+"/"+s_file_name+'/duration'+str(dd)+"/"+"nssac_ncov_ro_"+sat_date+".csv"
         df=pd.read_csv(read_df_path)
         
-        # Calculate percentage of occupied beds (covid+non covid)
-        out_df=pd.concat([bed_data['#VHASS_Region'],pd.DataFrame(round((df['Max Occupied Beds']/bed_data['Beds'])*100,2)+float(cardinal))],axis=1)
         
         title = chatbot_title
         
@@ -521,11 +517,24 @@ class ActionProjectedPercentageOccupiedBedsHC(Action):
         title_df=title_df.loc[title_df["date"]==sat_date]
         title_df["Region"] = title
         
-        title_df=pd.concat([title_df["Region"],pd.DataFrame(round((title_df['Max Occupied Beds']/bed_data['Beds'].sum())*100,2)+float(cardinal))],axis=1)
-        title_df=title_df.rename(columns={ "Max Occupied Beds": "% of Occupied Bed"})
+        out_df = pd.DataFrame()
         
+        # Calculate percentage of occupied beds (covid+non covid)
+        if is_actual is True:
+            bed_data=pd.read_csv(root_dir+"/VHASS_Region_Counts.csv")
+            out_df=pd.concat([bed_data['#VHASS_Region'],pd.DataFrame(round((df['Max Occupied Beds']/bed_data['Beds'])*100,2)+float(cardinal))],axis=1)
+            title_df=pd.concat([title_df["Region"],pd.DataFrame(round((title_df['Max Occupied Beds']/bed_data['Beds'].sum())*100,2)+float(cardinal))],axis=1)
+            # Rename Columns
+            out_df=out_df.rename(columns={"#VHASS_Region": "Region", 0: "% of Occupied Bed"})
+        else:
+            bed_data=pd.read_csv(root_dir+"/HRR_Data.csv")
+            out_df=pd.concat([bed_data['HRRCITY'],pd.DataFrame(round((df['Max Occupied Beds']/bed_data['DHS_Beds'])*100,2)+float(cardinal))],axis=1)
+            title_df=pd.concat([title_df["Region"],pd.DataFrame(round((title_df['Max Occupied Beds']/bed_data['DHS_Beds'].sum())*100,2)+float(cardinal))],axis=1)
+            # Rename Columns
+            out_df=out_df.rename(columns={"HRRCITY": "Region", 0: "% of Occupied Bed"})
+            
         # Rename Columns
-        out_df=out_df.rename(columns={"#VHASS_Region": "Region", 0: "% of Occupied Bed"})
+        title_df=title_df.rename(columns={ "Max Occupied Beds": "% of Occupied Bed"})
         
         out_df = pd.concat([out_df,title_df],axis= 0)
         out_df=out_df.reset_index(drop=True)
