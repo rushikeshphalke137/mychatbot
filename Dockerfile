@@ -18,7 +18,7 @@ RUN pip install -U pip && pip install word2number && pip install dateparser
 RUN pip3 install pandas
 
 #Adding the codebase to our work directory
-RUN cp -R ./chatbot/* ./
+RUN cp -R ./mychatbot/* ./
 
 #Providing permissions to logs directory
 RUN chmod 777 ./logs
@@ -26,4 +26,4 @@ RUN chmod 777 ./logs
 # By best practices, don't run the code with root user
 USER 1001
 
-CMD ["start", "--actions", "actions", "--debug"]
+CMD ["start", "--actions", "actions","-p 8055", "--debug"]
