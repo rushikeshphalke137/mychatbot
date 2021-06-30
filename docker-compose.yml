@@ -43,7 +43,7 @@ services:
     networks:
       - Virginia-network
   app-us-uva:
-    image: rasa/rasa-action-server-us-uva2
+    image: rasa/rasa-action-server-us-uva
     volumes:
       - ./actions-va:/app/actions-va
     ports:
