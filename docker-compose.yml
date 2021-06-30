@@ -52,5 +52,5 @@ services:
       - Virginia-network
 
 networks:
-    Virginia-nework: {}
+    Virginia-network: {}
     US-network: {}
