@@ -25,7 +25,7 @@ services:
       - 8055:8055
     networks:
       - US-network
-  rasa-us-uva2:
+  rasa-us-uva:
     image: rasa/rasa:1.10.11-full
     ports:
       - 7005:8005
@@ -42,7 +42,7 @@ services:
       - -p 7005
     networks:
       - Virginia-network
-  app-us-uva2:
+  app-us-uva:
     image: rasa/rasa-action-server-us-uva2
     volumes:
       - ./actions-va:/app/actions-va
