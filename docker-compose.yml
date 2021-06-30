@@ -25,7 +25,7 @@ services:
       - 8055:8055
     networks:
       - US-network
-  rasa-us-uva:
+  rasa-us-uva2:
     image: rasa/rasa:1.10.11-full
     ports:
       - 7005:8005
@@ -35,14 +35,14 @@ services:
       - run
       - --enable-api
       - --endpoints
-      - endpoints.yml
+      - endpoints2.yml
       - --cors
       - "*"
       - --debug
-      - -p 7005
+      - -p 8005
     networks:
       - Virginia-network
-  app-us-uva:
+  app-us-uva2:
     image: rasa/rasa-action-server-us-uva
     volumes:
       - ./actions-va:/app/actions-va
