@@ -17,6 +17,10 @@ actions:
 - action_top_5_regions_hospitalization
 - action_crisis_mode_scenario
 - action_crisis_mode_day_duration
+- action_highest_number_actual_occupancy
+- action_week_with_highest_number_occupancy
+- action_week_with_highest_number_actual_occupancy
+- action_get_actual
 - utter_about_forecast
 - utter_about_hospitalization
 - utter_about_mrdd
@@ -30,18 +34,20 @@ actions:
 - utter_hospitalization
 - utter_hospitalized_current_week
 - utter_no
-- utter_occupied_beds
 - utter_projected_greater_occupied_beds
 - utter_projected_percentage_occupied_beds_hc
 - utter_rephrase
 - utter_under_dev
 - utter_week_duration
+- utter_occupied_beds
+- utter_occupied_beds_include_actual
 entities:
 - CARDINAL
 - hospitalization_days
 - region
 - scenario
 - week_ending_date
+- include_actual
 intents:
 - no
 - projected_percentage_occupied_beds_hc
@@ -77,6 +83,9 @@ intents:
 - under_dev
 - goodbye
 - select_day_week
+- highest_number_actual_occupancy
+- week_with_highest_number_occupancy
+- week_with_highest_number_actual_occupancy
 responses:
   utter_about_forecast:
   - buttons:
@@ -227,6 +236,29 @@ responses:
     - payload: /greet
       title: Back to Main Menu
     text: null
+  utter_occupied_beds_include_actual:
+  - buttons:
+    - payload: /projected_greater_occupied_beds
+      title: Which regions are projected to have greater than number% of occupied
+        beds?
+    - payload: /highest_projected_occupied_beds
+      title: What is the highest projected percentage of occupied beds?
+    - payload: /crisis_mode
+      title: Which regions are projected to enter the crisis stage?
+    - payload: /projected_percentage_occupied_beds
+      title: What is the projected percentage of occupied beds?
+    - payload: /projected_percentage_occupied_beds_hc
+      title: Get projected percentages of occupied beds based on hospital capacity
+    - payload: /highest_number_actual_occupancy
+      title: Which region had the highest number of actual occupancy?
+    - payload: /week_with_highest_number_occupancy
+      title: Which week of a scenario has the highest number of occupancy?
+    - payload: /week_with_highest_number_actual_occupancy
+      title: Which week has the highest number of actual occupancy?
+    - payload: /greet
+      title: Back to Main Menu
+    text: Please click on one of the following questions, or enter your own question
+      in the textbox below.
   utter_occupied_beds:
   - buttons:
     - payload: /projected_greater_occupied_beds
@@ -284,3 +316,5 @@ slots:
     type: text
   week_ending_date:
     type: text
+  include_actual:
+    type: bool
